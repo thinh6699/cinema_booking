@@ -1,7 +1,7 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators'
 
 interface TodoItem {
-  name: string,
+  name: string
   completed: boolean
 }
 

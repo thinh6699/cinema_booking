@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import createPersistedState from "vuex-persistedstate";
+import createPersistedState from 'vuex-persistedstate'
 import Todo from './modules/Todo'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    todo: Todo,
+    todo: Todo
   },
   plugins: [
     createPersistedState({
