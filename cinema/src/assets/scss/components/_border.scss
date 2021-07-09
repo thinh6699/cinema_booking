@@ -1,0 +1,43 @@
+@include media-breakpoint-up(lg) {
+  .border-top-lg {
+    border-top: 1px solid $border-color;
+  }
+
+  .border-start-lg {
+    border-left: 1px solid $border-color;
+  }
+
+  .border-end-lg {
+    border-right: 1px solid $border-color;
+  }
+
+  .border-bottom-lg {
+    border-bottom: 1px solid $border-color;
+  }
+
+  .border-start-lg-none {
+    border-left: none !important;
+  }
+
+  .border-end-lg-none {
+    border-right: none !important;
+  }
+}
+
+@for $i from 0 through 15 {
+  .border-#{$i} {
+    border-width: #{$i}px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  @for $i from 0 through 15 {
+    .border-lg-#{$i} {
+      border-width: #{$i}px;
+    }
+  }
+
+  .border-lg-none {
+    border: none !important;
+  }
+}

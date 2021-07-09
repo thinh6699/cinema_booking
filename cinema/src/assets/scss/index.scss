@@ -1,0 +1,33 @@
+@import '../fontawesome-pro-5.15.3-web/css/all.min.css';
+
+@import 'variables';
+
+// Custom bootstrap variable foreach component, custom $variable only
+// https://getbootstrap.com > Components[button, input,...] > Sass > Variables
+@import './custom-bootstrap/border';
+@import './custom-bootstrap/button';
+@import './custom-bootstrap/input';
+@import './custom-bootstrap/spacer';
+@import '~bootstrap';
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
+@import 'mixin';
+@import 'common';
+
+// Style components
+@import './components/button';
+@import './components/space';
+@import './components/text';
+@import './components/position';
+@import './components/rounded';
+@import './components/input';
+@import './components/z-index';
+@import './components/color';
+@import './components/border';
+@import './components/opacity';
+@import './components/scollbar';
+
+// Style containers
+@import './containers/header';
+@import './containers/background';
+@import './containers/slide-up';
+@import './containers/chat';
