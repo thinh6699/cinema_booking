@@ -1,7 +1,6 @@
 <template>
   <div>
     <div>Home</div>
-    <router-link :to="{ name: 'Todo' }">go to Todo</router-link>
   </div>
 </template>
 
