@@ -10,7 +10,7 @@
 @import './custom-bootstrap/spacer';
 @import '~bootstrap';
 @import '~bootstrap-vue/dist/bootstrap-vue.css';
-@import 'mixin';
+@import 'mixins';
 @import 'common';
 
 // Style components
@@ -24,10 +24,5 @@
 @import './components/color';
 @import './components/border';
 @import './components/opacity';
-@import './components/scollbar';
+@import './components/scrollbar';
 
-// Style containers
-@import './containers/header';
-@import './containers/background';
-@import './containers/slide-up';
-@import './containers/chat';
