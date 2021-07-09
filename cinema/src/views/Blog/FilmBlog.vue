@@ -1,5 +1,10 @@
 <template>
-  <div>FilmBlog</div>
+  <div>
+    <div>FilmBlog</div>
+    <router-link :to="{ name: 'blog-detail', params: { blogId: 1 } }"
+      >Xem chi tiết</router-link
+    >
+  </div>
 </template>
 
 <script lang="ts">

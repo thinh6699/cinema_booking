@@ -61,13 +61,14 @@ const routes: Array<RouteConfig> = [
     meta: {
       LayoutDefault
     },
-    children: [
-      {
-        path: ':blogId/detail',
-        name: 'blog-detail',
-        component: () => import('@/views/Blog/FilmBlogDetail.vue')
-      }
-    ]
+  },
+  {
+    path: '/blog-detail/:blogId',
+    name: 'blog-detail',
+    component: () => import('@/views/Blog/FilmBlogDetail.vue'),
+    meta: {
+      LayoutDefault
+    },
   },
   {
     path: '/all-films',
@@ -76,13 +77,14 @@ const routes: Array<RouteConfig> = [
     meta: {
       LayoutDefault
     },
-    children: [
-      {
-        path: 'filmId/detail',
-        name: 'film-detail',
-        component: () => import('@/views/Films/FilmDetail.vue')
-      }
-    ]
+  },
+  {
+    path: 'film-detail/:filmId',
+    name: 'film-detail',
+    component: () => import('@/views/Films/FilmDetail.vue'),
+    meta: {
+      LayoutDefault
+    },
   },
   {
     path: '/all-events',
@@ -91,13 +93,14 @@ const routes: Array<RouteConfig> = [
     meta: {
       LayoutDefault
     },
-    children: [
-      {
-        path: 'eventId/detail',
-        name: 'event-detail',
-        component: () => import('@/views/Events/EventDetail.vue')
-      }
-    ]
+  },
+  {
+    path: 'event-detail/:eventId',
+    name: 'event-detail',
+    component: () => import('@/views/Events/EventDetail.vue'),
+    meta: {
+      LayoutDefault
+    },
   },
   {
     path: '/ticket-plan',

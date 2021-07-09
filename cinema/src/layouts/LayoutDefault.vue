@@ -1,5 +1,8 @@
 <template>
-  <div>LayoutDefault</div>
+  <div>
+    <div>header</div>
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">
