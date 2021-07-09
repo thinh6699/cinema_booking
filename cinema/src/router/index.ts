@@ -9,13 +9,20 @@ const routes: Array<RouteConfig> = [
     path: "/",
     name: "Home",
     component: Home,
+    meta: {
+
+    }
   },
   {
     path: "/todo",
     name: "Todo",
     component: () =>
       import("../views/Todo.vue"),
+    meta: {
+
+    }
   },
+
 ];
 
 const router = new VueRouter({
