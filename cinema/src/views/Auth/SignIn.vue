@@ -16,7 +16,7 @@
           </label>
           <input
             id="email"
-            class="outline-0"
+            class="outline-0 auth-input"
             type="email"
             placeholder="Enter your email"
           />
@@ -29,7 +29,7 @@
           </label>
           <input
             id="password"
-            class="outline-0"
+            class="outline-0 auth-input"
             type="password"
             placeholder="Password"
           />
@@ -56,7 +56,7 @@
             border-0
           "
         >
-          log in
+          login
         </button>
       </div>
 
