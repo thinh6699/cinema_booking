@@ -34,10 +34,18 @@ const routes: Array<RouteConfig> = [
   {
     path: '/forgot-password',
     name: 'forgot-password',
-    component: () => import('@/views/Auth/ForgotPassword.vue')
-    // meta: {
-    //   LayoutDefault
-    // }
+    component: () => import('@/views/Auth/ForgotPassword.vue'),
+    meta: {
+      layout: LayoutAuth
+    }
+  },
+  {
+    path: '/reset-password',
+    name: 'reset-password',
+    component: () => import('@/views/Auth/ForgotPassword.vue'),
+    meta: {
+      layout: LayoutAuth
+    }
   },
   {
     path: '/contact',
