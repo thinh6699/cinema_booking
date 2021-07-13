@@ -52,7 +52,7 @@ const routes: Array<RouteConfig> = [
     name: 'contact',
     component: () => import('@/views/Contact.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   },
   {
@@ -60,7 +60,7 @@ const routes: Array<RouteConfig> = [
     name: 'about-us',
     component: () => import('../views/AboutUs.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   },
   {
@@ -68,7 +68,7 @@ const routes: Array<RouteConfig> = [
     name: 'film-blog',
     component: () => import('@/views/Blog/FilmBlog.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     },
   },
   {
@@ -76,7 +76,7 @@ const routes: Array<RouteConfig> = [
     name: 'blog-detail',
     component: () => import('@/views/Blog/FilmBlogDetail.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     },
   },
   {
@@ -84,7 +84,7 @@ const routes: Array<RouteConfig> = [
     name: 'all-films',
     component: () => import('@/views/Films/AllFilms.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     },
   },
   {
@@ -92,7 +92,7 @@ const routes: Array<RouteConfig> = [
     name: 'film-detail',
     component: () => import('@/views/Films/FilmDetail.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     },
   },
   {
@@ -100,7 +100,7 @@ const routes: Array<RouteConfig> = [
     name: 'all-events',
     component: () => import('@/views/Events/AllEvents.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     },
   },
   {
@@ -108,7 +108,7 @@ const routes: Array<RouteConfig> = [
     name: 'event-detail',
     component: () => import('@/views/Events/EventDetail.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     },
   },
   {
@@ -116,7 +116,7 @@ const routes: Array<RouteConfig> = [
     name: 'ticket-plan',
     component: () => import('@/views/Booking/TicketPlan.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   },
   {
@@ -124,7 +124,7 @@ const routes: Array<RouteConfig> = [
     name: 'seat-plan',
     component: () => import('@/views/Booking/SeatPlan.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   },
   {
@@ -132,7 +132,7 @@ const routes: Array<RouteConfig> = [
     name: 'ticket-checkout',
     component: () => import('@/views/Booking/TicketCheckout.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   },
   {
@@ -140,7 +140,7 @@ const routes: Array<RouteConfig> = [
     name: 'user-manage',
     component: () => import('@/views/Manage/UserManage.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   },
   {
@@ -148,7 +148,7 @@ const routes: Array<RouteConfig> = [
     name: 'film-manage',
     component: () => import('@/views/Manage/FilmManage.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   },
   {
@@ -156,7 +156,7 @@ const routes: Array<RouteConfig> = [
     name: 'page-not-found',
     component: () => import('@/views/PageNotFound.vue'),
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   }
 ]
