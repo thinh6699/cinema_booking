@@ -2,8 +2,7 @@
   <header
     :class="{
       'bg-dark': isOpen,
-      'bg-dark-tint': scrollPosition > 0,
-      'header-scroll': scrollPosition > 0
+      'bg-dark-tint': scrollPosition > 0
     }"
     class="sticky-top border-bottom h--20"
   >
