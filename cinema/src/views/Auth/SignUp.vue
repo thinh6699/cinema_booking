@@ -111,12 +111,13 @@
         </div>
       </div>
 
-      <div class="mw--38 mx-auto mb-5">
+      <div class="mw--45 mx-auto mb-5">
         <button
+          v-b-modal="'modal-success'"
           class="
             btn btn-auth
             w-100
-            h--13
+            h--14
             rounded-pill
             text-uppercase
             shadow-none
@@ -134,12 +135,22 @@
         >
       </div>
     </div>
+    <ModalSuccess :message="'You have successfully registered your account!'">
+      <router-link class="text-success" :to="{ name: 'sign-in' }"
+        >Click here to login.</router-link
+      >
+    </ModalSuccess>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import ModalSuccess from '@/components/Modals/ModalSuccess.vue'
 
-@Component({})
+@Component({
+  components: {
+    ModalSuccess
+  }
+})
 export default class SignUp extends Vue {}
 </script>

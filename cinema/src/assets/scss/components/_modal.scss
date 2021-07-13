@@ -1,0 +1,32 @@
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: $dark;
+  text-shadow: 0 1px 0 $light;
+  opacity: 0.5;
+}
+
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+.modal-header .close {
+  padding: 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+
+.modal-header {
+  border: none;
+}
+
+.modal-body {
+  padding-top: 0 !important;
+}
+
+body.modal-open {
+  overflow: hidden;
+}

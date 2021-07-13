@@ -9,7 +9,7 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
     meta: {
       LayoutDefault
@@ -42,7 +42,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/reset-password',
     name: 'reset-password',
-    component: () => import('@/views/Auth/ForgotPassword.vue'),
+    component: () => import('@/views/Auth/ResetPassword.vue'),
     meta: {
       layout: LayoutAuth
     }

@@ -44,12 +44,13 @@
         >
       </div>
 
-      <div class="mw--38 mx-auto mb-5">
+      <div class="mw--45 mx-auto mb-5">
         <button
+          @click="goToHome"
           class="
             btn btn-auth
             w-100
-            h--13
+            h--14
             rounded-pill
             text-uppercase
             shadow-none
@@ -123,5 +124,9 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class SignIn extends Vue {}
+export default class SignIn extends Vue {
+  goToHome() {
+    this.$router.push('/')
+  }
+}
 </script>
