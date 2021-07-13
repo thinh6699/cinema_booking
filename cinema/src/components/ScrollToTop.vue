@@ -27,7 +27,7 @@ export default class ScrollToTop extends Vue {
   public scrollPosition: any = null
 
   scrollToTop() {
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   updateScroll() {

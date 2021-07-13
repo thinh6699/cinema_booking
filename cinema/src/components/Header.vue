@@ -15,7 +15,7 @@
           <i
             v-b-toggle="'mobile-menu'"
             @click="isOpen = !isOpen"
-            class="fs-40 text-white cursor-pointer fal"
+            class="fs-30 text-white cursor-pointer fal"
             :class="isOpen ? 'fa-times' : 'fa-bars'"
           ></i>
           <MobileSidebar />
