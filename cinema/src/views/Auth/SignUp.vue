@@ -93,6 +93,7 @@
           <input
             class="
               form-check-input
+              cursor-pointer
               rounded-circle
               w--4
               h--4
@@ -104,7 +105,7 @@
             type="checkbox"
             id="agree"
           />
-          <label for="agree"
+          <label class="cursor-pointer" for="agree"
             >I agree to the
             <span class="text-success">Terms and Privacy Policy</span></label
           >

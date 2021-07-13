@@ -1,5 +1,5 @@
 body {
-  background-color: $dark-tint !important;
+  background-color: $dark-shade !important;
   color: $light-shade !important;
 }
 
@@ -21,7 +21,6 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  width: 100%;
 }
 
 .img-cover {
@@ -43,7 +42,7 @@ img {
     color: $light-shade;
     background: transparent;
     border: none;
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid $border-color;
     border-radius: 0;
     &:focus {
       border-bottom: 1px solid $danger;

@@ -12,7 +12,7 @@ const routes: Array<RouteConfig> = [
     name: 'home',
     component: Home,
     meta: {
-      LayoutDefault
+      layout: LayoutDefault
     }
   },
   {

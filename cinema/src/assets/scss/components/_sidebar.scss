@@ -1,0 +1,11 @@
+.b-sidebar {
+  top: 80px;
+  width: 500px;
+  &.slide {
+    transition: transform 0.5s ease-in-out;
+  }
+}
+
+.b-sidebar-body {
+  background-color: $dark-tint;
+}
