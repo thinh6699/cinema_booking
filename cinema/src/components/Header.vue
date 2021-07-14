@@ -18,7 +18,7 @@
             class="fs-30 text-white cursor-pointer fal"
             :class="isOpen ? 'fa-times' : 'fa-bars'"
           ></i>
-          <MobileSidebar />
+          <MobileSidebar :isOpen="isOpen" @close-sidebar="isOpen = $event" />
         </div>
       </div>
     </div>

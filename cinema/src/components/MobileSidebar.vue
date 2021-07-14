@@ -2,7 +2,7 @@
   <b-sidebar no-header id="mobile-menu" shadow>
     <div class="p-4">
       <ul class="list-unstyled">
-        <li>
+        <li @click="closeSidebar">
           <router-link
             class="
               d-block
@@ -15,7 +15,7 @@
             >Films</router-link
           >
         </li>
-        <li>
+        <li @click="closeSidebar">
           <router-link
             class="
               d-block
@@ -28,7 +28,7 @@
             >Events</router-link
           >
         </li>
-        <li>
+        <li @click="closeSidebar">
           <router-link
             class="
               d-block
@@ -41,7 +41,7 @@
             >Blog</router-link
           >
         </li>
-        <li>
+        <li @click="closeSidebar">
           <router-link
             class="
               d-block
@@ -54,7 +54,7 @@
             >About Us</router-link
           >
         </li>
-        <li class="mb-4">
+        <li @click="closeSidebar" class="mb-4">
           <router-link
             class="
               d-block
@@ -89,10 +89,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class MobileSidebar extends Vue {
+  @Prop() public isOpen!: boolean
+
+  closeSidebar() {
+    let newVal = !this.isOpen
+    this.$emit('close-sidebar', newVal)
+  }
+
   goToSignUp() {
     this.$router.push('sign-up')
   }
