@@ -27,7 +27,7 @@
                   h--14
                   rounded-8
                   shadow-none
-                  text-info-tint
+                  text-white
                   bg-transparent
                   border-white-o4
                   pe-41
