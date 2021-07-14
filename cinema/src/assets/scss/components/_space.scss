@@ -4,10 +4,6 @@
   }
 }
 
-.w-unset {
-  width: unset;
-}
-
 @include media-breakpoint-up(lg) {
   @for $i from 0 through 100 {
     .w-lg--#{$i} {
@@ -61,20 +57,6 @@
 }
 
 @for $i from 0 through 100 {
-  .mh-screen-n#{$i} {
-    max-height: calc(100vh - (#{$i} * 4px));
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  @for $i from 0 through 100 {
-    .mh-screen-lg-n#{$i} {
-      max-height: calc(100vh - (#{$i} * 4px));
-    }
-  }
-}
-
-@for $i from 0 through 100 {
   .minw--#{$i} {
     min-width: $i * 4px;
   }
@@ -89,24 +71,6 @@
 
   .minw-lg-auto {
     min-width: auto !important;
-  }
-}
-
-@for $i from 0 through 100 {
-  .mh--#{$i} {
-    max-height: $i * 4px;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  @for $i from 0 through 100 {
-    .mh-lg--#{$i} {
-      max-height: $i * 4px;
-    }
-  }
-
-  .mh-lg-auto {
-    max-height: auto !important;
   }
 }
 
@@ -130,4 +94,8 @@
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.w-unset {
+  width: unset;
 }
