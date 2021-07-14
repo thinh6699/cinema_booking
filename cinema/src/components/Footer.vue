@@ -14,7 +14,7 @@
           "
         >
           <div class="newsletter-wrapper">
-            <h5 class="text-success fs-24 mb-6">SUBSCRIBE TO BOLETO</h5>
+            <h5 class="text-success fs-24 mb-6">SUBSCRIBE TO THINH6699</h5>
             <h3 class="text-white fs-36 mb-12">TO GET EXCLUSIVE BENIFITS</h3>
             <div class="position-relative mb-8">
               <input
@@ -26,7 +26,7 @@
                   text-info-tint
                   bg-transparent
                   border-white-o4
-                  fs-18
+                  fs-16
                   pe-41
                 "
                 type="text"
@@ -50,7 +50,7 @@
                 SUBSCRIBE
               </button>
             </div>
-            <p class="mb-0 fs-18">
+            <p class="mb-0">
               We respect your privacy, so we never share your info
             </p>
           </div>
@@ -59,15 +59,7 @@
     </div>
 
     <div class="container">
-      <div
-        class="
-          row
-          align-items-center
-          justify-content-between
-          py-8
-          border-bottom
-        "
-      >
+      <div class="row align-items-center py-8 border-bottom">
         <div class="col-12 col-md-6">
           <router-link class="d-block mb-8 mb-md-0" :to="{ name: 'home' }">
             <img src="../assets/images/logo.png" alt="" />
@@ -95,7 +87,7 @@
                 flex-center
               "
             >
-              <i class="text-white fs-18 fab fa-facebook-f"></i>
+              <i class="text-white fab fa-facebook-f"></i>
             </li>
             <li
               class="
@@ -109,7 +101,7 @@
                 flex-center
               "
             >
-              <i class="text-white fs-18 fab fa-line"></i>
+              <i class="text-white fab fa-line"></i>
             </li>
             <li
               class="
@@ -123,7 +115,7 @@
                 me-4
               "
             >
-              <i class="text-white fs-18 fab fa-instagram"></i>
+              <i class="text-white fab fa-instagram"></i>
             </li>
             <li
               class="
@@ -137,7 +129,7 @@
                 me-4
               "
             >
-              <i class="text-white fs-18 fab fa-google"></i>
+              <i class="text-white fab fa-google"></i>
             </li>
             <li
               class="
@@ -150,25 +142,36 @@
                 flex-center
               "
             >
-              <i class="text-white fs-18 fab fa-twitter"></i>
+              <i class="text-white fab fa-twitter"></i>
             </li>
           </ul>
         </div>
       </div>
-      <div
-        class="d-flex align-items-center justify-content-between flex-wrap py-8"
-      >
-        <div class="fs-18">
-          Copyright © 2020.All Rights Reserved By
-          <span class="text-success">Boleto</span>
+      <div class="row align-items-center py-8">
+        <div class="col-12 col-lg-6">
+          <div class="mb-5 mb-lg-0">
+            Copyright © 2020.All Rights Reserved By
+            <span class="text-success">THINH6699</span>
+          </div>
         </div>
-        <ul class="list-unstyled d-flex align-items-center mb-0">
-          <li class="px-4 fs-18">About</li>
-          <li class="px-4 fs-18">Terms Of Use</li>
-          <li class="px-4 fs-18">Privacy Policy</li>
-          <li class="px-4 fs-18">FAQ</li>
-          <li class="ps-4 fs-18">Feedback</li>
-        </ul>
+        <div class="col-12 col-lg-6">
+          <ul
+            class="
+              list-unstyled
+              d-flex
+              flex-wrap
+              align-items-center
+              justify-content-lg-end
+              mb-0
+            "
+          >
+            <li class="me-4">About</li>
+            <li class="me-4">Terms Of Use</li>
+            <li class="me-4">Privacy Policy</li>
+            <li class="me-4">FAQ</li>
+            <li class="">Feedback</li>
+          </ul>
+        </div>
       </div>
     </div>
   </footer>

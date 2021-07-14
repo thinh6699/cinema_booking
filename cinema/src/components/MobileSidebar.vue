@@ -6,7 +6,6 @@
           <router-link
             class="
               d-block
-              fs-18
               text-light-shade text-uppercase
               p-4
               border-bottom border-white-o1
@@ -19,7 +18,6 @@
           <router-link
             class="
               d-block
-              fs-18
               text-light-shade text-uppercase
               p-4
               border-bottom border-white-o1
@@ -32,7 +30,6 @@
           <router-link
             class="
               d-block
-              fs-18
               text-light-shade text-uppercase
               p-4
               border-bottom border-white-o1
@@ -45,7 +42,6 @@
           <router-link
             class="
               d-block
-              fs-18
               text-light-shade text-uppercase
               p-4
               border-bottom border-white-o1
@@ -58,7 +54,6 @@
           <router-link
             class="
               d-block
-              fs-18
               text-light-shade text-uppercase
               p-4
               border-bottom border-white-o1
