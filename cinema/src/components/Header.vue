@@ -1,15 +1,16 @@
 <template>
   <header
     :class="{
+      'bg-dark': isOpen,
       'bg-dark-tint': scrollPosition > 0
     }"
     class="sticky-top border-bottom h--20"
   >
     <div class="container h-100">
-      <div class="d-flex align-items-center justify-content-between h-100">
-        <div class="h--10">
+      <div class="d-flex align-items-center justify-content-between px-1 h-100">
+        <router-link class="h--10" :to="{ name: 'home' }">
           <img class="img-contain" src="../assets/images/logo.png" alt="" />
-        </div>
+        </router-link>
         <div class="toggle-mobile-sidebar">
           <i
             v-b-toggle="'mobile-menu'"
