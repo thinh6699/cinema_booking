@@ -1,8 +1,10 @@
 $theme-colors: (
-  'success': $success,
-  'danger': $danger,
+  'white': $white,
   'dark': $dark,
+  'dark-tint': $dark-tint,
   'dark-shade': $dark-shade,
   'light-shade': $light-shade,
-  'info-tint': $info-tint
+  'info-tint': $info-tint,
+  'success': $success,
+  'danger': $danger
 );
