@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="modal-success" :title="title" centered>
+  <b-modal id="modal-success" :title="title" hide-footer centered>
     <span class="my-4 text-dark">
       {{ message }}
     </span>
