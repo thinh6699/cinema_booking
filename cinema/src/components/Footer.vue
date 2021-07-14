@@ -14,13 +14,17 @@
           "
         >
           <div class="newsletter-wrapper">
-            <h5 class="text-success fs-24 mb-6">SUBSCRIBE TO THINH6699</h5>
-            <h3 class="text-white fs-36 mb-12">TO GET EXCLUSIVE BENIFITS</h3>
+            <h5 class="text-success fs-20 fs-lg-24 mb-6">
+              SUBSCRIBE TO THINH6699
+            </h5>
+            <h3 class="text-white fs-30 fs-lg-36 mb-12">
+              TO GET EXCLUSIVE BENIFITS
+            </h3>
             <div class="position-relative mb-8">
               <input
                 class="
                   form-control
-                  h--13
+                  h--14
                   rounded-8
                   shadow-none
                   text-info-tint
@@ -38,18 +42,13 @@
                   end-0
                   top-0
                   btn btn-auth
-                  w-100
-                  h--13
-                  rounded-pill
-                  text-uppercase
                   shadow-none
-                  border-0
                 "
               >
                 SUBSCRIBE
               </button>
             </div>
-            <p class="mb-0">
+            <p class="mb-0 fs-lg-18">
               We respect your privacy, so we never share your info
             </p>
           </div>
@@ -148,7 +147,7 @@
       </div>
       <div class="row align-items-center py-8">
         <div class="col-12 col-lg-6">
-          <div class="mb-5 mb-lg-0">
+          <div class="mb-5 mb-lg-0 fs-lg-18">
             Copyright © 2020.All Rights Reserved By
             <span class="text-success">THINH6699</span>
           </div>
@@ -164,11 +163,11 @@
               mb-0
             "
           >
-            <li class="me-4">About</li>
-            <li class="me-4">Terms Of Use</li>
-            <li class="me-4">Privacy Policy</li>
-            <li class="me-4">FAQ</li>
-            <li class="">Feedback</li>
+            <li class="me-4 fs-lg-18">About</li>
+            <li class="me-4 fs-lg-18">Terms Of Use</li>
+            <li class="me-4 fs-lg-18">Privacy Policy</li>
+            <li class="me-4 fs-lg-18">FAQ</li>
+            <li class="fs-lg-18">Feedback</li>
           </ul>
         </div>
       </div>

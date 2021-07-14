@@ -11,7 +11,7 @@
       Please enter your email address so we can verify your information and
       continue to reset your password.
     </div>
-    
+
     <div class="sign-up-form">
       <div class="mb-10">
         <div class="form-group">
@@ -25,18 +25,7 @@
       </div>
 
       <div class="mw--45 mx-auto">
-        <button
-          @click="goToResetPassowrd"
-          class="
-            btn btn-auth
-            w-100
-            h--14
-            rounded-pill
-            text-uppercase
-            shadow-none
-            border-0
-          "
-        >
+        <button @click="goToResetPassowrd" class="btn btn-auth shadow-none">
           reset password
         </button>
       </div>

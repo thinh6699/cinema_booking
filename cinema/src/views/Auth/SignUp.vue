@@ -113,18 +113,7 @@
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button
-          v-b-modal="'modal-success'"
-          class="
-            btn btn-auth
-            w-100
-            h--14
-            rounded-pill
-            text-uppercase
-            shadow-none
-            border-0
-          "
-        >
+        <button v-b-modal="'modal-success'" class="btn btn-auth shadow-none">
           sign up
         </button>
       </div>

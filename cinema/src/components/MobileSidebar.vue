@@ -63,18 +63,7 @@
           >
         </li>
         <li class="mw--40">
-          <button
-            @click="goToSignUp"
-            class="
-              btn btn-auth
-              w-100
-              h--14
-              rounded-pill
-              text-uppercase
-              shadow-none
-              border-0
-            "
-          >
+          <button @click="goToSignUp" class="btn btn-auth shadow-none">
             join us
           </button>
         </li>

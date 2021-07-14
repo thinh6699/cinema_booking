@@ -45,18 +45,7 @@
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button
-          @click="goToHome"
-          class="
-            btn btn-auth
-            w-100
-            h--14
-            rounded-pill
-            text-uppercase
-            shadow-none
-            border-0
-          "
-        >
+        <button @click="goToHome" class="btn btn-auth shadow-none">
           login
         </button>
       </div>
@@ -101,7 +90,7 @@
           me-4
         "
       >
-       <i class="fab fa-line"></i>
+        <i class="fab fa-line"></i>
       </div>
       <div
         class="
