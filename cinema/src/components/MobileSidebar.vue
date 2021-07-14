@@ -11,6 +11,19 @@
               p-4
               border-bottom border-white-o1
             "
+            :to="{ name: 'home' }"
+            >Home</router-link
+          >
+        </li>
+        <li>
+          <router-link
+            class="
+              d-block
+              fs-18
+              text-light-shade text-uppercase
+              p-4
+              border-bottom border-white-o1
+            "
             :to="{ name: 'all-films' }"
             >Films</router-link
           >
