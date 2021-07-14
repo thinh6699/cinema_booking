@@ -136,7 +136,10 @@
         >
       </div>
     </div>
-    <ModalSuccess :message="'You have successfully registered your account!'" />
+    <ModalSuccess
+      :title="'sign up notification'"
+      :message="'You have successfully registered your account!'"
+    />
   </div>
 </template>
 

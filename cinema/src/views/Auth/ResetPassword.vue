@@ -57,7 +57,10 @@
         </button>
       </div>
     </div>
-    <ModalSuccess :message="'You have successfully updated your password!'" />
+    <ModalSuccess
+      :title="'reset password notification'"
+      :message="'You have successfully updated your password!'"
+    />
   </div>
 </template>
 

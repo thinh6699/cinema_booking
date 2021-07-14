@@ -14,17 +14,23 @@ button.close {
   border: 0;
 }
 
-.modal-header .close {
-  padding: 1rem;
-  margin: -1rem -1rem -1rem auto;
-}
-
 .modal-header {
   border: none;
+  align-items: baseline;
+  & .close {
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+  }
 }
 
 .modal-body {
   padding-top: 0 !important;
+}
+
+.modal-title {
+  font-size: 17px;
+  color: $dark;
+  text-transform: uppercase;
 }
 
 body.modal-open {

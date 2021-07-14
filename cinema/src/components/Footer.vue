@@ -26,7 +26,6 @@
                   text-info-tint
                   bg-transparent
                   border-white-o4
-                  fs-16
                   pe-41
                 "
                 type="text"
