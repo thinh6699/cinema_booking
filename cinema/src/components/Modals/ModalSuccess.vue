@@ -4,6 +4,9 @@
       {{ message }}
     </span>
     <slot />
+    <router-link class="text-success" :to="{ name: 'sign-in' }"
+      >Click here to login.</router-link
+    >
   </b-modal>
 </template>
 

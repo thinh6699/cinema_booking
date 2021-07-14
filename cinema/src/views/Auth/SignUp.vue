@@ -136,11 +136,7 @@
         >
       </div>
     </div>
-    <ModalSuccess :message="'You have successfully registered your account!'">
-      <router-link class="text-success" :to="{ name: 'sign-in' }"
-        >Click here to login.</router-link
-      >
-    </ModalSuccess>
+    <ModalSuccess :message="'You have successfully registered your account!'" />
   </div>
 </template>
 

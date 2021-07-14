@@ -57,11 +57,7 @@
         </button>
       </div>
     </div>
-    <ModalSuccess :message="'You have successfully updated your password!'">
-      <router-link class="text-success" :to="{ name: 'sign-in' }"
-        >Click here to login.</router-link
-      >
-    </ModalSuccess>
+    <ModalSuccess :message="'You have successfully updated your password!'" />
   </div>
 </template>
 
