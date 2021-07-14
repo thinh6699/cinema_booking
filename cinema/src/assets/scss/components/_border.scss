@@ -42,6 +42,8 @@
   }
 }
 
-.border-white-o1 {
-  border-color: hsla(0, 0%, 100%, 0.2) !important;
+@for $i from 1 through 9 {
+  .border-white-o#{$i} {
+    border-color: hsla(255, 255, 255, $i/ 10) !important;
+  }
 }

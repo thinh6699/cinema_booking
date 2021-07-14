@@ -74,3 +74,10 @@ img {
     transform: translateY(-50%);
   }
 }
+
+.active {
+  &:hover {
+    background-color: $success;
+    border: 1px solid $success !important;
+  }
+}

@@ -5,3 +5,26 @@
   background-size: cover;
   min-height: 100vh;
 }
+
+.bg-newsletter {
+  background-image: url('../../assets/images/bg-newsletter.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  & .newsletter-wrapper {
+    max-width: 540px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(0deg, #7400ba 0%, #0f5ae0 100%);
+    opacity: 0.8;
+  }
+}
