@@ -4,7 +4,7 @@
       'bg-dark': isOpen,
       'bg-dark-tint': scrollPosition > 0
     }"
-    class="sticky-top border-bottom h--20"
+    class="fixed-top border-bottom h--20"
   >
     <div class="container h-100">
       <div class="d-flex align-items-center justify-content-between px-1 h-100">

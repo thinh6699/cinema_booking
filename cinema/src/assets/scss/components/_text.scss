@@ -15,7 +15,7 @@
 }
 
 @include media-breakpoint-up(lg) {
-  @for $i from 1 through 50 {
+  @for $i from 1 through 80 {
     .fs-lg-#{$i} {
       font-size: #{$i}px;
     }

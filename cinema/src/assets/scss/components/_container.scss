@@ -28,3 +28,21 @@
     opacity: 0.8;
   }
 }
+
+.bg-banner {
+  background-image: url('../../assets/images/bg-banner.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.3;
+}
+
+.banner {
+  position: relative;
+  padding: calc(15% + 80px) 0 15% 0;
+}

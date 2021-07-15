@@ -1,7 +1,8 @@
 <template>
   <div class="min-h-screen d-flex flex-column">
     <Header />
-    <main class="flex-1">
+    <Banner />
+    <main class="flex-1 mt-20">
       <div class="container">
         <router-view></router-view>
       </div>
@@ -14,6 +15,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Header from '@/components/Header.vue'
+import Banner from '@/components/Banner.vue'
 import ScrollToTop from '@/components/ScrollToTop.vue'
 import Footer from '@/components/Footer.vue'
 
@@ -21,7 +23,8 @@ import Footer from '@/components/Footer.vue'
   components: {
     Header,
     ScrollToTop,
-    Footer
+    Footer,
+    Banner
   }
 })
 export default class LayoutDefault extends Vue {}

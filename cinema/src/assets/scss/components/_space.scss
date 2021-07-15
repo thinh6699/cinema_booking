@@ -42,7 +42,7 @@
   }
 }
 
-@for $i from 0 through 200 {
+@for $i from 0 through 300 {
   .mw--#{$i} {
     max-width: $i * 4px;
   }
