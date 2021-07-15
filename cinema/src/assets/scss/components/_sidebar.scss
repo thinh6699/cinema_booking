@@ -1,6 +1,9 @@
 .b-sidebar {
   top: 80px;
   width: 500px;
+  @media (min-width: 992px) {
+    top: 100px;
+  }
   &.slide {
     transition: transform 0.5s ease-in-out;
   }

@@ -1,14 +1,14 @@
 <template>
   <b-sidebar no-header id="mobile-menu" shadow>
     <div class="p-4">
-      <ul class="list-unstyled">
+      <ul class="list-unstyled mb-0">
         <li>
           <router-link
             class="
               d-block
               text-light-shade text-uppercase
               p-4
-              border-bottom border-white-o1
+              border-bottom border-white-o2
             "
             :to="{ name: 'all-films' }"
             >Films</router-link
@@ -20,7 +20,7 @@
               d-block
               text-light-shade text-uppercase
               p-4
-              border-bottom border-white-o1
+              border-bottom border-white-o2
             "
             :to="{ name: 'all-events' }"
             >Events</router-link
@@ -32,7 +32,7 @@
               d-block
               text-light-shade text-uppercase
               p-4
-              border-bottom border-white-o1
+              border-bottom border-white-o2
             "
             :to="{ name: 'film-blog', params: 'film-blog' }"
             >Blog</router-link
@@ -44,7 +44,7 @@
               d-block
               text-light-shade text-uppercase
               p-4
-              border-bottom border-white-o1
+              border-bottom border-white-o2
             "
             :to="{ name: 'about-us' }"
             >About Us</router-link
@@ -56,7 +56,7 @@
               d-block
               text-light-shade text-uppercase
               p-4
-              border-bottom border-white-o1
+              border-bottom border-white-o2
             "
             :to="{ name: 'contact' }"
             >Contact</router-link

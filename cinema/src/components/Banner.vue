@@ -1,6 +1,9 @@
 <template>
   <div class="banner">
-    <div class="bg-banner"></div>
+    <div
+      :style="{ backgroundImage: 'url(' + bg_url + ')' }"
+      class="bg-banner"
+    ></div>
     <div class="container">
       <div class="text-center text-white position-relative z-3 mw--210 mx-auto">
         <slot />
@@ -16,5 +19,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({})
-export default class Banner extends Vue {}
+export default class Banner extends Vue {
+  @Prop() public bg_url!: any
+}
 </script>

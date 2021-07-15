@@ -4,11 +4,19 @@
       'bg-dark': isOpen,
       'bg-dark-tint': scrollPosition > 0
     }"
-    class="fixed-top border-bottom h--20"
+    class="fixed-top border-bottom h--20 h-lg--25"
   >
     <div class="container h-100">
-      <div class="d-flex align-items-center justify-content-between px-1 h-100">
-        <router-link class="h--10" :to="{ name: 'home' }">
+      <div
+        class="
+          d-flex
+          align-items-center
+          justify-content-between
+          px-2 px-lg-0
+          h-100
+        "
+      >
+        <router-link :to="{ name: 'home' }">
           <img class="img-contain" src="../assets/images/logo.png" alt="" />
         </router-link>
         <div class="toggle-mobile-sidebar d-lg-none">
@@ -81,7 +89,7 @@
               >About Us</router-link
             >
           </li>
-          <li class="me-5">
+          <li>
             <router-link
               class="
                 d-block
@@ -96,7 +104,7 @@
               >Contact</router-link
             >
           </li>
-          <li>
+          <li class="ms-5">
             <router-link
               :to="{ name: 'sign-up' }"
               class="btn btn-auth h-unset shadow-none py-4 px-11"
