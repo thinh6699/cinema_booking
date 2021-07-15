@@ -81,3 +81,7 @@ img {
     border: 1px solid $success !important;
   }
 }
+
+.nav-active {
+  border-bottom: 1px solid $success;
+}
