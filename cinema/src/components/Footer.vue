@@ -41,7 +41,7 @@
                   position-absolute
                   end-0
                   top-0
-                  btn btn-auth
+                  btn btn-gradient
                   shadow-none
                 "
               >

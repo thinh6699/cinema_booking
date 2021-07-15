@@ -1,7 +1,7 @@
 <template>
   <div class="home-page">
     <Banner :bg_url="require('@/assets/images/banner-home.jpg')">
-      <h1 class="text-uppercase fwb fs-36 fs-lg-80 mb-4">
+      <h1 class="text-white text-uppercase fwb fs-36 fs-lg-80 mb-4">
         book your tickets for <span class="text-success">movies</span>
       </h1>
     </Banner>

@@ -25,7 +25,7 @@
       </div>
 
       <div class="mw--45 mx-auto">
-        <button @click="goToResetPassowrd" class="btn btn-auth shadow-none">
+        <button @click="goToResetPassowrd" class="btn btn-gradient shadow-none">
           reset password
         </button>
       </div>

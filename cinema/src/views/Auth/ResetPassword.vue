@@ -41,7 +41,10 @@
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button v-b-modal="'modal-success'" class="btn btn-auth shadow-none">
+        <button
+          v-b-modal="'modal-success'"
+          class="btn btn-gradient shadow-none"
+        >
           confirm
         </button>
       </div>

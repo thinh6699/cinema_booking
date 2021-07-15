@@ -1,7 +1,7 @@
 <template>
   <div class="all-films">
     <Banner :bg_url="require('@/assets/images/banner-film-section.jpg')">
-      <h1 class="text-uppercase fwb fs-36 fs-lg-80 mb-4">
+      <h1 class="text-white text-uppercase fwb fs-36 fs-lg-80 mb-4">
         get <span class="text-success">movies</span> ticket
       </h1>
     </Banner>

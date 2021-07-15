@@ -63,7 +63,7 @@
           >
         </li>
         <li class="mw--40">
-          <button @click="goToSignUp" class="btn btn-auth shadow-none">
+          <button @click="goToSignUp" class="btn btn-gradient shadow-none">
             join us
           </button>
         </li>

@@ -107,7 +107,7 @@
           <li class="ms-5">
             <router-link
               :to="{ name: 'sign-up' }"
-              class="btn btn-auth h-unset shadow-none py-4 px-11"
+              class="btn btn-gradient h-unset shadow-none py-4 px-11"
               >join us</router-link
             >
           </li>

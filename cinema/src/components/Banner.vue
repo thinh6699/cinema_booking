@@ -5,7 +5,7 @@
       class="bg-banner"
     ></div>
     <div class="container">
-      <div class="text-center text-white position-relative z-3 mw--210 mx-auto">
+      <div class="text-center position-relative z-3 mw--210 mx-auto">
         <slot />
         <p class="fs-20 fs-lg-28 fwb-500 mb-0">
           Safe, secure, reliable ticketing.Your ticket to live entertainment!
