@@ -60,7 +60,7 @@
       <div class="row align-items-center py-8 border-bottom">
         <div class="col-12 col-md-6">
           <router-link class="d-block mb-8 mb-md-0" :to="{ name: 'home' }">
-            <img src="../assets/images/logo.png" alt="" />
+            <img src="@/assets/images/logo.png" alt="" />
           </router-link>
         </div>
         <div class="col-12 col-md-6">

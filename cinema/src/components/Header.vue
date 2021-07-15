@@ -17,7 +17,7 @@
         "
       >
         <router-link :to="{ name: 'home' }">
-          <img class="img-contain" src="../assets/images/logo.png" alt="" />
+          <img class="img-contain" src="@/assets/images/logo.png" alt="" />
         </router-link>
         <div class="toggle-mobile-sidebar d-lg-none">
           <i

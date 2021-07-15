@@ -58,7 +58,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/about-us',
     name: 'about-us',
-    component: () => import('../views/AboutUs.vue'),
+    component: () => import('@/views/AboutUs.vue'),
     meta: {
       layout: LayoutDefault
     }

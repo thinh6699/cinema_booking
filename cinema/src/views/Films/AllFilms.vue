@@ -4,6 +4,9 @@
       <h1 class="text-white text-uppercase fwb fs-36 fs-lg-80 mb-4">
         get <span class="text-success">movies</span> ticket
       </h1>
+      <p class="fs-20 fs-lg-28 fwb-500 mb-0">
+        Safe, secure, reliable ticketing.Your ticket to live entertainment!
+      </p>
     </Banner>
     <div class="container">
       <p class="mb-0">1ab</p>
