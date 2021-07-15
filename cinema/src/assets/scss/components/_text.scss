@@ -34,6 +34,10 @@
   font-weight: $fwb !important;
 }
 
+.fwb-500 {
+  font-weight: 500 !important;
+}
+
 @include media-breakpoint-up(lg) {
   .fw-lg-n {
     font-weight: $fwn !important;

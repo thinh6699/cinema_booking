@@ -36,6 +36,10 @@
   .h-lg-auto {
     height: auto !important;
   }
+
+  .h-lg-unset {
+    height: unset !important;
+  }
 }
 
 @for $i from 0 through 200 {
@@ -97,5 +101,9 @@
 }
 
 .w-unset {
-  width: unset;
+  width: unset !important;
+}
+
+.h-unset {
+  height: unset !important;
 }
