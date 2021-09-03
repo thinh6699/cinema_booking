@@ -91,7 +91,7 @@ export default class MobileSidebar extends Vue {
   }
 
   goToSignUp() {
-    this.$router.push('sign-up')
+    this.$router.push({ name: 'sign-up' })
   }
 }
 </script>
