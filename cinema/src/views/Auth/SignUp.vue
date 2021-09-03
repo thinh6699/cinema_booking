@@ -113,10 +113,7 @@
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button
-          v-b-modal="'modal-success'"
-          class="btn btn-gradient shadow-none"
-        >
+        <button v-b-modal="'modal-info'" class="btn btn-gradient shadow-none">
           sign up
         </button>
       </div>
@@ -128,7 +125,7 @@
         >
       </div>
     </div>
-    <ModalSuccess
+    <ModalInfo
       :title="'sign up notification'"
       :message="'You have successfully registered your account!'"
     />
@@ -137,12 +134,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ModalSuccess from '@/components/Modals/ModalSuccess.vue'
 
-@Component({
-  components: {
-    ModalSuccess
-  }
-})
+@Component
 export default class SignUp extends Vue {}
 </script>

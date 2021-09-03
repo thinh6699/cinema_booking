@@ -41,15 +41,12 @@
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button
-          v-b-modal="'modal-success'"
-          class="btn btn-gradient shadow-none"
-        >
+        <button v-b-modal="'modal-info'" class="btn btn-gradient shadow-none">
           confirm
         </button>
       </div>
     </div>
-    <ModalSuccess
+    <ModalInfo
       :title="'reset password notification'"
       :message="'You have successfully updated your password!'"
     />
@@ -58,12 +55,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import ModalSuccess from '@/components/Modals/ModalSuccess.vue'
 
-@Component({
-  components: {
-    ModalSuccess
-  }
-})
+@Component
 export default class ResetPassword extends Vue {}
 </script>
