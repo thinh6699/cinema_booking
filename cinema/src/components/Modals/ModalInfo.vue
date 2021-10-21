@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="modal-success" :title="title" hide-footer centered>
+  <b-modal id="modal-info" :title="title" hide-footer centered>
     <span class="my-4 text-dark">
       {{ message }}
     </span>
@@ -14,7 +14,7 @@
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class ModalSuccess extends Vue {
+export default class ModalInfo extends Vue {
   @Prop() public message!: string
   @Prop() public title!: string
 }
