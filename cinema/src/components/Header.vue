@@ -1,10 +1,16 @@
 <template>
   <header class="fixed-top bg-secondary-tint px-4 px-xl-7">
     <div class="d-flex justify-content-between align-items-center h--10">
-      <router-link class="fs-20 fwb-500" :to="{ name: 'home' }"
-        >EC HUB</router-link
-      >
-      <div class="d-block">
+      <div class="logo-page d-flex align-items-center">
+        <router-link class="fs-20 fwb-500" :to="{ name: 'home' }"
+          >EC HUB</router-link
+        >
+        <span v-if="isLogin" class="text-info-shade fs-14 fwb ps-10"
+          >会社名</span
+        >
+      </div>
+      <div class="d-flex align-items-center">
+        <span v-if="isLogin" class="me-2">Name (88812)</span>
         <button
           class="fs-12 btn btn-info-shade rounded-pill py-1 shadow-none me-2"
         >
@@ -56,5 +62,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class Header extends Vue {}
+export default class Header extends Vue {
+  private isLogin: boolean = false
+}
 </script>
