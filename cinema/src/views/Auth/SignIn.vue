@@ -7,16 +7,7 @@
         >
         <div class="d-block">
           <button
-            class="
-              fs-12
-              w--25
-              minh--7
-              btn btn-info-shade
-              rounded-pill
-              py-1
-              shadow-none
-              me-2
-            "
+            class="fs-12 btn btn-info-shade rounded-pill py-1 shadow-none me-2"
           >
             ログアウト
           </button>
@@ -31,9 +22,10 @@
                   position-relative
                   bg-white
                   rounded-pill
+                  px-2
                 "
               >
-                <span class="pe-4">JPN</span>
+                <span class="pe-5 word-break text-line-clamp-1">JPN</span>
                 <i
                   class="
                     fas
@@ -53,31 +45,32 @@
               variant="normal"
               class="fs-12 fs-xl-15"
             >
-              <span>JPN</span>
+              <span class="word-break text-line-clamp-1">JPN</span>
             </b-dropdown-item>
           </b-dropdown>
         </div>
       </div>
     </header>
-    <main class="flex-1 mt-10">
+    <main class="flex-1 mt-10 flex-xl-center">
       <div class="container">
-        <div class="login_form mw--90 mx-auto">
-          <div class="flex-center flex-column fwb-500 pt-25 mb-12">
-            <router-link class="fs-20 mb-19" :to="{ name: 'home' }"
-              >EC HUB</router-link
-            >
-            <span
-              class="
-                fs-16
-                fwb
-                text-center
-                border-bottom border-info-shade border-2
-                px-2
-                pb-1
-              "
-              >BRAND</span
-            >
-          </div>
+        <div class="text-center fwb-500 pt-25 mb-12">
+          <router-link class="fs-20 mb-19 d-block" :to="{ name: 'home' }"
+            >EC HUB</router-link
+          >
+          <span
+            class="
+              fs-16
+              fwb
+              text-center
+              border-bottom border-info-shade border-2
+              px-2
+              pb-1
+            "
+            >BRAND</span
+          >
+        </div>
+
+        <div class="mw--90 mx-auto">
           <div class="form-group mb-7">
             <label class="fs-14 fwb-500 w-100 mb-3" for="email">
               Enter username or email address
@@ -99,21 +92,14 @@
             />
           </div>
           <p class="d-flex justify-content-end m-0 mb-8">Show</p>
-          <div class="flex-center mb-5">
+          <div class="text-center mb-5">
             <button
-              class="
-                fs-12
-                w--33
-                minh--9
-                btn btn-info-shade
-                rounded-pill
-                shadow-none
-              "
+              class="fs-12 minw--33 btn btn-info-shade rounded-pill shadow-none"
             >
               ログイン
             </button>
           </div>
-          <div class="flex-center mb-20">
+          <div class="text-center mb-20">
             <router-link
               class="text-info-shade pb-1 border-bottom border-info-shade"
               :to="{ name: 'forgot-password' }"
