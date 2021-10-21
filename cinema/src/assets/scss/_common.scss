@@ -30,3 +30,7 @@ img {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.sidebar-active:hover {
+  background: $dark-tint;
+}

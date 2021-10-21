@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed-top bg-secondary-tint px-4 px-xl-7">
+  <header class="fixed-top bg-secondary-tint px-7">
     <div class="d-flex justify-content-between align-items-center h--10">
       <div class="logo-page d-flex align-items-center">
         <router-link class="fs-20 fwb-500" :to="{ name: 'home' }"
