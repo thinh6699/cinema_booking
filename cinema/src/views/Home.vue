@@ -8,57 +8,44 @@
         Safe, secure, reliable ticketing.Your ticket to live entertainment!
       </p>
     </Banner>
+
     <div class="container">
-      <p class="mb-0">1ab</p>
-      <p class="mb-0">2ab</p>
-      <p class="mb-0">3ab</p>
-      <p class="mb-0">4ab</p>
-      <p class="mb-0">5ab</p>
-      <p class="mb-0">6ab</p>
-      <p class="mb-0">7ab</p>
-      <p class="mb-0">8ab</p>
-      <p class="mb-0">9ab</p>
-      <p class="mb-0">10ab</p>
-      <p class="mb-0">11ab</p>
-      <p class="mb-0">12ab</p>
-      <p class="mb-0">13ab</p>
-      <p class="mb-0">14ab</p>
-      <p class="mb-0">15ab</p>
-      <p class="mb-0">16ab</p>
-      <p class="mb-0">17ab</p>
-      <p class="mb-0">18ab</p>
-      <p class="mb-0">19ab</p>
-      <p class="mb-0">20ab</p>
-      <p class="mb-0">21ab</p>
-      <p class="mb-0">22ab</p>
-      <p class="mb-0">23ab</p>
-      <p class="mb-0">24ab</p>
-      <p class="mb-0">25ab</p>
-      <p class="mb-0">26ab</p>
-      <p class="mb-0">27ab</p>
-      <p class="mb-0">28ab</p>
-      <p class="mb-0">29ab</p>
-      <p class="mb-0">30ab</p>
-      <p class="mb-0">31ab</p>
-      <p class="mb-0">32ab</p>
-      <p class="mb-0">33ab</p>
-      <p class="mb-0">34ab</p>
-      <p class="mb-0">35ab</p>
-      <p class="mb-0">36ab</p>
-      <p class="mb-0">37ab</p>
-      <p class="mb-0">38ab</p>
-      <p class="mb-0">39ab</p>
-      <p class="mb-0">40ab</p>
-      <p class="mb-0">41ab</p>
-      <p class="mb-0">42ab</p>
-      <p class="mb-0">43ab</p>
-      <p class="mb-0">44ab</p>
-      <p class="mb-0">45ab</p>
-      <p class="mb-0">46ab</p>
-      <p class="mb-0">47ab</p>
-      <p class="mb-0">48ab</p>
-      <p class="mb-0">49ab</p>
-      <p class="mb-0">50ab</p>
+      <div class="py-20">
+        <div class="search-container">
+          <div class="p-4">
+            <h5 class="text-uppercase text-center text-success">
+              welcome to thinh6699
+            </h5>
+            <p class="fwb text-white text-uppercase text-center fs-22">
+              what are you looking for
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li
+                class="btn-gradient w--40 mx-auto flex-center cursor-pointer mb-4"
+              >
+                <img src="@/assets/images/movie.png" alt="movie-icon" />
+                <span class="text-white">MOVIES</span>
+              </li>
+              <li class="btn-gradient w--40 mx-auto cursor-pointer flex-center">
+                <img src="@/assets/images/event.png" alt="movie-icon" />
+                <span class="text-white">EVENT</span>
+              </li>
+            </ul>
+            <div class="search-input-condition">
+              <div class="position-relative">
+                <input
+                  class="search-input outline-0"
+                  type="text"
+                  placeholder="Search for Movies"
+                />
+                <i
+                  class="far fa-search position-absolute end-0 top-50 translate-middle-y me-2"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

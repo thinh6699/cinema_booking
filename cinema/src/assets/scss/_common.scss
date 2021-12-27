@@ -50,6 +50,16 @@ img {
   }
 }
 
+.search-input {
+  width: 100%;
+  height: 45px;
+  color: $light-shade;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $light-shade;
+  border-radius: 0;
+}
+
 .or {
   &::before {
     content: '';
@@ -84,4 +94,19 @@ img {
 
 .nav-active {
   border-bottom: 1px solid $success;
+}
+
+.search-container {
+  background: url('../images/search-film-bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 200px;
+}
+
+.search-input-condition {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-top: 1px solid $dark;
+  border-bottom: 1px solid $dark;
 }
