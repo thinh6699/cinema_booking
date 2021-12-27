@@ -1,58 +1,117 @@
 <template>
-  <header class="fixed-top bg-secondary-tint px-7">
-    <div class="d-flex justify-content-between align-items-center h--10">
-      <div class="logo-page d-flex align-items-center">
-        <router-link class="fs-20 fwb-500" :to="{ name: 'home' }"
-          >EC HUB</router-link
-        >
-        <span v-if="isLogin" class="text-info-shade fs-14 fwb ps-10"
-          >会社名</span
-        >
-      </div>
-      <div class="d-flex align-items-center">
-        <span v-if="isLogin" class="me-2">Name (88812)</span>
-        <button
-          class="fs-12 btn btn-info-shade rounded-pill py-1 shadow-none me-2"
-        >
-          ログアウト
-        </button>
-        <b-dropdown right no-caret menu-class="mh--100 overflow-auto">
-          <template #button-content>
-            <div
+  <header
+    :class="{
+      'bg-dark': isOpen,
+      'bg-dark-tint': scrollPosition > 0
+    }"
+    class="fixed-top border-bottom h--20 h-lg--25"
+  >
+    <div class="container h-100">
+      <div
+        class="
+          d-flex
+          align-items-center
+          justify-content-between
+          px-2 px-lg-0
+          h-100
+        "
+      >
+        <router-link :to="{ name: 'home' }">
+          <img class="img-contain" src="@/assets/images/logo.png" alt="" />
+        </router-link>
+        <div class="toggle-mobile-sidebar d-lg-none">
+          <i
+            v-b-toggle="'mobile-menu'"
+            @click="isOpen = !isOpen"
+            class="fs-30 text-white cursor-pointer fal"
+            :class="isOpen ? 'fa-times' : 'fa-bars'"
+          ></i>
+          <MobileSidebar :isOpen="isOpen" @close-sidebar="isOpen = $event" />
+        </div>
+        <ul class="list-unstyled d-none align-items-center mb-0 d-lg-flex">
+          <li>
+            <router-link
               class="
-                flex-center
-                w--20
-                minh--7
-                text-normal
-                position-relative
-                bg-white
-                rounded-pill
-                px-2
+                d-block
+                text-light-shade
+                fs-lg-18
+                fwb-500
+                text-uppercase
+                py-4
+                px-5
               "
+              :to="{ name: 'all-films' }"
+              >Films</router-link
             >
-              <span class="pe-5 word-break text-line-clamp-1">JPN</span>
-              <i
-                class="
-                  fas
-                  fa-chevron-down
-                  position-absolute
-                  top-50
-                  end--1
-                  translate-middle-y
-                  px-2
-                "
-              ></i>
-            </div>
-          </template>
-          <b-dropdown-item
-            v-for="i in 2"
-            :key="i"
-            variant="normal"
-            class="fs-12 fs-xl-15"
-          >
-            <span class="word-break text-line-clamp-1">JPN</span>
-          </b-dropdown-item>
-        </b-dropdown>
+          </li>
+          <li>
+            <router-link
+              class="
+                d-block
+                text-light-shade
+                fs-lg-18
+                fwb-500
+                text-uppercase
+                py-4
+                px-5
+              "
+              :to="{ name: 'all-events' }"
+              >Events</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="
+                d-block
+                text-light-shade
+                fs-lg-18
+                fwb-500
+                text-uppercase
+                py-4
+                px-5
+              "
+              :to="{ name: 'film-blog', params: 'film-blog' }"
+              >Blog</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="
+                d-block
+                text-light-shade
+                fs-lg-18
+                fwb-500
+                text-uppercase
+                py-4
+                px-5
+              "
+              :to="{ name: 'about-us' }"
+              >About Us</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="
+                d-block
+                text-light-shade
+                fs-lg-18
+                fwb-500
+                text-uppercase
+                py-4
+                px-5
+              "
+              :to="{ name: 'contact' }"
+              >Contact</router-link
+            >
+          </li>
+          <li class="ms-5">
+            <router-link
+              :to="{ name: 'sign-up' }"
+              class="btn btn-gradient h-unset shadow-none py-4 px-11"
+              >join us</router-link
+            >
+          </li>
+        </ul>
       </div>
     </div>
   </header>
@@ -60,9 +119,23 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import MobileSidebar from '@/components/MobileSidebar.vue'
 
-@Component({})
+@Component({
+  components: {
+    MobileSidebar
+  }
+})
 export default class Header extends Vue {
-  private isLogin: boolean = false
+  public isOpen: boolean = false
+  public scrollPosition: any = null
+
+  updateScroll() {
+    this.scrollPosition = window.scrollY
+  }
+
+  created() {
+    window.addEventListener('scroll', this.updateScroll)
+  }
 }
 </script>

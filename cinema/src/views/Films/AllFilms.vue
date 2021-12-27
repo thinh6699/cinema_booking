@@ -1,8 +1,8 @@
 <template>
-  <div class="home-page">
-    <Banner :bg_url="require('@/assets/images/banner-home.jpg')">
+  <div class="all-films">
+    <Banner :bg_url="require('@/assets/images/banner-film-section.jpg')">
       <h1 class="text-white text-uppercase fwb fs-36 fs-lg-80 mb-4">
-        book your tickets for <span class="text-success">movies</span>
+        get <span class="text-success">movies</span> ticket
       </h1>
       <p class="fs-20 fs-lg-28 fwb-500 mb-0">
         Safe, secure, reliable ticketing.Your ticket to live entertainment!
@@ -70,5 +70,5 @@ import Banner from '@/components/Banner.vue'
 @Component({
   components: { Banner }
 })
-export default class Home extends Vue {}
+export default class AllFilms extends Vue {}
 </script>

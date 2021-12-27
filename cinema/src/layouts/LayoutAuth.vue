@@ -1,22 +1,20 @@
 <template>
-  <div class="d-flex flex-column min-h-screen">
-    <Header />
-    <main class="flex-1 mt-10 flex-xl-center">
+  <div>
+    <div class="bg-auth">
       <div class="container">
-        <slot />
+        <div class="py-20">
+          <div class="auth-area w-100 mw--135 px-4 py-10 mx-auto">
+            <slot />
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Header from '@/components/Header.vue'
 
-@Component({
-  components: {
-    Header
-  }
-})
+@Component({})
 export default class LayoutAuth extends Vue {}
 </script>

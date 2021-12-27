@@ -26,22 +26,16 @@
   flex: none;
 }
 
-@include media-breakpoint-up(xl) {
-  .flex-xl-auto {
+@include media-breakpoint-up(lg) {
+  .flex-lg-auto {
     flex: 1 1 auto;
   }
 
-  .flex-xl-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .flex-xl-initial {
+  .flex-lg-initial {
     flex: 0 1 auto;
   }
 
-  .flex-xl-none {
+  .flex-lg-none {
     flex: none;
   }
 }
