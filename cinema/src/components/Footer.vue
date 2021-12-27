@@ -3,15 +3,7 @@
     <div class="newsletter pt-20 pb-12">
       <div class="container">
         <div
-          class="
-            bg-newsletter
-            rounded-8
-            overflow-hidden
-            position-relative
-            text-center
-            py-15
-            px-5
-          "
+          class="bg-newsletter rounded-8 overflow-hidden position-relative text-center py-15 px-5"
         >
           <div class="newsletter-wrapper">
             <h5 class="text-success fs-20 fs-lg-24 mb-6">
@@ -22,28 +14,12 @@
             </h3>
             <div class="position-relative mb-8">
               <input
-                class="
-                  form-control
-                  h--14
-                  rounded-8
-                  shadow-none
-                  text-white
-                  bg-transparent
-                  border-white-o4
-                  pe-41
-                "
+                class="form-control h--14 rounded-8 shadow-none text-white bg-transparent border-white-o4 pe-41"
                 type="text"
                 placeholder="Enter your email address"
               />
               <button
-                class="
-                  mw--40
-                  position-absolute
-                  end-0
-                  top-0
-                  btn btn-gradient
-                  shadow-none
-                "
+                class="mw--40 position-absolute end-0 top-0 btn btn-gradient shadow-none"
               >
                 SUBSCRIBE
               </button>
@@ -65,80 +41,30 @@
         </div>
         <div class="col-12 col-md-6">
           <ul
-            class="
-              list-unstyled
-              d-flex
-              align-items-center
-              justify-content-md-end
-              mb-0
-            "
+            class="list-unstyled d-flex align-items-center justify-content-md-end mb-0"
           >
             <li
-              class="
-                border border-white
-                active
-                rounded-circle
-                h--10
-                w--10
-                cursor-pointer
-                me-4
-                flex-center
-              "
+              class="border border-white active rounded-circle h--10 w--10 cursor-pointer me-4 flex-center"
             >
               <i class="text-white fab fa-facebook-f"></i>
             </li>
             <li
-              class="
-                border border-white
-                active
-                rounded-circle
-                h--10
-                w--10
-                cursor-pointer
-                me-4
-                flex-center
-              "
+              class="border border-white active rounded-circle h--10 w--10 cursor-pointer me-4 flex-center"
             >
               <i class="text-white fab fa-line"></i>
             </li>
             <li
-              class="
-                border border-white
-                active
-                rounded-circle
-                h--10
-                w--10
-                cursor-pointer
-                flex-center
-                me-4
-              "
+              class="border border-white active rounded-circle h--10 w--10 cursor-pointer flex-center me-4"
             >
               <i class="text-white fab fa-instagram"></i>
             </li>
             <li
-              class="
-                border border-white
-                active
-                rounded-circle
-                h--10
-                w--10
-                cursor-pointer
-                flex-center
-                me-4
-              "
+              class="border border-white active rounded-circle h--10 w--10 cursor-pointer flex-center me-4"
             >
               <i class="text-white fab fa-google"></i>
             </li>
             <li
-              class="
-                border border-white
-                active
-                rounded-circle
-                h--10
-                w--10
-                cursor-pointer
-                flex-center
-              "
+              class="border border-white active rounded-circle h--10 w--10 cursor-pointer flex-center"
             >
               <i class="text-white fab fa-twitter"></i>
             </li>
@@ -154,14 +80,7 @@
         </div>
         <div class="col-12 col-lg-6">
           <ul
-            class="
-              list-unstyled
-              d-flex
-              flex-wrap
-              align-items-center
-              justify-content-lg-end
-              mb-0
-            "
+            class="list-unstyled d-flex flex-wrap align-items-center justify-content-lg-end mb-0"
           >
             <li class="me-4 fs-lg-18">About</li>
             <li class="me-4 fs-lg-18">Terms Of Use</li>

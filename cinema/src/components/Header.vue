@@ -8,13 +8,7 @@
   >
     <div class="container h-100">
       <div
-        class="
-          d-flex
-          align-items-center
-          justify-content-between
-          px-2 px-lg-0
-          h-100
-        "
+        class="d-flex align-items-center justify-content-between px-2 px-lg-0 h-100"
       >
         <router-link :to="{ name: 'home' }">
           <img class="img-contain" src="@/assets/images/logo.png" alt="" />
@@ -31,75 +25,35 @@
         <ul class="list-unstyled d-none align-items-center mb-0 d-lg-flex">
           <li>
             <router-link
-              class="
-                d-block
-                text-light-shade
-                fs-lg-18
-                fwb-500
-                text-uppercase
-                py-4
-                px-5
-              "
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
               :to="{ name: 'all-films' }"
               >Films</router-link
             >
           </li>
           <li>
             <router-link
-              class="
-                d-block
-                text-light-shade
-                fs-lg-18
-                fwb-500
-                text-uppercase
-                py-4
-                px-5
-              "
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
               :to="{ name: 'all-events' }"
               >Events</router-link
             >
           </li>
           <li>
             <router-link
-              class="
-                d-block
-                text-light-shade
-                fs-lg-18
-                fwb-500
-                text-uppercase
-                py-4
-                px-5
-              "
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
               :to="{ name: 'film-blog', params: 'film-blog' }"
               >Blog</router-link
             >
           </li>
           <li>
             <router-link
-              class="
-                d-block
-                text-light-shade
-                fs-lg-18
-                fwb-500
-                text-uppercase
-                py-4
-                px-5
-              "
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
               :to="{ name: 'about-us' }"
               >About Us</router-link
             >
           </li>
           <li>
             <router-link
-              class="
-                d-block
-                text-light-shade
-                fs-lg-18
-                fwb-500
-                text-uppercase
-                py-4
-                px-5
-              "
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
               :to="{ name: 'contact' }"
               >Contact</router-link
             >

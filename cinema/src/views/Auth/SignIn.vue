@@ -65,43 +65,17 @@
 
     <div class="flex-center">
       <div
-        class="
-          border border-white
-          rounded-circle
-          w--8
-          h--8
-          flex-center
-          cursor-pointer
-          text-white
-          me-4
-        "
+        class="border border-white rounded-circle w--8 h--8 flex-center cursor-pointer text-white me-4"
       >
         <i class="fab fa-facebook-f"></i>
       </div>
       <div
-        class="
-          border border-white
-          rounded-circle
-          w--8
-          h--8
-          flex-center
-          cursor-pointer
-          text-white
-          me-4
-        "
+        class="border border-white rounded-circle w--8 h--8 flex-center cursor-pointer text-white me-4"
       >
         <i class="fab fa-line"></i>
       </div>
       <div
-        class="
-          border border-white
-          rounded-circle
-          w--8
-          h--8
-          flex-center
-          cursor-pointer
-          text-white
-        "
+        class="border border-white rounded-circle w--8 h--8 flex-center cursor-pointer text-white"
       >
         <i class="fab fa-google"></i>
       </div>

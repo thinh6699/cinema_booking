@@ -91,17 +91,7 @@
       <div class="d-flex align-items-center justify-content-start mb-7">
         <div class="d-flex align-items-center">
           <input
-            class="
-              form-check-input
-              cursor-pointer
-              rounded-circle
-              w--4
-              h--4
-              me-1
-              mt-0
-              flex-fixed
-              shadow-none
-            "
+            class="form-check-input cursor-pointer rounded-circle w--4 h--4 me-1 mt-0 flex-fixed shadow-none"
             type="checkbox"
             id="agree"
           />
