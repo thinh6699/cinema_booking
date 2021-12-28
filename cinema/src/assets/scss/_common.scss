@@ -102,6 +102,17 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 200px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: -webkit-linear-gradient(0deg, #0f5ae0 0%, #7400ba 100%);
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 .search-input-condition {
@@ -109,4 +120,10 @@ img {
   padding: 16px;
   border-top: 1px solid $dark;
   border-bottom: 1px solid $dark;
+}
+
+.mx-icon-calendar,
+.mx-icon-clear {
+  right: 16px !important;
+  color: white !important;
 }

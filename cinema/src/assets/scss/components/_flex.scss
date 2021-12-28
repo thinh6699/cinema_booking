@@ -39,3 +39,9 @@
     flex: none;
   }
 }
+
+@include media-breakpoint-up(md) {
+  .d-md-flex {
+    display: flex !important;
+  }
+}

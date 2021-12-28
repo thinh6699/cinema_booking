@@ -88,7 +88,7 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    path: 'film-detail/:filmId',
+    path: '/film-detail/:filmId',
     name: 'film-detail',
     component: () => import('@/views/Films/FilmDetail.vue'),
     meta: {
@@ -104,7 +104,7 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    path: 'event-detail/:eventId',
+    path: '/event-detail/:eventId',
     name: 'event-detail',
     component: () => import('@/views/Events/EventDetail.vue'),
     meta: {
