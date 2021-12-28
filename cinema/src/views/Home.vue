@@ -8,16 +8,18 @@
         Safe, secure, reliable ticketing.Your ticket to live entertainment!
       </p>
     </Banner>
-    <div class="py-20">
+
+    <!-- Search Section -->
+    <div class="pt-20 mb-20">
       <div class="container">
         <div
           class="d-flex flex-column justify-content-center search-container p-7"
         >
           <div class="row align-items-center position-relative">
             <!-- Title and introduction -->
-            <div class="text-uppercase text-center col-lg-6">
-              <h5 class="text-success">welcome to thinh6699</h5>
-              <p class="fwb text-white fs-22">what are you looking for</p>
+            <div class="text-center col-lg-6">
+              <h5 class="text-success">WELCOME TO THINH6699</h5>
+              <p class="fwb text-white fs-22">WHAT ARE YOU LOOKING FOR</p>
             </div>
 
             <ul class="list-unstyled mb-2 col-lg-6">
@@ -81,11 +83,102 @@
                 <date-picker
                   id="date_search"
                   v-model="dateSearch"
+                  placeholder="DD/MM/YYYY"
                   type="date"
                   format="DD/MM/YYYY"
                   input-class="rounded-pill mx-input text-center bg-transparent text-white border-light-shade"
                   class="w-100"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Movie Section -->
+    <div class="movie-section mb-20">
+      <div class="container">
+        <div class="d-flex flex-column justify-content-center p-7">
+          <div class="row align-items-center">
+            <!-- Movies Title -->
+            <div class="text-center col-lg-6">
+              <h1 class="text-white">MOVIES</h1>
+              <p class="mb-7">Be sure not to miss these Movies today</p>
+            </div>
+
+            <ul class="list-unstyled mb-2 col-lg-6">
+              <div class="d-md-flex align-items-center justify-content-center">
+                <!-- Now showing film -->
+                <li
+                  class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto flex-center cursor-pointer mb-3 me-md-2 ms-md-2"
+                  :class="filmType === 'nowShowing' ? 'btn-gradient' : ''"
+                  @click="changeFilmType('nowShowing')"
+                >
+                  <img
+                    src="@/assets/images/movie.png"
+                    alt="movie-icon"
+                    class="me-1"
+                  />
+                  <span class="text-white">NOW SHOWING</span>
+                </li>
+
+                <!-- Coming soon film -->
+                <li
+                  class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto cursor-pointer flex-center mb-3 me-md-2 ms-md-2"
+                  :class="filmType === 'upComing' ? 'btn-gradient' : ''"
+                  @click="changeFilmType('upComing')"
+                >
+                  <img
+                    src="@/assets/images/event.png"
+                    alt="event-icon"
+                    class="me-1"
+                  />
+                  <span class="text-white">COMING SOON</span>
+                </li>
+              </div>
+            </ul>
+          </div>
+
+          <!-- List Film -->
+          <div class="row">
+            <div
+              v-for="film in listFilmComputed"
+              :key="film.id"
+              class="col-md-6 col-lg-4 col-xl-3 py-3"
+            >
+              <div
+                class="mw--80 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column h-100"
+              >
+                <figure class="mb-0 h--100">
+                  <img
+                    :src="film.background"
+                    alt="The Matrix Resurrections"
+                    class="rounded-top img-cover"
+                  />
+                </figure>
+                <div
+                  class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
+                >
+                  <p class="flex-1">{{ film.name }}</p>
+                  <span class="fs-16"
+                    ><span class="text-success me-2">Show time:</span>
+                    {{ moment(film.date).format('DD/MM/YYYY') }}</span
+                  >
+                </div>
+                <div class="d-flex align-items-center px-4 py-5">
+                  <div class="d-flex align-items-center me-5">
+                    <img src="@/assets/images/tomato.png" alt="" class="me-2" />
+                    <span>{{ film.rotten_tomato_rating }}%</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img src="@/assets/images/cake.png" alt="" class="me-2" />
+                    <span>{{ film.like }}%</span>
+                  </div>
+                  <span class="ms-auto text-success cursor-pointer"
+                    >See more</span
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -101,22 +194,114 @@ import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
 
+export interface IFilm {
+  id: number
+  name: string
+  background: string
+  date: string
+  rotten_tomato_rating: number
+  like: number
+}
+
 @Component({
   components: { Banner, DatePicker }
 })
 export default class Home extends Vue {
+  private currentDay: number = moment.now()
   private dateSearch: string = ''
   private inputSearch: string = ''
   private type: string = 'Movies'
+  private filmType: string = 'nowShowing'
+  private listFilmComputed: IFilm[] = []
+  private listFilm: IFilm[] = [
+    {
+      id: 1,
+      name: 'The Matrix Resurrections',
+      background: require('@/assets/images/matrix.jpg'),
+      date: '2021/12/25',
+      rotten_tomato_rating: 85,
+      like: 90
+    },
+    {
+      id: 2,
+      name: 'Spider-Man: No Way Home',
+      background: require('@/assets/images/no-way-home.jpg'),
+      date: '2021/12/26',
+      rotten_tomato_rating: 90,
+      like: 100
+    },
+    {
+      id: 3,
+      name: 'Doctor Strange in the Multiverse of Madness',
+      background: require('@/assets/images/dr-strange.jpg'),
+      date: '2021/12/27',
+      rotten_tomato_rating: 90,
+      like: 90
+    },
+    {
+      id: 4,
+      name: 'Eternals',
+      background: require('@/assets/images/eternals.png'),
+      date: '2021/12/28',
+      rotten_tomato_rating: 85,
+      like: 95
+    },
+    {
+      id: 5,
+      name: 'The Batman',
+      background: require('@/assets/images/batman.jpg'),
+      date: '2022/03/08',
+      rotten_tomato_rating: 85,
+      like: 95
+    },
+    {
+      id: 6,
+      name: 'Fantastic Beasts: The Secrets of Dumbledore',
+      background: require('@/assets/images/fanstatic.jpg'),
+      date: '2022/03/20',
+      rotten_tomato_rating: 85,
+      like: 95
+    }
+  ]
+
+  created(): void {
+    this.listFilmComputed = this.listFilm.filter(
+      (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
+    )
+  }
 
   searchData(): void {
-    const data = {
-      dateSearch: this.dateSearch
-        ? moment(this.dateSearch).format('DD/MM/YYYY')
-        : '',
-      inputSearch: this.inputSearch
+    if (!this.inputSearch && !this.dateSearch) {
+      if (this.filmType === 'nowShowing') {
+        this.listFilmComputed = this.listFilm.filter(
+          (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
+        )
+      }
+      if (this.filmType === 'upComing') {
+        this.listFilmComputed = this.listFilm.filter(
+          (item: IFilm) => moment(item.date).valueOf() > this.currentDay
+        )
+      }
+    } else if (!this.inputSearch) {
+      this.listFilmComputed = this.listFilm.filter(
+        (item: IFilm) =>
+          item.date === moment(this.dateSearch).format('YYYY/MM/DD')
+      )
+    } else if (!this.dateSearch) {
+      this.listFilmComputed = this.listFilm.filter(
+        (item: IFilm) =>
+          item.name.toLowerCase().match(this.inputSearch.toLowerCase()) &&
+          (this.filmType === 'nowShowing'
+            ? moment(item.date).valueOf() <= this.currentDay
+            : moment(item.date).valueOf() > this.currentDay)
+      )
+    } else if (this.inputSearch && this.dateSearch) {
+      this.listFilmComputed = this.listFilm.filter(
+        (item: IFilm) =>
+          item.name.toLowerCase().match(this.inputSearch.toLowerCase()) &&
+          item.date === moment(this.dateSearch).format('YYYY/MM/DD')
+      )
     }
-    console.log(data)
   }
 
   changeSearchType(type: string): void {
@@ -126,6 +311,22 @@ export default class Home extends Vue {
 
     if (type === 'Event') {
       this.type = 'Event'
+    }
+  }
+
+  changeFilmType(type: string): void {
+    if (type === 'nowShowing') {
+      this.filmType = 'nowShowing'
+      this.listFilmComputed = this.listFilm.filter(
+        (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
+      )
+    }
+
+    if (type === 'upComing') {
+      this.filmType = 'upComing'
+      this.listFilmComputed = this.listFilm.filter(
+        (item: IFilm) => moment(item.date).valueOf() > this.currentDay
+      )
     }
   }
 }
