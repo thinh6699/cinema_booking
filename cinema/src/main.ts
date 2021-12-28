@@ -5,6 +5,7 @@ import store from './store'
 import '@/globalComponent'
 import './assets/scss/index.scss'
 import './validations/validation'
+import moment from 'moment'
 
 Vue.config.productionTip = false
 
@@ -15,6 +16,8 @@ Vue.use(BootstrapVue)
 
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.component('ValidationProvider', ValidationProvider)
+
+Vue.prototype.moment = moment
 
 new Vue({
   router,

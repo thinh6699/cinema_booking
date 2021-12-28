@@ -10,7 +10,7 @@
               SUBSCRIBE TO THINH6699
             </h5>
             <h3 class="text-white fs-30 fs-lg-36 mb-12">
-              TO GET EXCLUSIVE BENIFITS
+              TO GET EXCLUSIVE BENEFITS
             </h3>
             <div class="position-relative mb-8">
               <input
