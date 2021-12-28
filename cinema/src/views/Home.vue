@@ -218,7 +218,7 @@ export default class Home extends Vue {
       id: 1,
       name: 'The Matrix Resurrections',
       background: require('@/assets/images/matrix.jpg'),
-      date: '2021/12/25',
+      date: '2021/12/26',
       rotten_tomato_rating: 85,
       like: 90
     },
