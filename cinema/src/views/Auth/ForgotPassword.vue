@@ -38,7 +38,7 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class ForgotPassword extends Vue {
-  goToResetPassowrd() {
+  goToResetPassowrd(): void {
     this.$router.push({ name: 'reset-password' })
   }
 }

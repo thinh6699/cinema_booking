@@ -10,7 +10,9 @@
     </Banner>
     <div class="py-20">
       <div class="container">
-        <div class="search-container p-7">
+        <div
+          class="d-flex flex-column justify-content-center search-container p-7"
+        >
           <div class="row align-items-center position-relative">
             <!-- Title and introduction -->
             <div class="text-uppercase text-center col-lg-6">
@@ -42,7 +44,7 @@
                 >
                   <img
                     src="@/assets/images/event.png"
-                    alt="movie-icon"
+                    alt="event-icon"
                     class="me-1"
                   />
                   <span class="text-white">EVENT</span>

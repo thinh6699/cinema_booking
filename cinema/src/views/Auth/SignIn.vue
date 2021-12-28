@@ -88,7 +88,7 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class SignIn extends Vue {
-  goToHome() {
+  goToHome(): void {
     this.$router.push({ name: 'home' })
   }
 }

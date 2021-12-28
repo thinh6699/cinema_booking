@@ -13,18 +13,18 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class ScrollToTop extends Vue {
-  public scrollPosition: any = null
+  public scrollPosition: number = 0
 
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  created(): void {
+    window.addEventListener('scroll', this.updateScroll)
   }
 
-  updateScroll() {
+  updateScroll(): void {
     this.scrollPosition = window.scrollY
   }
 
-  created() {
-    window.addEventListener('scroll', this.updateScroll)
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
 </script>
