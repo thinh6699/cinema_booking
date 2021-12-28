@@ -20,7 +20,7 @@
             class="fs-30 text-white cursor-pointer fal"
             :class="isOpen ? 'fa-times' : 'fa-bars'"
           ></i>
-          <MobileSidebar :isOpen="isOpen" @close-sidebar="isOpen = $event" />
+          <MobileSidebar :isOpen="isOpen" @update-state="updateState" />
         </div>
         <ul class="list-unstyled d-none align-items-center mb-0 d-lg-flex">
           <li>
@@ -82,14 +82,18 @@ import MobileSidebar from '@/components/MobileSidebar.vue'
 })
 export default class Header extends Vue {
   public isOpen: boolean = false
-  public scrollPosition: any = null
+  public scrollPosition: number = 0
 
-  updateScroll() {
+  created(): void {
+    window.addEventListener('scroll', this.updateScroll)
+  }
+
+  updateScroll(): void {
     this.scrollPosition = window.scrollY
   }
 
-  created() {
-    window.addEventListener('scroll', this.updateScroll)
+  updateState(isOpen: boolean): void {
+    this.isOpen = isOpen
   }
 }
 </script>

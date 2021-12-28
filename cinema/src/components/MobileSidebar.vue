@@ -55,17 +55,13 @@ export default class MobileSidebar extends Vue {
   @Prop() public isOpen!: boolean
 
   @Watch('$route.name')
-  function(newVal: any) {
-    if (newVal) {
-      let closeSidebar = this.isOpen
-      closeSidebar = false
-      this.$emit('close-sidebar', closeSidebar)
-    } else {
-      return null
-    }
+  watchRouteChange(): void {
+    let isOpen = this.isOpen
+    isOpen = false
+    this.$emit('update-state', isOpen)
   }
 
-  goToSignUp() {
+  goToSignUp(): void {
     this.$router.push({ name: 'sign-up' })
   }
 }
