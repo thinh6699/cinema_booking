@@ -3,6 +3,10 @@ body {
   color: $light-shade !important;
 }
 
+html {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
   color: initial;
@@ -126,4 +130,16 @@ img {
 .mx-icon-clear {
   right: 16px !important;
   color: white !important;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+.slick-slide > div {
+  height: 100%;
 }

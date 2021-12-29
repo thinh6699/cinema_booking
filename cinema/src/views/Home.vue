@@ -141,14 +141,15 @@
           </div>
 
           <!-- List Film -->
-          <div class="row">
+
+          <VueSlickCarousel v-bind="settings" ref="carousel">
             <div
               v-for="film in listFilmComputed"
               :key="film.id"
-              class="col-md-6 col-lg-4 col-xl-3 py-3"
+              class="px-3 d-flex h-100"
             >
               <div
-                class="mw--80 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column h-100"
+                class="mw--80 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
               >
                 <figure class="mb-0 h--100">
                   <img
@@ -167,21 +168,19 @@
                   >
                 </div>
                 <div class="d-flex align-items-center px-4 py-5">
-                  <div class="d-flex align-items-center me-5">
-                    <img src="@/assets/images/tomato.png" alt="" class="me-2" />
-                    <span>{{ film.rotten_tomato_rating }}%</span>
+                  <div class="d-flex align-items-center me-3">
+                    <img src="@/assets/images/tomato.png" alt="" class="me-1" />
+                    <span>{{ `${film.rotten_tomato_rating}%` }}</span>
                   </div>
                   <div class="d-flex align-items-center">
-                    <img src="@/assets/images/cake.png" alt="" class="me-2" />
-                    <span>{{ film.like }}%</span>
+                    <img src="@/assets/images/cake.png" alt="" class="me-1" />
+                    <span>{{ `${film.like}%` }}</span>
                   </div>
-                  <span class="ms-auto text-success cursor-pointer"
-                    >See more</span
-                  >
+                  <span class="ms-auto text-success cursor-pointer">More</span>
                 </div>
               </div>
             </div>
-          </div>
+          </VueSlickCarousel>
         </div>
       </div>
     </div>
@@ -189,10 +188,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Watch } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
+import VueSlickCarousel from 'vue-slick-carousel'
 
 export interface IFilm {
   id: number
@@ -204,7 +204,7 @@ export interface IFilm {
 }
 
 @Component({
-  components: { Banner, DatePicker }
+  components: { Banner, DatePicker, VueSlickCarousel }
 })
 export default class Home extends Vue {
   private currentDay: number = moment.now()
@@ -212,6 +212,7 @@ export default class Home extends Vue {
   private inputSearch: string = ''
   private type: string = 'Movies'
   private filmType: string = 'nowShowing'
+  private settings: any
   private listFilmComputed: IFilm[] = []
   private listFilm: IFilm[] = [
     {
@@ -264,10 +265,70 @@ export default class Home extends Vue {
     }
   ]
 
+  @Watch('listFilmComputed')
+  watchListFilmChange(): void {
+    if (this.listFilmComputed.length > 2) {
+      this.settings = {
+        autoplay: true,
+        arrows: false,
+        autoplaySpeed: 1500,
+        speed: 1000,
+        initialSlide: 0,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        swipe: false,
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      }
+    } else {
+      this.settings = {
+        autoplay: true,
+        arrows: false,
+        autoplaySpeed: 1500,
+        speed: 1000,
+        initialSlide: 0,
+        slidesToShow: this.listFilmComputed.length,
+        slidesToScroll: 1,
+        swipe: false,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      }
+    }
+  }
+
   created(): void {
     this.listFilmComputed = this.listFilm.filter(
       (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
     )
+    this.watchListFilmChange()
   }
 
   searchData(): void {
@@ -285,7 +346,10 @@ export default class Home extends Vue {
     } else if (!this.inputSearch) {
       this.listFilmComputed = this.listFilm.filter(
         (item: IFilm) =>
-          item.date === moment(this.dateSearch).format('YYYY/MM/DD')
+          item.date === moment(this.dateSearch).format('YYYY/MM/DD') &&
+          (this.filmType === 'nowShowing'
+            ? moment(item.date).valueOf() <= this.currentDay
+            : moment(item.date).valueOf() > this.currentDay)
       )
     } else if (!this.dateSearch) {
       this.listFilmComputed = this.listFilm.filter(
@@ -315,6 +379,8 @@ export default class Home extends Vue {
   }
 
   changeFilmType(type: string): void {
+    let carousel = this.$refs.carousel as any
+    console.log(carousel)
     if (type === 'nowShowing') {
       this.filmType = 'nowShowing'
       this.listFilmComputed = this.listFilm.filter(

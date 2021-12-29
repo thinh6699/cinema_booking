@@ -78,7 +78,7 @@
   }
 }
 
-@for $i from 0 through 100 {
+@for $i from 0 through 200 {
   .minh--#{$i} {
     min-height: $i * 4px;
   }
