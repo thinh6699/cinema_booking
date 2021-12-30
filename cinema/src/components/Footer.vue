@@ -34,12 +34,12 @@
 
     <div class="container">
       <div class="row align-items-center py-8 border-bottom">
-        <div class="col-12 col-md-6">
+        <div class="col-md-6">
           <router-link class="d-block mb-8 mb-md-0" :to="{ name: 'home' }">
             <img src="@/assets/images/logo.png" alt="" />
           </router-link>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-md-6">
           <ul
             class="list-unstyled d-flex align-items-center justify-content-md-end mb-0"
           >
@@ -72,13 +72,13 @@
         </div>
       </div>
       <div class="row align-items-center py-8">
-        <div class="col-12 col-lg-6">
+        <div class="col-lg-6">
           <div class="mb-5 mb-lg-0 fs-lg-18">
             Copyright © 2020.All Rights Reserved By
             <span class="text-success">THINH6699</span>
           </div>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-lg-6">
           <ul
             class="list-unstyled d-flex flex-wrap align-items-center justify-content-lg-end mb-0"
           >

@@ -27,7 +27,7 @@
             <router-link
               class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
               :to="{ name: 'all-films' }"
-              >Films</router-link
+              >Movies</router-link
             >
           </li>
           <li>

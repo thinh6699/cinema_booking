@@ -6,7 +6,7 @@
           <router-link
             class="d-block text-light-shade text-uppercase p-4 border-bottom border-white-o2"
             :to="{ name: 'all-films' }"
-            >Films</router-link
+            >Movies</router-link
           >
         </li>
         <li>
