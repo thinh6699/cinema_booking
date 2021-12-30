@@ -19,7 +19,7 @@
             <!-- Title and introduction -->
             <div class="text-center col-lg-6">
               <h5 class="text-success">WELCOME TO THINH6699</h5>
-              <p class="fwb text-white fs-22">WHAT ARE YOU LOOKING FOR</p>
+              <p class="fwb text-white fs-22">WHAT ARE YOU LOOKING FOR?</p>
             </div>
 
             <ul class="list-unstyled mb-2 col-lg-6">
@@ -141,7 +141,94 @@
           </div>
 
           <!-- List Film -->
+          <VueSlickCarousel v-bind="settings" ref="carousel">
+            <div
+              v-for="film in listFilmComputed"
+              :key="film.id"
+              class="px-3 d-flex h-100"
+            >
+              <div
+                class="mw--80 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
+              >
+                <figure class="mb-0 h--100">
+                  <img
+                    :src="film.background"
+                    alt="The Matrix Resurrections"
+                    class="rounded-top img-cover"
+                  />
+                </figure>
+                <div
+                  class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
+                >
+                  <p class="flex-1">{{ film.name }}</p>
+                  <span class="fs-16"
+                    ><span class="text-success me-2">Show time:</span>
+                    {{ moment(film.date).format('DD/MM/YYYY') }}</span
+                  >
+                </div>
+                <div class="d-flex align-items-center px-4 py-5">
+                  <div class="d-flex align-items-center me-3">
+                    <img src="@/assets/images/tomato.png" alt="" class="me-1" />
+                    <span>{{ `${film.rotten_tomato_rating}%` }}</span>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <img src="@/assets/images/cake.png" alt="" class="me-1" />
+                    <span>{{ `${film.like}%` }}</span>
+                  </div>
+                  <span class="ms-auto text-success cursor-pointer">More</span>
+                </div>
+              </div>
+            </div>
+          </VueSlickCarousel>
+        </div>
+      </div>
+    </div>
 
+    <!-- Event Section -->
+    <div class="movie-section mb-20">
+      <div class="container">
+        <div class="d-flex flex-column justify-content-center p-7">
+          <div class="row align-items-center">
+            <!-- event Title -->
+            <div class="text-center col-lg-6">
+              <h1 class="text-white">EVENTS</h1>
+              <p class="mb-7">Be sure not to miss these Event today</p>
+            </div>
+
+            <ul class="list-unstyled mb-2 col-lg-6">
+              <div class="d-md-flex align-items-center justify-content-center">
+                <!-- Now showing event -->
+                <li
+                  class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto flex-center cursor-pointer mb-3 me-md-2 ms-md-2"
+                  :class="filmType === 'nowShowing' ? 'btn-gradient' : ''"
+                  @click="changeFilmType('nowShowing')"
+                >
+                  <img
+                    src="@/assets/images/movie.png"
+                    alt="movie-icon"
+                    class="me-1"
+                  />
+                  <span class="text-white">NOW SHOWING</span>
+                </li>
+
+                <!-- Coming soon event -->
+                <li
+                  class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto cursor-pointer flex-center mb-3 me-md-2 ms-md-2"
+                  :class="filmType === 'upComing' ? 'btn-gradient' : ''"
+                  @click="changeFilmType('upComing')"
+                >
+                  <img
+                    src="@/assets/images/event.png"
+                    alt="event-icon"
+                    class="me-1"
+                  />
+                  <span class="text-white">COMING SOON</span>
+                </li>
+              </div>
+            </ul>
+          </div>
+
+          <!-- List Events -->
           <VueSlickCarousel v-bind="settings" ref="carousel">
             <div
               v-for="film in listFilmComputed"
@@ -267,60 +354,38 @@ export default class Home extends Vue {
 
   @Watch('listFilmComputed')
   watchListFilmChange(): void {
-    if (this.listFilmComputed.length > 2) {
-      this.settings = {
-        autoplay: true,
-        arrows: false,
-        autoplaySpeed: 1500,
-        speed: 1000,
-        initialSlide: 0,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        swipe: false,
-        responsive: [
-          {
-            breakpoint: 1200,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1
-            }
-          },
-          {
-            breakpoint: 992,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1
-            }
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1
-            }
+    this.settings = {
+      autoplay: true,
+      arrows: false,
+      autoplaySpeed: 1500,
+      speed: 1000,
+      initialSlide: 0,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      swipe: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
           }
-        ]
-      }
-    } else {
-      this.settings = {
-        autoplay: true,
-        arrows: false,
-        autoplaySpeed: 1500,
-        speed: 1000,
-        initialSlide: 0,
-        slidesToShow: this.listFilmComputed.length,
-        slidesToScroll: 1,
-        swipe: false,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
           }
-        ]
-      }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     }
   }
 
@@ -379,8 +444,6 @@ export default class Home extends Vue {
   }
 
   changeFilmType(type: string): void {
-    let carousel = this.$refs.carousel as any
-    console.log(carousel)
     if (type === 'nowShowing') {
       this.filmType = 'nowShowing'
       this.listFilmComputed = this.listFilm.filter(
