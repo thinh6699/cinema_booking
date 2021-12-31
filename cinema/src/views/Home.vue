@@ -162,7 +162,7 @@
                 >
                   <p class="flex-1">{{ film.name }}</p>
                   <span class="fs-16"
-                    ><span class="text-success me-2">Show time:</span>
+                    ><span class="text-success me-2">Release Date:</span>
                     {{ moment(film.date).format('DD/MM/YYYY') }}</span
                   >
                 </div>
@@ -280,15 +280,7 @@ import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
 import VueSlickCarousel from 'vue-slick-carousel'
-
-export interface IFilm {
-  id: number
-  name: string
-  background: string
-  date: string
-  rotten_tomato_rating: number
-  like: number
-}
+import { IFilm } from '@/models/index'
 
 @Component({
   components: { Banner, DatePicker, VueSlickCarousel }
@@ -307,24 +299,45 @@ export default class Home extends Vue {
       name: 'The Matrix Resurrections',
       background: require('@/assets/images/matrix.jpg'),
       date: '2021/12/26',
+      duration: '2hrs 50 min',
       rotten_tomato_rating: 85,
-      like: 90
+      like: 90,
+      category: [
+        {
+          id: 3,
+          name: 'Action'
+        }
+      ]
     },
     {
       id: 2,
       name: 'Spider-Man: No Way Home',
       background: require('@/assets/images/no-way-home.jpg'),
       date: '2021/12/26',
+      duration: '2hrs 40 min',
       rotten_tomato_rating: 90,
-      like: 100
+      like: 100,
+      category: [
+        {
+          id: 3,
+          name: 'Action'
+        }
+      ]
     },
     {
       id: 3,
       name: 'Doctor Strange in the Multiverse of Madness',
       background: require('@/assets/images/dr-strange.jpg'),
       date: '2021/12/27',
+      duration: '2hrs 15 min',
       rotten_tomato_rating: 90,
-      like: 90
+      like: 90,
+      category: [
+        {
+          id: 3,
+          name: 'Action'
+        }
+      ]
     },
     {
       id: 4,
@@ -332,23 +345,44 @@ export default class Home extends Vue {
       background: require('@/assets/images/eternals.png'),
       date: '2021/12/28',
       rotten_tomato_rating: 85,
-      like: 95
+      duration: '2hrs 50 min',
+      like: 95,
+      category: [
+        {
+          id: 3,
+          name: 'Action'
+        }
+      ]
     },
     {
       id: 5,
       name: 'The Batman',
       background: require('@/assets/images/batman.jpg'),
       date: '2022/03/08',
+      duration: '2hrs 50 min',
       rotten_tomato_rating: 85,
-      like: 95
+      like: 95,
+      category: [
+        {
+          id: 3,
+          name: 'Action'
+        }
+      ]
     },
     {
       id: 6,
       name: 'Fantastic Beasts: The Secrets of Dumbledore',
       background: require('@/assets/images/fanstatic.jpg'),
       date: '2022/03/20',
+      duration: '2hrs 50 min',
       rotten_tomato_rating: 85,
-      like: 95
+      like: 95,
+      category: [
+        {
+          id: 3,
+          name: 'Action'
+        }
+      ]
     }
   ]
 

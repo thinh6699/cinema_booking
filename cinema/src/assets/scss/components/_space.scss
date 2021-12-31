@@ -96,6 +96,16 @@
   }
 }
 
+@include media-breakpoint-up(md) {
+  .mw-md-unset {
+    max-width: unset !important;
+  }
+
+  .minw-lg-auto {
+    min-width: auto !important;
+  }
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -106,4 +116,8 @@
 
 .h-unset {
   height: unset !important;
+}
+
+.minw-unset {
+  min-width: unset !important;
 }
