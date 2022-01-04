@@ -84,7 +84,9 @@
                   class="d-flex justify-content-between align-items-center mb-4"
                 >
                   <span class="text-white fs-20">Fiter By</span>
-                  <span class="text-danger fs-16" @click="filtered"
+                  <span
+                    class="text-danger fs-16 cursor-pointer"
+                    @click="clearAllFilter"
                     >Clear all</span
                   >
                 </div>
@@ -146,70 +148,81 @@
           <div class="col-lg-9">
             <div class="list-movies mb-8">
               <div class="border p-4 rounded mb-8">
-                <div class="d-md-flex align-items-center">
-                  <div class="d-flex align-items-center me-6 mb-5 mb-md-0">
-                    <span class="w--15 flex-fixed pe-2">Show:</span>
-                    <b-dropdown
-                      right
-                      no-caret
-                      variant="light rounded-pill border shadow-none"
-                      menu-class="w-100 minw-unset bg-dark-shade border mt-1"
-                    >
-                      <template #button-content>
-                        <div
-                          class="flex-center w--15 minh--5 position-relative px-2"
+                <div
+                  class="d-md-flex align-items-center justify-content-between"
+                >
+                  <div class="d-md-flex align-items-center mb-5 mb-md-0">
+                    <div class="d-flex align-items-center me-6 mb-5 mb-md-0">
+                      <span class="w--15 flex-fixed pe-2">Show:</span>
+                      <b-dropdown
+                        right
+                        no-caret
+                        variant="light rounded-pill border shadow-none"
+                        menu-class="w-100 minw-unset bg-dark-shade border mt-1"
+                      >
+                        <template #button-content>
+                          <div
+                            class="flex-center w--15 minh--5 position-relative px-2"
+                          >
+                            <span class="pe-5 text-white">{{
+                              movieQuantity
+                            }}</span>
+                            <i
+                              class="fas fa-chevron-down fs-14 position-absolute top-50 end--1 translate-middle-y px-2 text-white"
+                            />
+                          </div>
+                        </template>
+                        <b-dropdown-item
+                          v-for="(quantity, index) in quantitys"
+                          :key="index"
+                          class="fs-15"
+                          @click="changeQuantity(quantity)"
                         >
-                          <span class="pe-5 text-white">{{
-                            movieQuantity
+                          <span class="d-inline-block text-white py-1">{{
+                            quantity
                           }}</span>
-                          <i
-                            class="fas fa-chevron-down fs-14 position-absolute top-50 end--1 translate-middle-y px-2 text-white"
-                          />
-                        </div>
-                      </template>
-                      <b-dropdown-item
-                        v-for="(quantity, index) in quantitys"
-                        :key="index"
-                        class="fs-15"
-                        @click="changeQuantity(quantity)"
-                      >
-                        <span class="d-inline-block text-white py-1">{{
-                          quantity
-                        }}</span>
-                      </b-dropdown-item>
-                    </b-dropdown>
-                  </div>
+                        </b-dropdown-item>
+                      </b-dropdown>
+                    </div>
 
-                  <div class="d-flex align-items-center mb-md-0">
-                    <span class="w--20 flex-fixed pe-2">Sort by:</span>
-                    <b-dropdown
-                      right
-                      no-caret
-                      variant="light rounded-pill border shadow-none"
-                      menu-class="w-100 minw-unset bg-dark-shade border mt-1"
-                    >
-                      <template #button-content>
-                        <div
-                          class="flex-center w--35 minh--5 position-relative px-2"
-                        >
-                          <span class="pe-7 text-white">{{ sortChoose }}</span>
-                          <i
-                            class="fas fa-chevron-down fs-14 position-absolute top-50 end--1 translate-middle-y px-2 text-white"
-                          />
-                        </div>
-                      </template>
-                      <b-dropdown-item
-                        v-for="type in filmType"
-                        :key="type.id"
-                        class="fs-15"
-                        @click="changeFilmType(type)"
+                    <div class="d-flex align-items-center mb-md-0">
+                      <span class="w--20 flex-fixed pe-2">Sort by:</span>
+                      <b-dropdown
+                        right
+                        no-caret
+                        variant="light rounded-pill border shadow-none"
+                        menu-class="w-100 minw-unset bg-dark-shade border mt-1"
                       >
-                        <span class="d-inline-block text-white py-2">{{
-                          type.name
-                        }}</span>
-                      </b-dropdown-item>
-                    </b-dropdown>
+                        <template #button-content>
+                          <div
+                            class="flex-center w--35 minh--5 position-relative px-2"
+                          >
+                            <span class="pe-7 text-white">{{
+                              sortChoose
+                            }}</span>
+                            <i
+                              class="fas fa-chevron-down fs-14 position-absolute top-50 end--1 translate-middle-y px-2 text-white"
+                            />
+                          </div>
+                        </template>
+                        <b-dropdown-item
+                          v-for="type in filmType"
+                          :key="type.id"
+                          class="fs-15"
+                          @click="changeFilmType(type)"
+                        >
+                          <span class="d-inline-block text-white py-2">{{
+                            type.name
+                          }}</span>
+                        </b-dropdown-item>
+                      </b-dropdown>
+                    </div>
                   </div>
+                  <span
+                    class="btn btn-dark-shade d-inline-block minw--25 border rounded-pill p-2 text-center cursor-pointer"
+                    @click="filtered"
+                    >Filtered</span
+                  >
                 </div>
               </div>
 
@@ -221,8 +234,11 @@
                     class="row mw--80 mx-auto mw-md-unset mb-8"
                   >
                     <div class="col-md-5 col-xl-4 mb-4 mb-md-0">
-                      <figure class="movies-poster h-100 mb-0">
-                        <img :src="film.background" class="img-cover" />
+                      <figure
+                        class="movies-poster h-100 mb-0 cursor-pointer"
+                        @click="goToMovieDetail(film)"
+                      >
+                        <img :src="film.poster" class="img-cover" />
                       </figure>
                     </div>
                     <div class="col-md-7 col-xl-8">
@@ -231,7 +247,12 @@
                         <div
                           class="movies-decription d-flex flex-column mb-8 flex-1"
                         >
-                          <p class="text-white fs-20">{{ film.name }}</p>
+                          <p
+                            class="text-white fs-20 cursor-pointer"
+                            @click="goToMovieDetail(film)"
+                          >
+                            {{ film.name }}
+                          </p>
                           <p class="text-success flex-1">
                             {{ film.duration }}
                           </p>
@@ -249,6 +270,10 @@
                               >{{ category.name }}</span
                             >
                           </div>
+                          <p>
+                            <span class="text-success me-2">Format:</span
+                            >{{ film.format }}
+                          </p>
                           <p>
                             <span class="text-success me-2">Release Date:</span>
                             {{ moment(film.date).format('DD/MM/YYYY') }}
@@ -314,6 +339,7 @@ import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import { IFilm, ICategory } from '@/models/index'
 import moment from 'moment'
+import axios from 'axios'
 
 @Component({
   components: { Banner, DatePicker }
@@ -365,121 +391,33 @@ export default class AllFilms extends Vue {
     },
     {
       id: 3,
-      name: 'Trending'
+      name: 'Up Coming'
     }
   ]
 
-  private listFilm: IFilm[] = [
-    {
-      id: 1,
-      name: 'The Matrix Resurrections',
-      background: require('@/assets/images/matrix.jpg'),
-      date: '2021/12/26',
-      duration: '2hrs 50 min',
-      rotten_tomato_rating: 85,
-      like: 90,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Spider-Man: No Way Home',
-      background: require('@/assets/images/no-way-home.jpg'),
-      date: '2021/12/26',
-      duration: '2hrs 40 min',
-      rotten_tomato_rating: 90,
-      like: 100,
-      category: [
-        {
-          id: 2,
-          name: 'Comedy'
-        },
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 3,
-      name: 'Doctor Strange in the Multiverse of Madness',
-      background: require('@/assets/images/dr-strange.jpg'),
-      date: '2021/12/27',
-      duration: '2hrs 15 min',
-      rotten_tomato_rating: 90,
-      like: 90,
-      category: [
-        {
-          id: 1,
-          name: 'Horror'
-        },
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 4,
-      name: 'Eternals',
-      background: require('@/assets/images/eternals.png'),
-      date: '2021/12/28',
-      rotten_tomato_rating: 85,
-      duration: '2hrs 50 min',
-      like: 95,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 5,
-      name: 'The Batman',
-      background: require('@/assets/images/batman.jpg'),
-      date: '2022/03/08',
-      duration: '2hrs 50 min',
-      rotten_tomato_rating: 85,
-      like: 95,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 6,
-      name: 'Fantastic Beasts: The Secrets of Dumbledore',
-      background: require('@/assets/images/fanstatic.jpg'),
-      date: '2022/03/20',
-      duration: '2hrs 50 min',
-      rotten_tomato_rating: 85,
-      like: 95,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    }
-  ]
+  private listFilmComputed: IFilm[] = []
+  private listFilm: IFilm[] = []
+
+  created(): void {
+    this.getListFilm()
+  }
 
   searchMovies(): void {
     // search movies
   }
 
-  filtered(): void {
-    const data = {
-      experienceChecked: this.experienceChecked,
-      categoryChecked: this.categoryChecked
-    }
-    console.log(data)
+  getListFilm(): void {
+    axios
+      .get('https://609b82962b549f00176e394f.mockapi.io/movies')
+      .then((response: any) => {
+        if (response.status === 200) {
+          this.listFilm = response.data
+          this.listFilmComputed = this.listFilm
+        }
+      })
+      .catch((error: any) => {
+        console.log(error)
+      })
   }
 
   changeQuantity(quantity: number): void {
@@ -488,6 +426,25 @@ export default class AllFilms extends Vue {
 
   changeFilmType(type: ICategory): void {
     this.sortChoose = type.name
+  }
+
+  filtered(): void {
+    const data = {
+      experienceChecked: this.experienceChecked,
+      categoryChecked: this.categoryChecked,
+      movieQuantity: this.movieQuantity,
+      sortChoose: this.sortChoose
+    }
+    console.log(data)
+  }
+
+  clearAllFilter(): void {
+    this.categoryChecked = []
+    this.experienceChecked = []
+  }
+
+  goToMovieDetail(film: IFilm): void {
+    this.$router.push({ name: 'film-detail', params: { filmId: `${film.id}` } })
   }
 }
 </script>

@@ -141,7 +141,7 @@
           </div>
 
           <!-- List Film -->
-          <VueSlickCarousel v-bind="settings" ref="carousel">
+          <VueSlickCarousel v-bind="settings" v-if="listFilmComputed.length">
             <div
               v-for="film in listFilmComputed"
               :key="film.id"
@@ -152,7 +152,7 @@
               >
                 <figure class="mb-0 h--100">
                   <img
-                    :src="film.background"
+                    :src="film.poster"
                     alt="The Matrix Resurrections"
                     class="rounded-top img-cover"
                   />
@@ -229,7 +229,7 @@
           </div>
 
           <!-- List Events -->
-          <VueSlickCarousel v-bind="settings" ref="carousel">
+          <VueSlickCarousel v-bind="settings" v-if="listFilmComputed.length">
             <div
               v-for="film in listFilmComputed"
               :key="film.id"
@@ -240,7 +240,7 @@
               >
                 <figure class="mb-0 h--100">
                   <img
-                    :src="film.background"
+                    :src="film.poster"
                     alt="The Matrix Resurrections"
                     class="rounded-top img-cover"
                   />
@@ -281,6 +281,7 @@ import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
 import VueSlickCarousel from 'vue-slick-carousel'
 import { IFilm } from '@/models/index'
+import axios from 'axios'
 
 @Component({
   components: { Banner, DatePicker, VueSlickCarousel }
@@ -293,98 +294,7 @@ export default class Home extends Vue {
   private filmType: string = 'nowShowing'
   private settings: any
   private listFilmComputed: IFilm[] = []
-  private listFilm: IFilm[] = [
-    {
-      id: 1,
-      name: 'The Matrix Resurrections',
-      background: require('@/assets/images/matrix.jpg'),
-      date: '2021/12/26',
-      duration: '2hrs 50 min',
-      rotten_tomato_rating: 85,
-      like: 90,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 2,
-      name: 'Spider-Man: No Way Home',
-      background: require('@/assets/images/no-way-home.jpg'),
-      date: '2021/12/26',
-      duration: '2hrs 40 min',
-      rotten_tomato_rating: 90,
-      like: 100,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 3,
-      name: 'Doctor Strange in the Multiverse of Madness',
-      background: require('@/assets/images/dr-strange.jpg'),
-      date: '2021/12/27',
-      duration: '2hrs 15 min',
-      rotten_tomato_rating: 90,
-      like: 90,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 4,
-      name: 'Eternals',
-      background: require('@/assets/images/eternals.png'),
-      date: '2021/12/28',
-      rotten_tomato_rating: 85,
-      duration: '2hrs 50 min',
-      like: 95,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 5,
-      name: 'The Batman',
-      background: require('@/assets/images/batman.jpg'),
-      date: '2022/03/08',
-      duration: '2hrs 50 min',
-      rotten_tomato_rating: 85,
-      like: 95,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    },
-    {
-      id: 6,
-      name: 'Fantastic Beasts: The Secrets of Dumbledore',
-      background: require('@/assets/images/fanstatic.jpg'),
-      date: '2022/03/20',
-      duration: '2hrs 50 min',
-      rotten_tomato_rating: 85,
-      like: 95,
-      category: [
-        {
-          id: 3,
-          name: 'Action'
-        }
-      ]
-    }
-  ]
+  private listFilm: IFilm[] = []
 
   @Watch('listFilmComputed')
   watchListFilmChange(): void {
@@ -424,10 +334,24 @@ export default class Home extends Vue {
   }
 
   created(): void {
-    this.listFilmComputed = this.listFilm.filter(
-      (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
-    )
+    this.getListFilm()
     this.watchListFilmChange()
+  }
+
+  getListFilm(): void {
+    axios
+      .get('https://609b82962b549f00176e394f.mockapi.io/movies')
+      .then((response: any) => {
+        if (response.status === 200) {
+          this.listFilm = response.data
+          this.listFilmComputed = this.listFilm.filter(
+            (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
+          )
+        }
+      })
+      .catch((error: any) => {
+        console.log(error)
+      })
   }
 
   searchData(): void {

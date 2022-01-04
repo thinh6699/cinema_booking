@@ -5,10 +5,12 @@ export interface ICategory {
 
 export interface IFilm {
   id: number
-  name: string
-  background: string
+  name: string,
+  poster: string,
+  background: string,
   date: string,
   duration: string,
+  format: string,
   rotten_tomato_rating: number
   like: number,
   category: ICategory[]
