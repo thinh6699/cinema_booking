@@ -164,7 +164,23 @@ const routes: Array<RouteConfig> = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior(to: any, from: any, savedPosition: any) {
+    // savedPosition is only available for popstate navigations.
+    if (savedPosition) return savedPosition
+
+    //prevent scroll when router change in same page
+    if (to.name === from.name) return {}
+
+    // scroll to anchor by returning the selector
+    if (to.hash) {
+      let position = { selector: to.hash }
+      return position
+    }
+
+    // scroll to top by default
+    return { x: 0, y: 0 }
+  }
 })
 
 export default router
