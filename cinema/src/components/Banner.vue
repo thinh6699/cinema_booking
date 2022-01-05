@@ -1,5 +1,5 @@
 <template>
-  <div class="banner">
+  <div class="banner" :class="isDetailBanner ? 'padding-bottom-2' : ''">
     <div
       :style="{ backgroundImage: 'url(' + bg_url + ')' }"
       class="bg-banner"
@@ -18,5 +18,6 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 @Component({})
 export default class Banner extends Vue {
   @Prop() public bg_url!: any
+  @Prop({ default: false }) public isDetailBanner!: boolean
 }
 </script>

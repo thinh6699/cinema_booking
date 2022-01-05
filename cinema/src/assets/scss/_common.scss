@@ -149,3 +149,23 @@ img {
   color: #1e2125;
   background-color: #07214e;
 }
+
+.movie-thumbnail {
+  position: absolute;
+  top: 0;
+  width: 206px;
+  height: 296px;
+  display: none;
+  border: 1px solid $border-color;
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+  @include media-breakpoint-up(xl) {
+    width: 251px;
+    height: 361px;
+  }
+  @include media-breakpoint-up(xxl) {
+    width: 296px;
+    height: 426px;
+  }
+}

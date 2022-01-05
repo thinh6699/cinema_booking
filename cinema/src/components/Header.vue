@@ -13,11 +13,11 @@
         <router-link :to="{ name: 'home' }">
           <img class="img-contain" src="@/assets/images/logo.png" alt="" />
         </router-link>
-        <div class="toggle-mobile-sidebar d-lg-none">
+        <div class="toggle-mobile-sidebar d-lg-none cursor-pointer p-4 m-n4">
           <i
             v-b-toggle="'mobile-menu'"
             @click="isOpen = !isOpen"
-            class="fs-30 text-white cursor-pointer fal"
+            class="fs-30 text-white fal"
             :class="isOpen ? 'fa-times' : 'fa-bars'"
           ></i>
           <MobileSidebar :isOpen="isOpen" @update-state="updateState" />
@@ -25,35 +25,35 @@
         <ul class="list-unstyled d-none align-items-center mb-0 d-lg-flex">
           <li>
             <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
               :to="{ name: 'all-films' }"
               >Movies</router-link
             >
           </li>
           <li>
             <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
               :to="{ name: 'all-events' }"
               >Events</router-link
             >
           </li>
           <li>
             <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
               :to="{ name: 'film-blog', params: 'film-blog' }"
               >Blog</router-link
             >
           </li>
           <li>
             <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
               :to="{ name: 'about-us' }"
               >About Us</router-link
             >
           </li>
           <li>
             <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 px-5"
+              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
               :to="{ name: 'contact' }"
               >Contact</router-link
             >
