@@ -5,7 +5,7 @@
       class="bg-banner"
     ></div>
     <div class="container">
-      <div class="text-center position-relative z-3 mw--210 mx-auto">
+      <div class="text-center position-relative z-3">
         <slot />
       </div>
     </div>
