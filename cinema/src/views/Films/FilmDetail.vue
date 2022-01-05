@@ -2,7 +2,7 @@
   <div class="movie-detail">
     <!-- Banner Section -->
     <Banner :isDetailBanner="true" :bg_url="movieDetail.background">
-      <div class="text-start offset-lg-3">
+      <div class="text-start minh--45 offset-lg-3">
         <p class="fs-22 fs-lg-30 text-white mb-6">{{ movieDetail.name }}</p>
         <div class="d-flex align-items-center mb-4">
           <div
@@ -13,7 +13,7 @@
             {{ category.name }}
           </div>
         </div>
-        <div class="d-md-flex justify-content-between">
+        <div class="d-md-flex justify-content-between" v-if="movieDetail.date">
           <div class="release-time d-flex align-items-center mb-4">
             <div class="d-flex align-items-center me-5">
               <i class="fs-18 fal fa-calendar-alt me-1"></i>
@@ -38,15 +38,16 @@
           </ul>
         </div>
       </div>
-      <div class="movie-thumbnail rounded-pill">
+      <div class="movie-thumbnail rounded">
         <img
-          :src="movieDetail.poster"
+          v-lazy="movieDetail.poster"
           :alt="movieDetail.name"
-          class="img-cover"
+          class="img-cover rounded"
         />
         <a
           class="position-absolute top-50 start-50 translate-middle"
           href="https://www.youtube.com/watch?v=OB3g37GTALc"
+          v-if="movieDetail.poster"
         >
           <img src="@/assets/images/video-button.png" />
         </a>
@@ -61,14 +62,20 @@
         <div
           class="d-flex align-items-center justify-content-center mb-6 mb-md-0"
         >
-          <div class="d-flex flex-column align-items-center px-3 px-md-5">
+          <div
+            v-if="movieDetail.rotten_tomato_rating"
+            class="d-flex flex-column align-items-center px-3 px-md-5"
+          >
             <div class="d-flex align-items-center fs-18 fs-lg-25">
               <img src="@/assets/images/tomato.png" class="me-1" />
               <span>{{ `${movieDetail.rotten_tomato_rating}%` }}</span>
             </div>
             <span class="fs-lg-22">Rotten Tomatoes</span>
           </div>
-          <div class="d-flex flex-column align-items-center px-3 px-md-5">
+          <div
+            v-if="movieDetail.like"
+            class="d-flex flex-column align-items-center px-3 px-md-5"
+          >
             <div class="d-flex align-items-center fs-18 fs-lg-25">
               <img src="@/assets/images/cake.png" class="me-1" />
               <span>{{ `${movieDetail.like}%` }}</span>
@@ -107,7 +114,6 @@ import Banner from '@/components/Banner.vue'
 })
 export default class FilmDetail extends Vue {
   private movieDetail: any = {}
-
   created(): void {
     this.getMovieDetail()
   }

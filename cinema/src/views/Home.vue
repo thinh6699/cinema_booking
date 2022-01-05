@@ -151,7 +151,10 @@
               <div
                 class="mw--80 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
               >
-                <figure class="mb-0 h--100">
+                <figure
+                  class="mb-0 h--100 cursor-pointer"
+                  @click="goToMovieDetail(film)"
+                >
                   <img
                     :src="film.poster"
                     alt="The Matrix Resurrections"
@@ -161,7 +164,12 @@
                 <div
                   class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
                 >
-                  <p class="flex-1">{{ film.name }}</p>
+                  <p
+                    class="flex-1 cursor-pointer"
+                    @click="goToMovieDetail(film)"
+                  >
+                    {{ film.name }}
+                  </p>
                   <span class="fs-16"
                     ><span class="text-success me-2">Release Date:</span>
                     {{ moment(film.date).format('DD/MM/YYYY') }}</span
@@ -416,6 +424,10 @@ export default class Home extends Vue {
         (item: IFilm) => moment(item.date).valueOf() > this.currentDay
       )
     }
+  }
+
+  goToMovieDetail(film: IFilm): void {
+    this.$router.push({ name: 'film-detail', params: { filmId: `${film.id}` } })
   }
 }
 </script>

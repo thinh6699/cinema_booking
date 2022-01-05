@@ -6,6 +6,7 @@ import '@/globalComponent'
 import './assets/scss/index.scss'
 import './validations/validation'
 import moment from 'moment'
+import VueLazyload from 'vue-lazyload'
 
 Vue.config.productionTip = false
 
@@ -13,6 +14,12 @@ import { BootstrapVue } from 'bootstrap-vue'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 
 Vue.use(BootstrapVue)
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: require('@/assets/images/not-found.gif'),
+  loading: require('@/assets/images/loading.gif'),
+  attempt: 1
+})
 
 Vue.component('ValidationObserver', ValidationObserver)
 Vue.component('ValidationProvider', ValidationProvider)

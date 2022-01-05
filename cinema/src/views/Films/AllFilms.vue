@@ -222,7 +222,7 @@
                   <span
                     class="btn btn-dark-shade d-inline-block minw--25 border rounded-pill p-2 text-center cursor-pointer"
                     @click="filtered"
-                    >Filtered</span
+                    >Filter</span
                   >
                 </div>
               </div>
@@ -239,7 +239,7 @@
                         class="movies-poster h-100 mb-0 cursor-pointer"
                         @click="goToMovieDetail(film)"
                       >
-                        <img :src="film.poster" class="img-cover" />
+                        <img v-lazy="film.poster" class="img-cover" />
                       </figure>
                     </div>
                     <div class="col-md-7 col-xl-8">
