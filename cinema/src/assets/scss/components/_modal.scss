@@ -19,7 +19,7 @@ button.close {
   align-items: baseline;
   & .close {
     padding: 1rem;
-    margin: -1rem -1rem -1rem auto;
+    margin: -1rem 0 -1rem auto;
   }
 }
 
@@ -39,4 +39,20 @@ body.modal-open {
 
 .modal-footer {
   border: none;
+}
+
+#modal-trailer {
+  & .modal-content {
+    background-color: transparent;
+    border: none;
+  }
+
+  & .close {
+    color: #fff;
+    opacity: 1;
+  }
+
+  &.modal {
+    background: rgba(0, 0, 0, 0.7);
+  }
 }

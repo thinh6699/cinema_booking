@@ -8,12 +8,15 @@
           <div
             v-for="category in movieDetail.category"
             :key="category.id"
-            class="minw--30 rounded-pill border p-2 border-light-shade text-center me-3"
+            class="minw--30 rounded-pill border border-light-shade text-center me-3 p-2"
           >
             {{ category.name }}
           </div>
         </div>
-        <div class="d-md-flex justify-content-between" v-if="movieDetail.date">
+        <div
+          class="d-md-flex justify-content-between mb-4"
+          v-if="movieDetail.date"
+        >
           <div class="release-time d-flex align-items-center mb-4">
             <div class="d-flex align-items-center me-5">
               <i class="fs-18 fal fa-calendar-alt me-1"></i>
@@ -35,6 +38,12 @@
             <li class="h--6 w--6 cursor-pointer flex-center me-4">
               <i class="fab fa-google"></i>
             </li>
+            <div
+              class="d-block d-lg-none btn btn-dark-shade minw--30 rounded-pill border border-light-shade text-center p-2"
+              @click="openTrailer"
+            >
+              Watch Trailer
+            </div>
           </ul>
         </div>
       </div>
@@ -44,13 +53,13 @@
           :alt="movieDetail.name"
           class="img-cover rounded"
         />
-        <a
-          class="position-absolute top-50 start-50 translate-middle"
-          href="https://www.youtube.com/watch?v=OB3g37GTALc"
+        <div
+          class="position-absolute top-50 start-50 translate-middle cursor-pointer"
           v-if="movieDetail.poster"
+          @click="openTrailer"
         >
           <img src="@/assets/images/video-button.png" />
-        </a>
+        </div>
       </div>
     </Banner>
 
@@ -66,7 +75,7 @@
             v-if="movieDetail.rotten_tomato_rating"
             class="d-flex flex-column align-items-center px-3 px-md-5"
           >
-            <div class="d-flex align-items-center fs-18 fs-lg-25">
+            <div class="d-flex align-items-center fs-18 fs-lg-22">
               <img src="@/assets/images/tomato.png" class="me-1" />
               <span>{{ `${movieDetail.rotten_tomato_rating}%` }}</span>
             </div>
@@ -76,7 +85,7 @@
             v-if="movieDetail.like"
             class="d-flex flex-column align-items-center px-3 px-md-5"
           >
-            <div class="d-flex align-items-center fs-18 fs-lg-25">
+            <div class="d-flex align-items-center fs-18 fs-lg-22">
               <img src="@/assets/images/cake.png" class="me-1" />
               <span>{{ `${movieDetail.like}%` }}</span>
             </div>
@@ -99,6 +108,10 @@
     <div class="py-20 px-4 movie-decription">
       <div class="container">123</div>
     </div>
+    <ModalTrailer
+      :trailerUrl="movieDetail.trailer_url"
+      :movieName="movieDetail.name"
+    />
   </div>
 </template>
 
@@ -106,14 +119,17 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
 import MovieService from '@/services/MovieService'
+import ModalTrailer from '@/components/Modals/ModalTrailer.vue'
 
 @Component({
   components: {
-    Banner
+    Banner,
+    ModalTrailer
   }
 })
 export default class FilmDetail extends Vue {
   private movieDetail: any = {}
+
   created(): void {
     this.getMovieDetail()
   }
@@ -128,6 +144,10 @@ export default class FilmDetail extends Vue {
       .catch((error: any) => {
         console.log(error)
       })
+  }
+
+  openTrailer(): void {
+    this.$bvModal.show('modal-trailer')
   }
 }
 </script>
