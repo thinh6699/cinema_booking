@@ -290,7 +290,7 @@ import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
 import VueSlickCarousel from 'vue-slick-carousel'
 import { IFilm } from '@/models/index'
-import axios from 'axios'
+import MovieService from '@/services/MovieService'
 
 @Component({
   components: { Banner, DatePicker, VueSlickCarousel }
@@ -348,8 +348,7 @@ export default class Home extends Vue {
   }
 
   getListFilm(): void {
-    axios
-      .get('https://609b82962b549f00176e394f.mockapi.io/movies')
+    MovieService.getAllMovies()
       .then((response: any) => {
         if (response.status === 200) {
           this.listFilm = response.data

@@ -339,8 +339,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import { IFilm, ICategory } from '@/models/index'
-import moment from 'moment'
-import axios from 'axios'
+import MovieService from '@/services/MovieService'
 
 @Component({
   components: { Banner, DatePicker }
@@ -408,8 +407,7 @@ export default class AllFilms extends Vue {
   }
 
   getListFilm(): void {
-    axios
-      .get('https://609b82962b549f00176e394f.mockapi.io/movies')
+    MovieService.getAllMovies()
       .then((response: any) => {
         if (response.status === 200) {
           this.listFilm = response.data

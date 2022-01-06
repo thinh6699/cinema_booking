@@ -104,8 +104,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import axios from 'axios'
 import Banner from '@/components/Banner.vue'
+import MovieService from '@/services/MovieService'
 
 @Component({
   components: {
@@ -119,10 +119,7 @@ export default class FilmDetail extends Vue {
   }
 
   getMovieDetail(): void {
-    axios
-      .get(
-        `https://609b82962b549f00176e394f.mockapi.io/movies/${this.$route.params.filmId}`
-      )
+    MovieService.getMovieById(this.$route.params.filmId)
       .then((response: any) => {
         if (response.status === 200) {
           this.movieDetail = response.data
