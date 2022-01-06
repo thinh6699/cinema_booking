@@ -32,6 +32,13 @@
 @import './components/flex';
 @import './components/modal';
 @import './components/sidebar';
+@import './components/vue-slick';
+@import './components/calendar';
+@import './components/footer';
+
+// Style for pages
+@import './views/auth';
+@import './views/movie-detail';
 
 //date picker
 @import '~vue2-datepicker/scss/index';
