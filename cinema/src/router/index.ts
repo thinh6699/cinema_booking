@@ -68,11 +68,10 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/blogs',
-    redirect: '/blogs',
     component: LayoutDefault,
     children: [
       {
-        path: '',
+        path: '/blogs',
         name: 'blogs',
         component: () => import('@/views/Blog/FilmBlog.vue'),
         meta: {
@@ -91,11 +90,10 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/movies',
-    redirect: '/movies',
     component: LayoutDefault,
     children: [
       {
-        path: '',
+        path: '/movies',
         name: 'movies',
         component: () => import('@/views/Films/AllFilms.vue'),
         meta: {
@@ -114,11 +112,10 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/events',
-    redirect: '/events',
     component: LayoutDefault,
     children: [
       {
-        path: '',
+        path: '/events',
         name: 'events',
         component: () => import('@/views/Events/AllEvents.vue'),
         meta: {
