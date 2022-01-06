@@ -13,7 +13,8 @@ const routes: Array<RouteConfig> = [
     component: Home,
     meta: {
       layout: LayoutDefault,
-      hasBanner: true
+      hasBanner: true,
+      title: 'Home'
     }
   },
   {
@@ -21,7 +22,8 @@ const routes: Array<RouteConfig> = [
     name: 'sign-up',
     component: () => import('@/views/Auth/SignUp.vue'),
     meta: {
-      layout: LayoutAuth
+      layout: LayoutAuth,
+      title: 'Sign Up'
     }
   },
   {
@@ -29,7 +31,8 @@ const routes: Array<RouteConfig> = [
     name: 'sign-in',
     component: () => import('@/views/Auth/SignIn.vue'),
     meta: {
-      layout: LayoutAuth
+      layout: LayoutAuth,
+      title: 'Sign In'
     }
   },
   {
@@ -37,7 +40,8 @@ const routes: Array<RouteConfig> = [
     name: 'forgot-password',
     component: () => import('@/views/Auth/ForgotPassword.vue'),
     meta: {
-      layout: LayoutAuth
+      layout: LayoutAuth,
+      title: 'Forgot Password'
     }
   },
   {
@@ -45,7 +49,8 @@ const routes: Array<RouteConfig> = [
     name: 'reset-password',
     component: () => import('@/views/Auth/ResetPassword.vue'),
     meta: {
-      layout: LayoutAuth
+      layout: LayoutAuth,
+      title: 'Reset Password'
     }
   },
   {
@@ -54,7 +59,8 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/Contact.vue'),
     meta: {
       layout: LayoutDefault,
-      hasBanner: true
+      hasBanner: true,
+      title: 'Contact'
     }
   },
   {
@@ -63,7 +69,8 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/AboutUs.vue'),
     meta: {
       layout: LayoutDefault,
-      hasBanner: true
+      hasBanner: true,
+      title: 'About Us'
     }
   },
   {
@@ -75,7 +82,8 @@ const routes: Array<RouteConfig> = [
         name: 'blogs',
         component: () => import('@/views/Blog/AllBlog.vue'),
         meta: {
-          hasBanner: true
+          hasBanner: true,
+          title: 'Blogs'
         },
       },
       {
@@ -83,7 +91,8 @@ const routes: Array<RouteConfig> = [
         name: 'blog-detail',
         component: () => import('@/views/Blog/BlogDetail.vue'),
         meta: {
-          hasBanner: true
+          hasBanner: true,
+          title: 'Blog Detail'
         },
       },
     ]
@@ -97,7 +106,8 @@ const routes: Array<RouteConfig> = [
         name: 'movies',
         component: () => import('@/views/Movies/AllMovies.vue'),
         meta: {
-          hasBanner: true
+          hasBanner: true,
+          title: 'Movies'
         },
       },
       {
@@ -105,7 +115,8 @@ const routes: Array<RouteConfig> = [
         name: 'movie-detail',
         component: () => import('@/views/Movies/MovieDetail.vue'),
         meta: {
-          hasBanner: true
+          hasBanner: true,
+          title: 'Movie Detail'
         },
       },
     ]
@@ -119,7 +130,8 @@ const routes: Array<RouteConfig> = [
         name: 'events',
         component: () => import('@/views/Events/AllEvents.vue'),
         meta: {
-          hasBanner: true
+          hasBanner: true,
+          title: 'Events'
         },
       },
       {
@@ -127,7 +139,8 @@ const routes: Array<RouteConfig> = [
         name: 'event-detail',
         component: () => import('@/views/Events/EventDetail.vue'),
         meta: {
-          hasBanner: true
+          hasBanner: true,
+          title: 'Event Detail'
         },
       },
     ]
@@ -138,7 +151,8 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/Booking/TicketPlan.vue'),
     meta: {
       layout: LayoutDefault,
-      hasBanner: true
+      hasBanner: true,
+      title: 'Ticket Plan'
     }
   },
   {
@@ -147,7 +161,8 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/Booking/SeatPlan.vue'),
     meta: {
       layout: LayoutDefault,
-      hasBanner: true
+      hasBanner: true,
+      title: 'Seat Plan'
     }
   },
   {
@@ -156,7 +171,8 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/Booking/TicketCheckout.vue'),
     meta: {
       layout: LayoutDefault,
-      hasBanner: true
+      hasBanner: true,
+      title: 'Ticket Checkout'
     }
   },
   {
@@ -165,7 +181,8 @@ const routes: Array<RouteConfig> = [
     component: () => import('@/views/PageNotFound.vue'),
     meta: {
       layout: LayoutDefault,
-      hasBanner: true
+      hasBanner: true,
+      title: 'Page Not Found'
     }
   }
 ]
@@ -189,6 +206,10 @@ const router = new VueRouter({
     // scroll to top by default
     return { x: 0, y: 0 }
   }
+})
+
+router.afterEach((to: any, from: any) => {
+  document.title = to.meta.title
 })
 
 export default router
