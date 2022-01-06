@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen d-flex flex-column">
     <Header />
-    <main class="flex-1">
+    <main class="flex-1" :class="$route.meta.hasBanner ? '' : 'mt-20'">
       <router-view></router-view>
     </main>
     <ScrollToTop />

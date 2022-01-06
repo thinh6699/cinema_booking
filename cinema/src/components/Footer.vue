@@ -44,29 +44,12 @@
             class="list-unstyled d-flex align-items-center justify-content-md-end mb-0"
           >
             <li
-              class="border border-white active rounded-circle h--10 w--10 cursor-pointer me-4 flex-center"
-            >
-              <i class="text-white fab fa-facebook-f"></i>
-            </li>
-            <li
-              class="border border-white active rounded-circle h--10 w--10 cursor-pointer me-4 flex-center"
-            >
-              <i class="text-white fab fa-line"></i>
-            </li>
-            <li
-              class="border border-white active rounded-circle h--10 w--10 cursor-pointer flex-center me-4"
-            >
-              <i class="text-white fab fa-instagram"></i>
-            </li>
-            <li
-              class="border border-white active rounded-circle h--10 w--10 cursor-pointer flex-center me-4"
-            >
-              <i class="text-white fab fa-google"></i>
-            </li>
-            <li
+              v-for="(icon, index) in socialIcons"
+              :key="index"
               class="border border-white active rounded-circle h--10 w--10 cursor-pointer flex-center"
+              :class="index !== socialIcons.length - 1 ? 'me-4' : ''"
             >
-              <i class="text-white fab fa-twitter"></i>
+              <i class="text-white fab" :class="icon"></i>
             </li>
           </ul>
         </div>
@@ -98,5 +81,13 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class Footer extends Vue {}
+export default class Footer extends Vue {
+  private socialIcons: any[] = [
+    'fa-facebook-f',
+    'fa-line',
+    'fa-instagram',
+    'fa-google',
+    'fa-twitter'
+  ]
+}
 </script>

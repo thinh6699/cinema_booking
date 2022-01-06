@@ -12,7 +12,8 @@ const routes: Array<RouteConfig> = [
     name: 'home',
     component: Home,
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   },
   {
@@ -52,7 +53,8 @@ const routes: Array<RouteConfig> = [
     name: 'contact',
     component: () => import('@/views/Contact.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   },
   {
@@ -60,7 +62,8 @@ const routes: Array<RouteConfig> = [
     name: 'about-us',
     component: () => import('@/views/AboutUs.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   },
   {
@@ -68,7 +71,8 @@ const routes: Array<RouteConfig> = [
     name: 'film-blog',
     component: () => import('@/views/Blog/FilmBlog.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     },
   },
   {
@@ -76,7 +80,8 @@ const routes: Array<RouteConfig> = [
     name: 'blog-detail',
     component: () => import('@/views/Blog/FilmBlogDetail.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     },
   },
   {
@@ -84,7 +89,8 @@ const routes: Array<RouteConfig> = [
     name: 'all-films',
     component: () => import('@/views/Films/AllFilms.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     },
   },
   {
@@ -92,7 +98,8 @@ const routes: Array<RouteConfig> = [
     name: 'film-detail',
     component: () => import('@/views/Films/FilmDetail.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     },
   },
   {
@@ -100,7 +107,8 @@ const routes: Array<RouteConfig> = [
     name: 'all-events',
     component: () => import('@/views/Events/AllEvents.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     },
   },
   {
@@ -108,7 +116,8 @@ const routes: Array<RouteConfig> = [
     name: 'event-detail',
     component: () => import('@/views/Events/EventDetail.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     },
   },
   {
@@ -116,7 +125,8 @@ const routes: Array<RouteConfig> = [
     name: 'ticket-plan',
     component: () => import('@/views/Booking/TicketPlan.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   },
   {
@@ -124,7 +134,8 @@ const routes: Array<RouteConfig> = [
     name: 'seat-plan',
     component: () => import('@/views/Booking/SeatPlan.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   },
   {
@@ -132,7 +143,8 @@ const routes: Array<RouteConfig> = [
     name: 'ticket-checkout',
     component: () => import('@/views/Booking/TicketCheckout.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   },
   {
@@ -140,7 +152,8 @@ const routes: Array<RouteConfig> = [
     name: 'user-manage',
     component: () => import('@/views/Manage/UserManage.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   },
   {
@@ -148,7 +161,8 @@ const routes: Array<RouteConfig> = [
     name: 'film-manage',
     component: () => import('@/views/Manage/FilmManage.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   },
   {
@@ -156,14 +170,14 @@ const routes: Array<RouteConfig> = [
     name: 'page-not-found',
     component: () => import('@/views/PageNotFound.vue'),
     meta: {
-      layout: LayoutDefault
+      layout: LayoutDefault,
+      hasBanner: true
     }
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
   routes,
   scrollBehavior(to: any, from: any, savedPosition: any) {
     // savedPosition is only available for popstate navigations.

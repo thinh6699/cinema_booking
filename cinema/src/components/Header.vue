@@ -4,7 +4,7 @@
       'bg-dark': isOpen,
       'bg-dark-tint': scrollPosition > 0
     }"
-    class="fixed-top border-bottom h--20 h-lg--25"
+    class="fixed-top border-bottom h--20"
   >
     <div class="container h-100">
       <div
@@ -22,43 +22,19 @@
           ></i>
           <MobileSidebar :isOpen="isOpen" @update-state="updateState" />
         </div>
-        <ul class="list-unstyled d-none align-items-center mb-0 d-lg-flex">
-          <li>
+        <ul
+          class="list-unstyled d-none align-items-center mb-0 d-lg-flex h-100"
+        >
+          <li v-for="(menu, index) in headerMenu" :key="index" class="h-100">
             <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
-              :to="{ name: 'all-films' }"
-              >Movies</router-link
+              class="w--22 flex-center h-100 text-light-shade fs-lg-17 fwb-500 text-center text-uppercase py-4 mx-3"
+              :class="$route.path.includes(menu.link) ? 'nav-active' : ''"
+              :to="{ name: menu.link }"
+              >{{ menu.name }}</router-link
             >
           </li>
-          <li>
-            <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
-              :to="{ name: 'all-events' }"
-              >Events</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
-              :to="{ name: 'film-blog', params: 'film-blog' }"
-              >Blog</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
-              :to="{ name: 'about-us' }"
-              >About Us</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              class="d-block text-light-shade fs-lg-18 fwb-500 text-uppercase py-4 mx-5"
-              :to="{ name: 'contact' }"
-              >Contact</router-link
-            >
-          </li>
-          <li class="ms-5">
+
+          <li class="ms-3">
             <router-link
               :to="{ name: 'sign-up' }"
               class="btn btn-gradient h-unset shadow-none py-4 px-11"
@@ -83,6 +59,28 @@ import MobileSidebar from '@/components/MobileSidebar.vue'
 export default class Header extends Vue {
   public isOpen: boolean = false
   public scrollPosition: number = 0
+  public headerMenu: any[] = [
+    {
+      name: 'Movies',
+      link: 'all-films'
+    },
+    {
+      name: 'Events',
+      link: 'all-events'
+    },
+    {
+      name: 'Blog',
+      link: 'film-blog'
+    },
+    {
+      name: 'About Us',
+      link: 'about-us'
+    },
+    {
+      name: 'Contact',
+      link: 'contact'
+    }
+  ]
 
   created(): void {
     window.addEventListener('scroll', this.updateScroll)
