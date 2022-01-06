@@ -135,10 +135,13 @@ export default class FilmDetail extends Vue {
   }
 
   getMovieDetail(): void {
-    MovieService.getMovieById(this.$route.params.filmId)
+    MovieService.getMovieById(this.$route.params.movieId)
       .then((response: any) => {
         if (response.status === 200) {
           this.movieDetail = response.data
+          if (this.$route.params.openTrailer) {
+            this.openTrailer()
+          }
         }
       })
       .catch((error: any) => {

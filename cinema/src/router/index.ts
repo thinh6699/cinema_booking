@@ -67,58 +67,73 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/film-blog',
-    name: 'film-blog',
-    component: () => import('@/views/Blog/FilmBlog.vue'),
-    meta: {
-      layout: LayoutDefault,
-      hasBanner: true
-    },
+    path: '/blogs',
+    redirect: '/blogs',
+    component: LayoutDefault,
+    children: [
+      {
+        path: '',
+        name: 'blogs',
+        component: () => import('@/views/Blog/FilmBlog.vue'),
+        meta: {
+          hasBanner: true
+        },
+      },
+      {
+        path: ':blogId/detail',
+        name: 'blog-detail',
+        component: () => import('@/views/Blog/FilmBlogDetail.vue'),
+        meta: {
+          hasBanner: true
+        },
+      },
+    ]
   },
   {
-    path: '/blog-detail/:blogId',
-    name: 'blog-detail',
-    component: () => import('@/views/Blog/FilmBlogDetail.vue'),
-    meta: {
-      layout: LayoutDefault,
-      hasBanner: true
-    },
+    path: '/movies',
+    redirect: '/movies',
+    component: LayoutDefault,
+    children: [
+      {
+        path: '',
+        name: 'movies',
+        component: () => import('@/views/Films/AllFilms.vue'),
+        meta: {
+          hasBanner: true
+        },
+      },
+      {
+        path: ':movieId/detail',
+        name: 'movie-detail',
+        component: () => import('@/views/Films/FilmDetail.vue'),
+        meta: {
+          hasBanner: true
+        },
+      },
+    ]
   },
   {
-    path: '/all-films',
-    name: 'all-films',
-    component: () => import('@/views/Films/AllFilms.vue'),
-    meta: {
-      layout: LayoutDefault,
-      hasBanner: true
-    },
-  },
-  {
-    path: '/film-detail/:filmId',
-    name: 'film-detail',
-    component: () => import('@/views/Films/FilmDetail.vue'),
-    meta: {
-      layout: LayoutDefault,
-      hasBanner: true
-    },
-  },
-  {
-    path: '/all-events',
-    name: 'all-events',
-    component: () => import('@/views/Events/AllEvents.vue'),
-    meta: {
-      layout: LayoutDefault,
-      hasBanner: true
-    },
-  },
-  {
-    path: '/event-detail/:eventId',
-    name: 'event-detail',
-    component: () => import('@/views/Events/EventDetail.vue'),
-    meta: {
-      layout: LayoutDefault,
-      hasBanner: true
-    },
+    path: '/events',
+    redirect: '/events',
+    component: LayoutDefault,
+    children: [
+      {
+        path: '',
+        name: 'events',
+        component: () => import('@/views/Events/AllEvents.vue'),
+        meta: {
+          hasBanner: true
+        },
+      },
+      {
+        path: ':eventId/detail',
+        name: 'event-detail',
+        component: () => import('@/views/Events/EventDetail.vue'),
+        meta: {
+          hasBanner: true
+        },
+      },
+    ]
   },
   {
     path: '/ticket-plan',
@@ -142,24 +157,6 @@ const routes: Array<RouteConfig> = [
     path: '/ticket-checkout',
     name: 'ticket-checkout',
     component: () => import('@/views/Booking/TicketCheckout.vue'),
-    meta: {
-      layout: LayoutDefault,
-      hasBanner: true
-    }
-  },
-  {
-    path: '/user-manage',
-    name: 'user-manage',
-    component: () => import('@/views/Manage/UserManage.vue'),
-    meta: {
-      layout: LayoutDefault,
-      hasBanner: true
-    }
-  },
-  {
-    path: '/film-manage',
-    name: 'film-manage',
-    component: () => import('@/views/Manage/FilmManage.vue'),
     meta: {
       layout: LayoutDefault,
       hasBanner: true

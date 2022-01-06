@@ -426,7 +426,10 @@ export default class Home extends Vue {
   }
 
   goToMovieDetail(film: IFilm): void {
-    this.$router.push({ name: 'film-detail', params: { filmId: `${film.id}` } })
+    this.$router.push({
+      name: 'movie-detail',
+      params: { movieId: `${film.id}` }
+    })
   }
 }
 </script>

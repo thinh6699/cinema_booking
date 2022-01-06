@@ -62,15 +62,15 @@ export default class Header extends Vue {
   public headerMenu: any[] = [
     {
       name: 'Movies',
-      link: 'all-films'
+      link: 'movies'
     },
     {
       name: 'Events',
-      link: 'all-events'
+      link: 'events'
     },
     {
       name: 'Blog',
-      link: 'film-blog'
+      link: 'blogs'
     },
     {
       name: 'About Us',

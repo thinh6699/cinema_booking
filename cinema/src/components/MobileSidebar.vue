@@ -2,41 +2,18 @@
   <b-sidebar no-header id="mobile-menu" shadow>
     <div class="p-4">
       <ul class="list-unstyled mb-0">
-        <li>
+        <li
+          v-for="(menu, index) in headerMenu"
+          :key="index"
+          :class="index === headerMenu.length - 1 ? 'mb-4' : ''"
+        >
           <router-link
             class="d-block text-light-shade text-uppercase p-4 border-bottom border-white-o2"
-            :to="{ name: 'all-films' }"
-            >Movies</router-link
+            :to="{ name: menu.link }"
+            >{{ menu.name }}</router-link
           >
         </li>
-        <li>
-          <router-link
-            class="d-block text-light-shade text-uppercase p-4 border-bottom border-white-o2"
-            :to="{ name: 'all-events' }"
-            >Events</router-link
-          >
-        </li>
-        <li>
-          <router-link
-            class="d-block text-light-shade text-uppercase p-4 border-bottom border-white-o2"
-            :to="{ name: 'film-blog', params: 'film-blog' }"
-            >Blog</router-link
-          >
-        </li>
-        <li>
-          <router-link
-            class="d-block text-light-shade text-uppercase p-4 border-bottom border-white-o2"
-            :to="{ name: 'about-us' }"
-            >About Us</router-link
-          >
-        </li>
-        <li class="mb-4">
-          <router-link
-            class="d-block text-light-shade text-uppercase p-4 border-bottom border-white-o2"
-            :to="{ name: 'contact' }"
-            >Contact</router-link
-          >
-        </li>
+
         <li class="mw--40">
           <button @click="goToSignUp" class="btn btn-gradient shadow-none">
             join us
@@ -53,6 +30,28 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 @Component({})
 export default class MobileSidebar extends Vue {
   @Prop() public isOpen!: boolean
+  private headerMenu: any[] = [
+    {
+      name: 'Movies',
+      link: 'movies'
+    },
+    {
+      name: 'Events',
+      link: 'events'
+    },
+    {
+      name: 'Blog',
+      link: 'blogs'
+    },
+    {
+      name: 'About Us',
+      link: 'about-us'
+    },
+    {
+      name: 'Contact',
+      link: 'contact'
+    }
+  ]
 
   @Watch('$route.name')
   watchRouteChange(): void {

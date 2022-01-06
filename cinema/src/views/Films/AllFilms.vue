@@ -1,5 +1,5 @@
 <template>
-  <div class="all-films">
+  <div class="all-movies">
     <!-- Banner Section -->
     <Banner :bg_url="require('@/assets/images/banner-film-section.jpg')">
       <h1 class="text-white text-uppercase fwb fs-36 fs-lg-80 mb-4">
@@ -309,7 +309,10 @@
                             </div>
                             <span class="text-white">Book ticket</span>
                           </div>
-                          <div class="d-flex align-items-center">
+                          <div
+                            class="d-flex align-items-center cursor-pointer"
+                            @click="goToMovieDetail(film, true)"
+                          >
                             <div
                               class="flex-center w--9 h--9 me-2 p-2 bg-dark-tint-1 rounded-circle"
                             >
@@ -442,8 +445,11 @@ export default class AllFilms extends Vue {
     this.experienceChecked = []
   }
 
-  goToMovieDetail(film: IFilm): void {
-    this.$router.push({ name: 'film-detail', params: { filmId: `${film.id}` } })
+  goToMovieDetail(film: IFilm, openTrailer: any): void {
+    this.$router.push({
+      name: 'movie-detail',
+      params: { movieId: `${film.id}`, openTrailer: openTrailer }
+    })
   }
 }
 </script>
