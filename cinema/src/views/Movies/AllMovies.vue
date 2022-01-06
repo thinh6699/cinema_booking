@@ -207,10 +207,10 @@
                           </div>
                         </template>
                         <b-dropdown-item
-                          v-for="type in filmType"
+                          v-for="type in movieType"
                           :key="type.id"
                           class="fs-15"
-                          @click="changeFilmType(type)"
+                          @click="changeMovieType(type)"
                         >
                           <span class="d-inline-block text-white py-2">{{
                             type.name
@@ -230,16 +230,16 @@
               <div class="list-movies">
                 <div class="container px-0">
                   <div
-                    v-for="film in listFilm"
-                    :key="film.id"
+                    v-for="movie in listMovie"
+                    :key="movie.id"
                     class="row mw--80 mx-auto mw-md-unset mb-8"
                   >
                     <div class="col-md-5 col-xl-4 mb-4 mb-md-0">
                       <figure
                         class="movies-poster h-100 mb-0 cursor-pointer"
-                        @click="goToMovieDetail(film)"
+                        @click="goToMovieDetail(movie)"
                       >
-                        <img v-lazy="film.poster" class="img-cover" />
+                        <img v-lazy="movie.poster" class="img-cover" />
                       </figure>
                     </div>
                     <div class="col-md-7 col-xl-8">
@@ -250,20 +250,20 @@
                         >
                           <p
                             class="text-white fs-20 cursor-pointer"
-                            @click="goToMovieDetail(film)"
+                            @click="goToMovieDetail(movie)"
                           >
-                            {{ film.name }}
+                            {{ movie.name }}
                           </p>
                           <p class="text-success flex-1">
-                            {{ film.duration }}
+                            {{ movie.duration }}
                           </p>
                           <div class="mb-4">
                             <span
-                              v-for="(category, index) in film.category"
+                              v-for="(category, index) in movie.category"
                               :key="category.id"
                               class="pe-3 border-white border-2"
                               :class="[
-                                index !== film.category.length - 1
+                                index !== movie.category.length - 1
                                   ? 'border-end'
                                   : '',
                                 index !== 0 ? 'ps-3' : ''
@@ -273,11 +273,11 @@
                           </div>
                           <p>
                             <span class="text-success me-2">Format:</span
-                            >{{ film.format }}
+                            >{{ movie.format }}
                           </p>
                           <p>
                             <span class="text-success me-2">Release Date:</span>
-                            {{ moment(film.date).format('DD/MM/YYYY') }}
+                            {{ moment(movie.date).format('DD/MM/YYYY') }}
                           </p>
                           <div
                             class="d-flex align-items-center mb-2 mb-md-4 pt-md-8"
@@ -286,11 +286,11 @@
                               src="@/assets/images/tomato.png"
                               class="me-3"
                             />
-                            <span>{{ `${film.rotten_tomato_rating}%` }}</span>
+                            <span>{{ `${movie.rotten_tomato_rating}%` }}</span>
                           </div>
                           <div class="d-flex align-items-center">
                             <img src="@/assets/images/cake.png" class="me-3" />
-                            <span>{{ `${film.like}%` }}</span>
+                            <span>{{ `${movie.like}%` }}</span>
                           </div>
                         </div>
 
@@ -311,7 +311,7 @@
                           </div>
                           <div
                             class="d-flex align-items-center cursor-pointer"
-                            @click="goToMovieDetail(film, true)"
+                            @click="goToMovieDetail(movie, true)"
                           >
                             <div
                               class="flex-center w--9 h--9 me-2 p-2 bg-dark-tint-1 rounded-circle"
@@ -341,13 +341,13 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
-import { IFilm, ICategory } from '@/models/index'
+import { IMovie, ICategory } from '@/models/index'
 import MovieService from '@/services/MovieService'
 
 @Component({
   components: { Banner, DatePicker }
 })
-export default class AllFilms extends Vue {
+export default class AllMovies extends Vue {
   private dateSearch: string = ''
   private movieSearch: string = ''
   private sortChoose: string = 'All'
@@ -383,7 +383,7 @@ export default class AllFilms extends Vue {
       name: 'Drama'
     }
   ]
-  private filmType: ICategory[] = [
+  private movieType: ICategory[] = [
     {
       id: 1,
       name: 'All'
@@ -398,23 +398,23 @@ export default class AllFilms extends Vue {
     }
   ]
 
-  private listFilmComputed: IFilm[] = []
-  private listFilm: IFilm[] = []
+  private listMovieComputed: IMovie[] = []
+  private listMovie: IMovie[] = []
 
   created(): void {
-    this.getListFilm()
+    this.getListMovie()
   }
 
   searchMovies(): void {
     // search movies
   }
 
-  getListFilm(): void {
+  getListMovie(): void {
     MovieService.getAllMovies()
       .then((response: any) => {
         if (response.status === 200) {
-          this.listFilm = response.data
-          this.listFilmComputed = this.listFilm
+          this.listMovie = response.data
+          this.listMovieComputed = this.listMovie
         }
       })
       .catch((error: any) => {
@@ -426,7 +426,7 @@ export default class AllFilms extends Vue {
     this.movieQuantity = quantity
   }
 
-  changeFilmType(type: ICategory): void {
+  changeMovieType(type: ICategory): void {
     this.sortChoose = type.name
   }
 
@@ -445,10 +445,10 @@ export default class AllFilms extends Vue {
     this.experienceChecked = []
   }
 
-  goToMovieDetail(film: IFilm, openTrailer: any): void {
+  goToMovieDetail(movie: IMovie, openTrailer: any): void {
     this.$router.push({
       name: 'movie-detail',
-      params: { movieId: `${film.id}`, openTrailer: openTrailer }
+      params: { movieId: `${movie.id}`, openTrailer: openTrailer }
     })
   }
 }

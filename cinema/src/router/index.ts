@@ -73,7 +73,7 @@ const routes: Array<RouteConfig> = [
       {
         path: '/blogs',
         name: 'blogs',
-        component: () => import('@/views/Blog/FilmBlog.vue'),
+        component: () => import('@/views/Blog/AllBlog.vue'),
         meta: {
           hasBanner: true
         },
@@ -81,7 +81,7 @@ const routes: Array<RouteConfig> = [
       {
         path: ':blogId/detail',
         name: 'blog-detail',
-        component: () => import('@/views/Blog/FilmBlogDetail.vue'),
+        component: () => import('@/views/Blog/BlogDetail.vue'),
         meta: {
           hasBanner: true
         },
@@ -95,7 +95,7 @@ const routes: Array<RouteConfig> = [
       {
         path: '/movies',
         name: 'movies',
-        component: () => import('@/views/Films/AllFilms.vue'),
+        component: () => import('@/views/Movies/AllMovies.vue'),
         meta: {
           hasBanner: true
         },
@@ -103,7 +103,7 @@ const routes: Array<RouteConfig> = [
       {
         path: ':movieId/detail',
         name: 'movie-detail',
-        component: () => import('@/views/Films/FilmDetail.vue'),
+        component: () => import('@/views/Movies/MovieDetail.vue'),
         meta: {
           hasBanner: true
         },

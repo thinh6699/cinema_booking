@@ -3,7 +3,7 @@ export interface ICategory {
   name: string
 }
 
-export interface IFilm {
+export interface IMovie {
   id: number
   name: string,
   poster: string,

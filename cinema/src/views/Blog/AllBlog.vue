@@ -1,10 +1,12 @@
 <template>
-  <div>FilmBlogDetail</div>
+  <div>
+    <div>Blog</div>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class FilmBlogDetail extends Vue {}
+export default class Blog extends Vue {}
 </script>

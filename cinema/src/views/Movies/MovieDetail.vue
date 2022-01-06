@@ -127,7 +127,7 @@ import ModalTrailer from '@/components/Modals/ModalTrailer.vue'
     ModalTrailer
   }
 })
-export default class FilmDetail extends Vue {
+export default class MovieDetail extends Vue {
   private movieDetail: any = {}
 
   created(): void {

@@ -110,11 +110,11 @@
 
             <ul class="list-unstyled mb-2 col-lg-6">
               <div class="d-md-flex align-items-center justify-content-center">
-                <!-- Now showing film -->
+                <!-- Now showing movie -->
                 <li
                   class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto flex-center cursor-pointer mb-3 me-md-2 ms-md-2"
-                  :class="filmType === 'nowShowing' ? 'btn-gradient' : ''"
-                  @click="changeFilmType('nowShowing')"
+                  :class="movieType === 'nowShowing' ? 'btn-gradient' : ''"
+                  @click="changeMovieType('nowShowing')"
                 >
                   <img
                     src="@/assets/images/movie.png"
@@ -124,11 +124,11 @@
                   <span class="text-white">NOW SHOWING</span>
                 </li>
 
-                <!-- Coming soon film -->
+                <!-- Coming soon movie -->
                 <li
                   class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto cursor-pointer flex-center mb-3 me-md-2 ms-md-2"
-                  :class="filmType === 'upComing' ? 'btn-gradient' : ''"
-                  @click="changeFilmType('upComing')"
+                  :class="movieType === 'upComing' ? 'btn-gradient' : ''"
+                  @click="changeMovieType('upComing')"
                 >
                   <img
                     src="@/assets/images/event.png"
@@ -141,11 +141,11 @@
             </ul>
           </div>
 
-          <!-- List Film -->
-          <VueSlickCarousel v-bind="settings" v-if="listFilmComputed.length">
+          <!-- List Movie -->
+          <VueSlickCarousel v-bind="settings" v-if="listMovieComputed.length">
             <div
-              v-for="film in listFilmComputed"
-              :key="film.id"
+              v-for="movie in listMovieComputed"
+              :key="movie.id"
               class="px-3 d-flex h-100"
             >
               <div
@@ -153,10 +153,10 @@
               >
                 <figure
                   class="mb-0 h--100 cursor-pointer"
-                  @click="goToMovieDetail(film)"
+                  @click="goToMovieDetail(movie)"
                 >
                   <img
-                    :src="film.poster"
+                    :src="movie.poster"
                     alt="The Matrix Resurrections"
                     class="rounded-top img-cover"
                   />
@@ -166,23 +166,23 @@
                 >
                   <p
                     class="flex-1 cursor-pointer"
-                    @click="goToMovieDetail(film)"
+                    @click="goToMovieDetail(movie)"
                   >
-                    {{ film.name }}
+                    {{ movie.name }}
                   </p>
                   <span class="fs-16"
                     ><span class="text-success me-2">Release Date:</span>
-                    {{ moment(film.date).format('DD/MM/YYYY') }}</span
+                    {{ moment(movie.date).format('DD/MM/YYYY') }}</span
                   >
                 </div>
                 <div class="d-flex align-items-center px-4 py-5">
                   <div class="d-flex align-items-center me-3">
                     <img src="@/assets/images/tomato.png" alt="" class="me-1" />
-                    <span>{{ `${film.rotten_tomato_rating}%` }}</span>
+                    <span>{{ `${movie.rotten_tomato_rating}%` }}</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <img src="@/assets/images/cake.png" alt="" class="me-1" />
-                    <span>{{ `${film.like}%` }}</span>
+                    <span>{{ `${movie.like}%` }}</span>
                   </div>
                   <span class="ms-auto text-success cursor-pointer">More</span>
                 </div>
@@ -209,8 +209,8 @@
                 <!-- Now showing event -->
                 <li
                   class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto flex-center cursor-pointer mb-3 me-md-2 ms-md-2"
-                  :class="filmType === 'nowShowing' ? 'btn-gradient' : ''"
-                  @click="changeFilmType('nowShowing')"
+                  :class="movieType === 'nowShowing' ? 'btn-gradient' : ''"
+                  @click="changeMovieType('nowShowing')"
                 >
                   <img
                     src="@/assets/images/movie.png"
@@ -223,8 +223,8 @@
                 <!-- Coming soon event -->
                 <li
                   class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto cursor-pointer flex-center mb-3 me-md-2 ms-md-2"
-                  :class="filmType === 'upComing' ? 'btn-gradient' : ''"
-                  @click="changeFilmType('upComing')"
+                  :class="movieType === 'upComing' ? 'btn-gradient' : ''"
+                  @click="changeMovieType('upComing')"
                 >
                   <img
                     src="@/assets/images/event.png"
@@ -238,10 +238,10 @@
           </div>
 
           <!-- List Events -->
-          <VueSlickCarousel v-bind="settings" v-if="listFilmComputed.length">
+          <VueSlickCarousel v-bind="settings" v-if="listMovieComputed.length">
             <div
-              v-for="film in listFilmComputed"
-              :key="film.id"
+              v-for="movie in listMovieComputed"
+              :key="movie.id"
               class="px-3 d-flex h-100"
             >
               <div
@@ -249,7 +249,7 @@
               >
                 <figure class="mb-0 h--100">
                   <img
-                    :src="film.poster"
+                    :src="movie.poster"
                     alt="The Matrix Resurrections"
                     class="rounded-top img-cover"
                   />
@@ -257,20 +257,20 @@
                 <div
                   class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
                 >
-                  <p class="flex-1">{{ film.name }}</p>
+                  <p class="flex-1">{{ movie.name }}</p>
                   <span class="fs-16"
                     ><span class="text-success me-2">Show time:</span>
-                    {{ moment(film.date).format('DD/MM/YYYY') }}</span
+                    {{ moment(movie.date).format('DD/MM/YYYY') }}</span
                   >
                 </div>
                 <div class="d-flex align-items-center px-4 py-5">
                   <div class="d-flex align-items-center me-3">
                     <img src="@/assets/images/tomato.png" alt="" class="me-1" />
-                    <span>{{ `${film.rotten_tomato_rating}%` }}</span>
+                    <span>{{ `${movie.rotten_tomato_rating}%` }}</span>
                   </div>
                   <div class="d-flex align-items-center">
                     <img src="@/assets/images/cake.png" alt="" class="me-1" />
-                    <span>{{ `${film.like}%` }}</span>
+                    <span>{{ `${movie.like}%` }}</span>
                   </div>
                   <span class="ms-auto text-success cursor-pointer">More</span>
                 </div>
@@ -289,7 +289,7 @@ import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
 import VueSlickCarousel from 'vue-slick-carousel'
-import { IFilm } from '@/models/index'
+import { IMovie } from '@/models/index'
 import MovieService from '@/services/MovieService'
 
 @Component({
@@ -300,13 +300,13 @@ export default class Home extends Vue {
   private dateSearch: string = ''
   private inputSearch: string = ''
   private type: string = 'Movies'
-  private filmType: string = 'nowShowing'
+  private movieType: string = 'nowShowing'
   private settings: any
-  private listFilmComputed: IFilm[] = []
-  private listFilm: IFilm[] = []
+  private listMovieComputed: IMovie[] = []
+  private listMovie: IMovie[] = []
 
-  @Watch('listFilmComputed')
-  watchListFilmChange(): void {
+  @Watch('listMovieComputed')
+  watchListMovieChange(): void {
     this.settings = {
       autoplay: true,
       arrows: false,
@@ -343,17 +343,17 @@ export default class Home extends Vue {
   }
 
   created(): void {
-    this.getListFilm()
-    this.watchListFilmChange()
+    this.getListMovie()
+    this.watchListMovieChange()
   }
 
-  getListFilm(): void {
+  getListMovie(): void {
     MovieService.getAllMovies()
       .then((response: any) => {
         if (response.status === 200) {
-          this.listFilm = response.data
-          this.listFilmComputed = this.listFilm.filter(
-            (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
+          this.listMovie = response.data
+          this.listMovieComputed = this.listMovie.filter(
+            (item: IMovie) => moment(item.date).valueOf() <= this.currentDay
           )
         }
       })
@@ -364,35 +364,35 @@ export default class Home extends Vue {
 
   searchData(): void {
     if (!this.inputSearch && !this.dateSearch) {
-      if (this.filmType === 'nowShowing') {
-        this.listFilmComputed = this.listFilm.filter(
-          (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
+      if (this.movieType === 'nowShowing') {
+        this.listMovieComputed = this.listMovie.filter(
+          (item: IMovie) => moment(item.date).valueOf() <= this.currentDay
         )
       }
-      if (this.filmType === 'upComing') {
-        this.listFilmComputed = this.listFilm.filter(
-          (item: IFilm) => moment(item.date).valueOf() > this.currentDay
+      if (this.movieType === 'upComing') {
+        this.listMovieComputed = this.listMovie.filter(
+          (item: IMovie) => moment(item.date).valueOf() > this.currentDay
         )
       }
     } else if (!this.inputSearch) {
-      this.listFilmComputed = this.listFilm.filter(
-        (item: IFilm) =>
+      this.listMovieComputed = this.listMovie.filter(
+        (item: IMovie) =>
           item.date === moment(this.dateSearch).format('YYYY/MM/DD') &&
-          (this.filmType === 'nowShowing'
+          (this.movieType === 'nowShowing'
             ? moment(item.date).valueOf() <= this.currentDay
             : moment(item.date).valueOf() > this.currentDay)
       )
     } else if (!this.dateSearch) {
-      this.listFilmComputed = this.listFilm.filter(
-        (item: IFilm) =>
+      this.listMovieComputed = this.listMovie.filter(
+        (item: IMovie) =>
           item.name.toLowerCase().match(this.inputSearch.toLowerCase()) &&
-          (this.filmType === 'nowShowing'
+          (this.movieType === 'nowShowing'
             ? moment(item.date).valueOf() <= this.currentDay
             : moment(item.date).valueOf() > this.currentDay)
       )
     } else if (this.inputSearch && this.dateSearch) {
-      this.listFilmComputed = this.listFilm.filter(
-        (item: IFilm) =>
+      this.listMovieComputed = this.listMovie.filter(
+        (item: IMovie) =>
           item.name.toLowerCase().match(this.inputSearch.toLowerCase()) &&
           item.date === moment(this.dateSearch).format('YYYY/MM/DD')
       )
@@ -409,26 +409,26 @@ export default class Home extends Vue {
     }
   }
 
-  changeFilmType(type: string): void {
+  changeMovieType(type: string): void {
     if (type === 'nowShowing') {
-      this.filmType = 'nowShowing'
-      this.listFilmComputed = this.listFilm.filter(
-        (item: IFilm) => moment(item.date).valueOf() <= this.currentDay
+      this.movieType = 'nowShowing'
+      this.listMovieComputed = this.listMovie.filter(
+        (item: IMovie) => moment(item.date).valueOf() <= this.currentDay
       )
     }
 
     if (type === 'upComing') {
-      this.filmType = 'upComing'
-      this.listFilmComputed = this.listFilm.filter(
-        (item: IFilm) => moment(item.date).valueOf() > this.currentDay
+      this.movieType = 'upComing'
+      this.listMovieComputed = this.listMovie.filter(
+        (item: IMovie) => moment(item.date).valueOf() > this.currentDay
       )
     }
   }
 
-  goToMovieDetail(film: IFilm): void {
+  goToMovieDetail(movie: IMovie): void {
     this.$router.push({
       name: 'movie-detail',
-      params: { movieId: `${film.id}` }
+      params: { movieId: `${movie.id}` }
     })
   }
 }
