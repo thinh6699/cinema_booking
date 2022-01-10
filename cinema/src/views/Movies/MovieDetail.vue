@@ -179,6 +179,15 @@
             <div class="movie-info">
               <div class="movie-photos">
                 <p class="mb-6 text-white text-uppercase fs-24 fwb">photos</p>
+                <Swiper class="swiper" :options="swiperOption">
+                  <SwiperSlide v-for="i in 5" :key="i">
+                    <div>
+                      <img src="@/assets/images/advertising1.jpg" />
+                    </div>
+                  </SwiperSlide>
+
+                  <div class="swiper-pagination" slot="pagination"></div>
+                </Swiper>
               </div>
             </div>
           </div>
@@ -206,6 +215,32 @@ import ModalTrailer from '@/components/Modals/ModalTrailer.vue'
 })
 export default class MovieDetail extends Vue {
   private movieDetail: any = {}
+  private swiperOption = {
+    slidesPerView: 4,
+    spaceBetween: 50,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    breakpoints: {
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      }
+    }
+  }
 
   created(): void {
     this.getMovieDetail()
