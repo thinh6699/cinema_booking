@@ -64,7 +64,7 @@
     </Banner>
 
     <!-- Rating section -->
-    <div class="py-15 px-4 bg-dark-tint-1">
+    <div class="py-15 px-3 bg-dark-tint-1">
       <div
         class="d-md-flex align-items-center justify-content-around offset-lg-3"
       >
@@ -105,8 +105,85 @@
     </div>
 
     <!-- Movie description -->
-    <div class="py-20 px-4 movie-decription">
-      <div class="container">123</div>
+    <div class="py-20 movie-decription">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="payment mb-10">
+              <div class="movie-format mb-6">
+                <span
+                  class="d-inline-block border px-4 py-1 minw--17 rounded-pill text-center"
+                  >{{ movieDetail.format }}</span
+                >
+              </div>
+
+              <div class="application-offer mb-6">
+                <p class="text-white fs-24 mb-6">Applicable Offer</p>
+                <!-- Amazon Payment -->
+                <div
+                  class="pay-with-amazon p-4 border border-dashed rounded mb-6"
+                >
+                  <img
+                    src="@/assets/images/amazon.png"
+                    alt="Amazon Pay"
+                    class="mb-6"
+                  />
+                  <p class="text-white payment-hover cursor-pointer">
+                    Amazon Pay Cashback Offer
+                  </p>
+                  <p class="fs-14 mb-0">Win Cashback Upto Rs 300*</p>
+                </div>
+
+                <!-- Paypal Payment -->
+                <div
+                  class="pay-with-amazon p-4 border border-dashed rounded mb-6"
+                >
+                  <img
+                    src="@/assets/images/paypal.png"
+                    alt="Amazon Pay"
+                    class="mb-6"
+                  />
+                  <p class="text-white payment-hover cursor-pointer">
+                    PayPal Offer
+                  </p>
+                  <p class="fs-14 mb-0">
+                    Transact first time with Paypal and get 100% cashback up to
+                    Rs. 500
+                  </p>
+                </div>
+
+                <!-- HDFC Payment -->
+                <div class="pay-with-amazon p-4 border border-dashed rounded">
+                  <img
+                    src="@/assets/images/hdfc.png"
+                    alt="Amazon Pay"
+                    class="mb-6"
+                  />
+                  <p class="text-white payment-hover cursor-pointer">
+                    HDFC Bank Offer
+                  </p>
+                  <p class="fs-14 mb-0">
+                    Get 15% discount up to INR 100* and INR 50* off on F&B T&C
+                    apply
+                  </p>
+                </div>
+              </div>
+
+              <!-- Advertising -->
+              <figure class="d-block mb-0">
+                <img src="@/assets/images/advertising1.jpg" class="img-cover" />
+              </figure>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="movie-info">
+              <div class="movie-photos">
+                <p class="mb-6 text-white text-uppercase fs-24 fwb">photos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <ModalTrailer
       :trailerUrl="movieDetail.trailer_url"

@@ -43,3 +43,7 @@
   border-top: 1px solid $dark;
   border-bottom: 1px solid $dark;
 }
+
+.payment-hover:hover {
+  color: $success !important;
+}
