@@ -220,8 +220,8 @@ export default class MovieDetail extends Vue {
   private swiperOption = {
     initialSlide: 0,
     loop: true,
-    slidesPerView: 4,
-    spaceBetween: 40,
+    slidesPerView: 1,
+    spaceBetween: 10,
     autoplay: {
       delay: 2000,
       stopOnLastSlide: false,

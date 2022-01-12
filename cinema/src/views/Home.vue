@@ -142,53 +142,65 @@
           </div>
 
           <!-- List Movie -->
-          <VueSlickCarousel v-bind="settings" v-if="listMovieComputed.length">
-            <div
-              v-for="movie in listMovieComputed"
-              :key="movie.id"
-              class="px-3 d-flex h-100"
+          <div class="list-movies">
+            <Swiper
+              class="swiper"
+              :options="swiperOption"
+              v-if="listMovieComputed.length"
             >
-              <div
-                class="mw--80 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
+              <SwiperSlide
+                v-for="movie in listMovieComputed"
+                :key="movie.id"
+                class="h-unset"
               >
-                <figure
-                  class="mb-0 h--100 cursor-pointer"
-                  @click="goToMovieDetail(movie)"
-                >
-                  <img
-                    :src="movie.poster"
-                    alt="The Matrix Resurrections"
-                    class="rounded-top img-cover"
-                  />
-                </figure>
                 <div
-                  class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
+                  class="mw--75 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
                 >
-                  <p
-                    class="flex-1 cursor-pointer"
+                  <figure
+                    class="mb-0 h--100 cursor-pointer"
                     @click="goToMovieDetail(movie)"
                   >
-                    {{ movie.name }}
-                  </p>
-                  <span class="fs-16"
-                    ><span class="text-success me-2">Release Date:</span>
-                    {{ moment(movie.date).format('DD/MM/YYYY') }}</span
+                    <img
+                      :src="movie.poster"
+                      alt="The Matrix Resurrections"
+                      class="rounded-top img-cover"
+                    />
+                  </figure>
+                  <div
+                    class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
                   >
-                </div>
-                <div class="d-flex align-items-center px-4 py-5">
-                  <div class="d-flex align-items-center me-3">
-                    <img src="@/assets/images/tomato.png" alt="" class="me-1" />
-                    <span>{{ `${movie.rotten_tomato_rating}%` }}</span>
+                    <p
+                      class="flex-1 cursor-pointer"
+                      @click="goToMovieDetail(movie)"
+                    >
+                      {{ movie.name }}
+                    </p>
+                    <span class="fs-16"
+                      ><span class="text-success me-2">Release Date:</span>
+                      {{ moment(movie.date).format('DD/MM/YYYY') }}</span
+                    >
                   </div>
-                  <div class="d-flex align-items-center">
-                    <img src="@/assets/images/cake.png" alt="" class="me-1" />
-                    <span>{{ `${movie.like}%` }}</span>
+                  <div class="d-flex align-items-center px-4 py-5">
+                    <div class="d-flex align-items-center me-3">
+                      <img
+                        src="@/assets/images/tomato.png"
+                        alt=""
+                        class="me-1"
+                      />
+                      <span>{{ `${movie.rotten_tomato_rating}%` }}</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <img src="@/assets/images/cake.png" alt="" class="me-1" />
+                      <span>{{ `${movie.like}%` }}</span>
+                    </div>
+                    <span class="ms-auto text-success cursor-pointer"
+                      >More</span
+                    >
                   </div>
-                  <span class="ms-auto text-success cursor-pointer">More</span>
                 </div>
-              </div>
-            </div>
-          </VueSlickCarousel>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </div>
     </div>
@@ -238,45 +250,65 @@
           </div>
 
           <!-- List Events -->
-          <VueSlickCarousel v-bind="settings" v-if="listMovieComputed.length">
-            <div
-              v-for="movie in listMovieComputed"
-              :key="movie.id"
-              class="px-3 d-flex h-100"
+          <div class="list-events">
+            <Swiper
+              class="swiper"
+              :options="swiperOption"
+              v-if="listMovieComputed.length"
             >
-              <div
-                class="mw--80 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
+              <SwiperSlide
+                v-for="movie in listMovieComputed"
+                :key="movie.id"
+                class="h-unset"
               >
-                <figure class="mb-0 h--100">
-                  <img
-                    :src="movie.poster"
-                    alt="The Matrix Resurrections"
-                    class="rounded-top img-cover"
-                  />
-                </figure>
                 <div
-                  class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
+                  class="mw--75 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
                 >
-                  <p class="flex-1">{{ movie.name }}</p>
-                  <span class="fs-16"
-                    ><span class="text-success me-2">Show time:</span>
-                    {{ moment(movie.date).format('DD/MM/YYYY') }}</span
+                  <figure
+                    class="mb-0 h--100 cursor-pointer"
+                    @click="goToMovieDetail(movie)"
                   >
-                </div>
-                <div class="d-flex align-items-center px-4 py-5">
-                  <div class="d-flex align-items-center me-3">
-                    <img src="@/assets/images/tomato.png" alt="" class="me-1" />
-                    <span>{{ `${movie.rotten_tomato_rating}%` }}</span>
+                    <img
+                      :src="movie.poster"
+                      alt="The Matrix Resurrections"
+                      class="rounded-top img-cover"
+                    />
+                  </figure>
+                  <div
+                    class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
+                  >
+                    <p
+                      class="flex-1 cursor-pointer"
+                      @click="goToMovieDetail(movie)"
+                    >
+                      {{ movie.name }}
+                    </p>
+                    <span class="fs-16"
+                      ><span class="text-success me-2">Release Date:</span>
+                      {{ moment(movie.date).format('DD/MM/YYYY') }}</span
+                    >
                   </div>
-                  <div class="d-flex align-items-center">
-                    <img src="@/assets/images/cake.png" alt="" class="me-1" />
-                    <span>{{ `${movie.like}%` }}</span>
+                  <div class="d-flex align-items-center px-4 py-5">
+                    <div class="d-flex align-items-center me-3">
+                      <img
+                        src="@/assets/images/tomato.png"
+                        alt=""
+                        class="me-1"
+                      />
+                      <span>{{ `${movie.rotten_tomato_rating}%` }}</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <img src="@/assets/images/cake.png" alt="" class="me-1" />
+                      <span>{{ `${movie.like}%` }}</span>
+                    </div>
+                    <span class="ms-auto text-success cursor-pointer"
+                      >More</span
+                    >
                   </div>
-                  <span class="ms-auto text-success cursor-pointer">More</span>
                 </div>
-              </div>
-            </div>
-          </VueSlickCarousel>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </div>
     </div>
@@ -301,50 +333,40 @@ export default class Home extends Vue {
   private inputSearch: string = ''
   private type: string = 'Movies'
   private movieType: string = 'nowShowing'
-  private settings: any
+  private swiperOption = {
+    initialSlide: 0,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      stopOnLastSlide: false,
+      disableOnInteraction: false
+    },
+    slidesPerView: 1,
+    spaceBetween: 10,
+    breakpoints: {
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      }
+    }
+  }
   private listMovieComputed: IMovie[] = []
   private listMovie: IMovie[] = []
 
-  @Watch('listMovieComputed')
-  watchListMovieChange(): void {
-    this.settings = {
-      autoplay: true,
-      arrows: false,
-      autoplaySpeed: 1500,
-      speed: 1000,
-      initialSlide: 0,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      swipe: false,
-      responsive: [
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    }
-  }
-
   created(): void {
     this.getListMovie()
-    this.watchListMovieChange()
   }
 
   getListMovie(): void {
