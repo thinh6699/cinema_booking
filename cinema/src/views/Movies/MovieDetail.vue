@@ -177,7 +177,7 @@
           </div>
           <div class="col-lg-9">
             <div class="movie-info">
-              <div class="movie-photos">
+              <div class="movie-photos mb-8">
                 <p class="mb-6 text-white text-uppercase fs-24 fwb">photos</p>
                 <Swiper class="swiper" :options="swiperOption">
                   <SwiperSlide
@@ -190,6 +190,31 @@
                     ></div>
                   </SwiperSlide>
                 </Swiper>
+              </div>
+
+              <div
+                class="summary-comment border-top border-bottom d-flex text-uppercase fs-18 text-white h--16"
+              >
+                <span
+                  @click="changeType('summary')"
+                  class="me-6 cursor-pointer flex-center px-2"
+                  :class="
+                    currentType === 'summary'
+                      ? 'border-top border-bottom border-3 border-success text-success'
+                      : ''
+                  "
+                  >summary</span
+                >
+                <span
+                  @click="changeType('userReview')"
+                  class="cursor-pointer flex-center px-2"
+                  :class="
+                    currentType === 'userReview'
+                      ? 'border-top border-bottom border-3 border-success text-success'
+                      : ''
+                  "
+                  >user reviews</span
+                >
               </div>
             </div>
           </div>
@@ -216,6 +241,7 @@ import ModalTrailer from '@/components/Modals/ModalTrailer.vue'
   }
 })
 export default class MovieDetail extends Vue {
+  private currentType: string = 'summary'
   private movieDetail: any = {}
   private swiperOption = {
     initialSlide: 0,
@@ -245,6 +271,14 @@ export default class MovieDetail extends Vue {
 
   created(): void {
     this.getMovieDetail()
+  }
+
+  changeType(type: string): void {
+    if (type === 'summary') {
+      this.currentType = 'summary'
+    } else {
+      this.currentType = 'userReview'
+    }
   }
 
   getMovieDetail(): void {

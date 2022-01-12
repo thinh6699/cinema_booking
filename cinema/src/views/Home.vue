@@ -316,16 +316,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
-import VueSlickCarousel from 'vue-slick-carousel'
 import { IMovie } from '@/models/index'
 import MovieService from '@/services/MovieService'
 
 @Component({
-  components: { Banner, DatePicker, VueSlickCarousel }
+  components: { Banner, DatePicker }
 })
 export default class Home extends Vue {
   private currentDay: number = moment.now()
