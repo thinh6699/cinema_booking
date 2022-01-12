@@ -8,6 +8,10 @@ import './validations/validation'
 import moment from 'moment'
 import VueLazyload from 'vue-lazyload'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import SwiperCore, {
+  Autoplay, Pagination, Navigation
+} from 'swiper';
+
 
 
 Vue.config.productionTip = false
@@ -15,6 +19,7 @@ Vue.config.productionTip = false
 import { BootstrapVue } from 'bootstrap-vue'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 
+SwiperCore.use([Autoplay, Pagination, Navigation]);
 Vue.use(BootstrapVue)
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueLazyload, {
