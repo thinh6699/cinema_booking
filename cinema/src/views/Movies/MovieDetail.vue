@@ -108,6 +108,7 @@
     <div class="py-20 movie-decription">
       <div class="container">
         <div class="row">
+          <!-- Applicable Offer -->
           <div class="col-lg-3">
             <div class="payment mb-10">
               <div class="movie-format mb-6">
@@ -175,11 +176,13 @@
               </figure>
             </div>
           </div>
+
+          <!-- Movie description -->
           <div class="col-lg-9">
             <div class="movie-info">
               <div class="movie-photos mb-8">
                 <p class="mb-6 text-white text-uppercase fs-24 fwb">photos</p>
-                <Swiper class="swiper" :options="swiperOption">
+                <Swiper class="swiper" :options="swiperPhotoOptions">
                   <SwiperSlide
                     v-for="(photo, index) in movieDetail.photos"
                     :key="index"
@@ -193,28 +196,123 @@
               </div>
 
               <div
-                class="summary-comment border-top border-bottom d-flex text-uppercase fs-18 text-white h--16"
+                class="summary-comment border-top border-bottom d-flex text-uppercase fs-18 text-white h--16 mb-8"
               >
                 <span
                   @click="changeType('summary')"
                   class="me-6 cursor-pointer flex-center px-2"
-                  :class="
-                    currentType === 'summary'
-                      ? 'border-top border-bottom border-3 border-success text-success'
-                      : ''
-                  "
+                  :class="currentType === 'summary' ? 'border-y-3' : ''"
                   >summary</span
                 >
                 <span
                   @click="changeType('userReview')"
                   class="cursor-pointer flex-center px-2"
-                  :class="
-                    currentType === 'userReview'
-                      ? 'border-top border-bottom border-3 border-success text-success'
-                      : ''
-                  "
+                  :class="currentType === 'userReview' ? 'border-y-3' : ''"
                   >user reviews</span
                 >
+              </div>
+
+              <!-- Moive synopsis -->
+              <div class="movies-synopsis mb-8">
+                <p class="text-white text-uppercase fs-24 fwb mb-4">synopsis</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  vehicula eros sit amet est tincidunt aliquet. Fusce laoreet
+                  ligula ac ultrices eleifend. Donec hendrerit fringilla odio,
+                  ut feugiat mi convallis nec. Fusce elit ex, blandit vitae
+                  mattis sit amet, iaculis ac elit. Ut diam mauris, viverra sit
+                  amet dictum vel, aliquam ac quam. Ut mi nisl, fringilla sit
+                  amet erat et, convallis porttitor ligula. Sed auctor, orci id
+                  luctus venenatis, dui dolor euismod risus, et pharetra orci
+                  lectus quis sapien. Duis blandit ipsum ac consectetur
+                  scelerisque.
+                </p>
+              </div>
+
+              <!-- Movie cast -->
+              <div class="movies-cast mb-16">
+                <div
+                  class="pb-2 border-0 border-bottom border-dashed mb-8 position-relative"
+                >
+                  <p class="text-white text-uppercase fs-24 fwb mb-0">cast</p>
+                  <div class="swiper-prev-cast flex-center">
+                    <i
+                      class="fad fa-chevron-double-left fs-20 text-success"
+                    ></i>
+                  </div>
+                  <div class="swiper-next-cast flex-center">
+                    <i
+                      class="fad fa-chevron-double-right fs-20 text-success"
+                    ></i>
+                  </div>
+                </div>
+
+                <Swiper class="swiper" :options="swiperCastOptions">
+                  <SwiperSlide
+                    v-for="(cast, index) in movieDetail.casts"
+                    :key="index"
+                  >
+                    <div class="d-flex flex-column align-items-center">
+                      <div
+                        class="flex-center cast-avatar-container w--35 h--35 border rounded-circle mb-2"
+                      >
+                        <div
+                          class="w--30 h--30 border border-success border-3 rounded-circle"
+                        >
+                          <img
+                            :src="cast.avatar"
+                            class="img-cover rounded-circle cast-avatar"
+                          />
+                        </div>
+                      </div>
+                      <p class="text-success fs-18 mb-3">{{ cast.name }}</p>
+                      <p class="mb-0">as {{ cast.character }}</p>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>
+
+              <!-- Movie crew -->
+              <div class="movies-crew">
+                <div
+                  class="pb-2 border-0 border-bottom border-dashed mb-8 position-relative"
+                >
+                  <p class="text-white text-uppercase fs-24 fwb mb-0">crew</p>
+                  <div class="swiper-prev-crew flex-center">
+                    <i
+                      class="fad fa-chevron-double-left fs-20 text-success"
+                    ></i>
+                  </div>
+                  <div class="swiper-next-crew flex-center">
+                    <i
+                      class="fad fa-chevron-double-right fs-20 text-success"
+                    ></i>
+                  </div>
+                </div>
+
+                <Swiper class="swiper" :options="swiperCrewOptions">
+                  <SwiperSlide
+                    v-for="(crew, index) in movieDetail.crews"
+                    :key="index"
+                  >
+                    <div class="d-flex flex-column align-items-center">
+                      <div
+                        class="flex-center cast-avatar-container w--35 h--35 border rounded-circle mb-2"
+                      >
+                        <div
+                          class="w--30 h--30 border border-success border-3 rounded-circle"
+                        >
+                          <img
+                            :src="crew.avatar"
+                            class="img-cover rounded-circle cast-avatar"
+                          />
+                        </div>
+                      </div>
+                      <p class="text-success fs-18 mb-3">{{ crew.name }}</p>
+                      <p class="mb-0">{{ crew.role }}</p>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
               </div>
             </div>
           </div>
@@ -243,11 +341,15 @@ import ModalTrailer from '@/components/Modals/ModalTrailer.vue'
 export default class MovieDetail extends Vue {
   private currentType: string = 'summary'
   private movieDetail: any = {}
-  private swiperOption = {
+  private commonOptions = {
     initialSlide: 0,
     loop: true,
     slidesPerView: 1,
-    spaceBetween: 10,
+    spaceBetween: 10
+  }
+
+  private swiperPhotoOptions = {
+    ...this.commonOptions,
     autoplay: {
       delay: 2000,
       stopOnLastSlide: false,
@@ -255,6 +357,60 @@ export default class MovieDetail extends Vue {
     },
     breakpoints: {
       768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      }
+    }
+  }
+
+  private swiperCastOptions = {
+    ...this.commonOptions,
+    navigation: {
+      nextEl: '.swiper-next-cast',
+      prevEl: '.swiper-prev-cast'
+    },
+
+    breakpoints: {
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      }
+    }
+  }
+
+  private swiperCrewOptions = {
+    ...this.commonOptions,
+    navigation: {
+      nextEl: '.swiper-next-crew',
+      prevEl: '.swiper-prev-crew'
+    },
+
+    breakpoints: {
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      992: {
         slidesPerView: 3,
         spaceBetween: 30
       },

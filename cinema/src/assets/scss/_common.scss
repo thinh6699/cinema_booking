@@ -49,3 +49,29 @@ img {
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
+
+.swiper-prev-cast,
+.swiper-prev-crew,
+.swiper-next-cast,
+.swiper-next-crew {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+
+.swiper-prev-cast,
+.swiper-prev-crew {
+  right: 36px;
+}
+
+.swiper-next-cast,
+.swiper-next-crew {
+  right: 0px;
+}
+
+.cast-avatar {
+  object-position: 50% 20%;
+}

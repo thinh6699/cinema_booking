@@ -51,3 +51,8 @@
 .border-dashed {
   border-style: dashed !important;
 }
+
+.border-y-3 {
+  border-top: 3px solid $success;
+  border-bottom: 3px solid $success;
+}

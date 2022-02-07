@@ -332,6 +332,8 @@ export default class Home extends Vue {
   private inputSearch: string = ''
   private type: string = 'Movies'
   private movieType: string = 'nowShowing'
+  private listMovieComputed: IMovie[] = []
+  private listMovie: IMovie[] = []
   private swiperOption = {
     initialSlide: 0,
     loop: true,
@@ -361,8 +363,6 @@ export default class Home extends Vue {
       }
     }
   }
-  private listMovieComputed: IMovie[] = []
-  private listMovie: IMovie[] = []
 
   created(): void {
     this.getListMovie()
