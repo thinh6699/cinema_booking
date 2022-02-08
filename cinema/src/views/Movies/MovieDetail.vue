@@ -96,6 +96,7 @@
         <!-- Booking ticket button -->
         <div class="flex-center">
           <div
+            @click="goToTicketPlan"
             class="btn-gradient h--14 w--45 flex-center rounded-pill cursor-pointer"
           >
             Booking Ticket
@@ -113,8 +114,10 @@
             <div class="payment mb-10">
               <div class="movie-format mb-6">
                 <span
-                  class="d-inline-block border px-4 py-1 minw--17 rounded-pill text-center"
-                  >{{ movieDetail.format }}</span
+                  v-for="(format, index) in movieDetail.format"
+                  :key="index"
+                  class="d-inline-block border px-4 py-1 minw--16 rounded-pill text-center me-4 me-lg-1 me-xl-4"
+                  >{{ format }}</span
                 >
               </div>
 
@@ -331,6 +334,11 @@ import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
 import MovieService from '@/services/MovieService'
 import ModalTrailer from '@/components/Modals/ModalTrailer.vue'
+import { getModule } from 'vuex-module-decorators'
+import Movie from '@/store/modules/Movie'
+import store from '@/store'
+
+const MovieModule = getModule(Movie, store)
 
 @Component({
   components: {
@@ -454,6 +462,11 @@ export default class MovieDetail extends Vue {
 
   openTrailer(): void {
     this.$bvModal.show('modal-trailer')
+  }
+
+  goToTicketPlan(): void {
+    MovieModule.HANDLE_MOVIE_DETAIL(this.movieDetail)
+    this.$router.push({ name: 'ticket-plan' })
   }
 }
 </script>

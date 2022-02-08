@@ -271,10 +271,21 @@
                               >{{ category.name }}</span
                             >
                           </div>
-                          <p>
-                            <span class="text-success me-2">Format:</span
-                            >{{ movie.format }}
-                          </p>
+                          <div class="mb-4">
+                            <span class="text-success me-2">Format:</span>
+                            <span
+                              v-for="(format, index) in movie.format"
+                              :key="index"
+                              class="pe-3 border-white border-2"
+                              :class="[
+                                index !== movie.format.length - 1
+                                  ? 'border-end'
+                                  : '',
+                                index !== 0 ? 'ps-3' : ''
+                              ]"
+                              >{{ format }}</span
+                            >
+                          </div>
                           <p>
                             <span class="text-success me-2">Release Date:</span>
                             {{ moment(movie.date).format('DD/MM/YYYY') }}
@@ -298,7 +309,10 @@
                         <div
                           class="d-md-flex justify-content-between align-items-center movies-booking py-4 border-top border-bottom"
                         >
-                          <div class="d-flex align-items-center mb-3 mb-md-0">
+                          <div
+                            @click="goToTicketPlan(movie)"
+                            class="d-flex align-items-center mb-3 mb-md-0 cursor-pointer"
+                          >
                             <div
                               class="flex-center w--9 h--9 me-2 p-2 bg-dark-tint-1 rounded-circle"
                             >
@@ -343,6 +357,11 @@ import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import { IMovie, ICategory } from '@/models/index'
 import MovieService from '@/services/MovieService'
+import { getModule } from 'vuex-module-decorators'
+import Movie from '@/store/modules/Movie'
+import store from '@/store'
+
+const MovieModule = getModule(Movie, store)
 
 @Component({
   components: { Banner, DatePicker }
@@ -363,6 +382,10 @@ export default class AllMovies extends Vue {
     {
       id: 6,
       name: '3D'
+    },
+    {
+      id: 7,
+      name: 'IMAX'
     }
   ]
   private listCategory: ICategory[] = [
@@ -450,6 +473,11 @@ export default class AllMovies extends Vue {
       name: 'movie-detail',
       params: { movieId: `${movie.id}`, openTrailer: openTrailer }
     })
+  }
+
+  goToTicketPlan(movie: IMovie): void {
+    MovieModule.HANDLE_MOVIE_DETAIL(movie)
+    this.$router.push({ name: 'ticket-plan' })
   }
 }
 </script>

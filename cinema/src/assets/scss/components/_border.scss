@@ -30,6 +30,12 @@
   }
 }
 
+@include media-breakpoint-up(md) {
+  .border-md-end {
+    border-right: 1px solid $border-color;
+  }
+}
+
 @include media-breakpoint-up(lg) {
   @for $i from 0 through 15 {
     .border-lg-#{$i} {

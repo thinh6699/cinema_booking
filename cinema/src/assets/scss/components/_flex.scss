@@ -44,4 +44,8 @@
   .d-md-flex {
     display: flex !important;
   }
+
+  .flex-column-md-unset {
+    flex-direction: unset !important;
+  }
 }

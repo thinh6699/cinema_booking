@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
-import Todo from './modules/Todo'
+import Movie from './modules/Movie'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
-    todo: Todo
+    movie: Movie
   },
   plugins: [
     createPersistedState({
-      paths: ['todo']
+      paths: ['movie']
     })
   ]
 })
