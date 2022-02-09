@@ -64,6 +64,68 @@
       </div>
       <div class="silver-plus">
         <h3 class="subtitle fs-24 text-success mb-7">SILVER PLUS</h3>
+        <ul class="list-unstyled overflow-auto seat-scrollbar">
+          <li
+            v-for="(item, index) in listSeat"
+            :key="index"
+            class="d-flex align-items-center justify-content-between mb-5"
+          >
+            <span class="me-5 fs-18 w--3 flex-fixed">{{ item.type }}</span>
+            <div class="d-flex left-seat flex-fixed me-5">
+              <div
+                @click="chooseSeat(subItem.number)"
+                v-for="(subItem, subIndex) in item.detail"
+                :key="subIndex"
+                class="position-relative cursor-pointer"
+                :class="subItem.number <= 4 ? 'mx-1' : ''"
+              >
+                <div v-if="subItem.number <= 4">
+                  <img src="@/assets/images/single-seat.png" alt="" />
+                  <span class="movie-seat fs-15">{{
+                    `${item.type}${subItem.number}`
+                  }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex left-seat flex-fixed me-5">
+              <div
+                @click="chooseSeat(subItem.number)"
+                v-for="(subItem, subIndex) in item.detail"
+                :key="subIndex"
+                class="position-relative cursor-pointer"
+                :class="
+                  subItem.number > 4 && subItem.number <= 10 ? 'mx-1' : ''
+                "
+              >
+                <div v-if="subItem.number > 4 && subItem.number <= 10">
+                  <img src="@/assets/images/single-seat.png" alt="" />
+                  <span class="movie-seat fs-15">{{
+                    `${item.type}${subItem.number}`
+                  }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex left-seat flex-fixed me-5">
+              <div
+                @click="chooseSeat(subItem.number)"
+                v-for="(subItem, subIndex) in item.detail"
+                :key="subIndex"
+                class="position-relative cursor-pointer"
+                :class="subItem.number > 10 ? 'mx-1' : ''"
+              >
+                <div v-if="subItem.number > 10">
+                  <img src="@/assets/images/single-seat.png" alt="" />
+                  <span class="movie-seat fs-15">{{
+                    `${item.type}${subItem.number}`
+                  }}</span>
+                </div>
+              </div>
+            </div>
+            <span class="fs-18 w--3 flex-fixed">{{ item.type }}</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -78,5 +140,34 @@ import Banner from '@/components/Banner.vue'
     Banner
   }
 })
-export default class SeatPlan extends Vue {}
+export default class SeatPlan extends Vue {
+  private isChoose: boolean = false
+  private seatNumber: number = 0
+  private listSeat: any = [
+    {
+      type: 'G',
+      detail: []
+    },
+    {
+      type: 'F',
+      detail: []
+    }
+  ]
+
+  created(): void {
+    this.listSeat.forEach((item: any) => {
+      for (let i = 1; i < 15; i++) {
+        item.detail.push({
+          choosen: i < 5 ? true : false,
+          number: i
+        })
+      }
+    })
+  }
+
+  chooseSeat(seatNumber: number): void {
+    this.seatNumber = seatNumber
+    this.isChoose = !this.isChoose
+  }
+}
 </script>

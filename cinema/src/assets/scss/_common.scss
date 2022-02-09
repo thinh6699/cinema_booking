@@ -76,11 +76,18 @@ img {
   object-position: 50% 20%;
 }
 
-.movie-seat {
-  background-image: url('../../assets/images/movie-seat.png');
+.movie-ticket {
+  background-image: url('../../assets/images/movie-ticket.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.movie-seat {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  transform: translateX(-50%);
 }
 
 .seat-banner {

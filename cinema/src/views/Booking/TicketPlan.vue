@@ -114,7 +114,7 @@
               >
                 <span
                   @click="goToSeatPlan(time)"
-                  class="text-white movie-seat d-inline-block py-3 px-6 mx-n6 mx-xl-0 cursor-pointer"
+                  class="text-white movie-ticket d-inline-block py-3 px-6 mx-n6 mx-xl-0 cursor-pointer"
                   >{{ time }}</span
                 >
               </div>
