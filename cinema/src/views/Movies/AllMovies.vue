@@ -273,18 +273,7 @@
                           </div>
                           <div class="mb-4">
                             <span class="text-success me-2">Format:</span>
-                            <span
-                              v-for="(format, index) in movie.format"
-                              :key="index"
-                              class="pe-3 border-white border-2"
-                              :class="[
-                                index !== movie.format.length - 1
-                                  ? 'border-end'
-                                  : '',
-                                index !== 0 ? 'ps-3' : ''
-                              ]"
-                              >{{ format }}</span
-                            >
+                            <span>{{ handleMovieFormat(movie.format) }}</span>
                           </div>
                           <p>
                             <span class="text-success me-2">Release Date:</span>
@@ -478,6 +467,11 @@ export default class AllMovies extends Vue {
   goToTicketPlan(movie: IMovie): void {
     MovieModule.HANDLE_MOVIE_DETAIL(movie)
     this.$router.push({ name: 'ticket-plan' })
+  }
+
+  handleMovieFormat(formats: any) {
+    let format = formats.join(', ')
+    return format
   }
 }
 </script>

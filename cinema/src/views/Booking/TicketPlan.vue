@@ -103,7 +103,7 @@
           <div
             class="cinema-name w-md--70 p-6 flex-center fs-20 border-md-end border-light-shade text-white"
           >
-            CGV Bắc Từ Liêm
+            {{ cinema }}
           </div>
           <div class="timeline flex-1 pb-6 px-6 pt-md-6">
             <div class="row mb-n6">
@@ -113,8 +113,9 @@
                 class="col-4 col-custom-3 col-md-3 col-lg-2 mb-6 w-xl-unset text-center"
               >
                 <span
+                  @click="goToSeatPlan(time)"
                   class="text-white movie-seat d-inline-block py-3 px-6 mx-n6 mx-xl-0 cursor-pointer"
-                  >23:59</span
+                  >{{ time }}</span
                 >
               </div>
             </div>
@@ -129,6 +130,11 @@
 import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
 import moment from 'moment'
+import { getModule } from 'vuex-module-decorators'
+import TicketTime from '@/store/modules/TicketTime'
+import store from '@/store'
+
+const TicketModule = getModule(TicketTime, store)
 
 @Component({
   components: {
@@ -139,6 +145,8 @@ export default class TicketPlan extends Vue {
   private currentDay: number = moment.now()
   private dateChoose: string = moment(this.currentDay).format('DD/MM/YYYY')
   private experienceChoose: string = '2D'
+  private time: string = '23:59'
+  private cinema: string = 'CGV Bắc Từ Liêm'
   private listDate: any = []
   private listExperience: any = []
 
@@ -158,6 +166,17 @@ export default class TicketPlan extends Vue {
 
   changeExperience(experience: any): void {
     this.experienceChoose = experience
+  }
+
+  goToSeatPlan(time: string): void {
+    let ticketTime = {
+      date: this.dateChoose,
+      time: time,
+      experience: this.experienceChoose,
+      cinema: this.cinema
+    }
+    TicketModule.HANDLE_TICKET_TIME(ticketTime)
+    this.$router.push({ name: 'seat-plan' })
   }
 }
 </script>

@@ -2,6 +2,10 @@
   .flex-#{$i} {
     flex: $i;
   }
+
+  .order-#{$i} {
+    order: $i !important;
+  }
 }
 
 .flex-center {
