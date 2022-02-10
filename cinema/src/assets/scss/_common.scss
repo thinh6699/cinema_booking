@@ -86,7 +86,7 @@ img {
 .movie-seat {
   position: absolute;
   left: 50%;
-  top: 6px;
+  top: 7px;
   transform: translateX(-50%);
 }
 
@@ -133,4 +133,16 @@ img {
     width: 100%;
     bottom: 0;
   }
+}
+
+.confirm-seat-bg {
+  background-image: url('../../assets/images/movie-bg-proceed.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

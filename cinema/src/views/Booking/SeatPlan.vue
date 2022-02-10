@@ -57,40 +57,50 @@
     </div>
 
     <!-- Seat plan -->
-    <div class="container">
+    <div class="container mb-20">
       <h3 class="screen">screen</h3>
       <div class="seat-thumb w-100 mw--180 mx-auto mb-7">
         <img src="@/assets/images/screen-thumb.png" class="img-contain" />
       </div>
       <div class="silver-plus">
         <h3 class="subtitle fs-24 text-success mb-7">SILVER PLUS</h3>
-        <ul class="list-unstyled overflow-auto seat-scrollbar">
+        <ul class="list-unstyled overflow-auto seat-scrollbar mb-0">
           <li
             v-for="(item, index) in listSeat"
             :key="index"
             class="d-flex align-items-center justify-content-between mb-5"
           >
             <span class="me-5 fs-18 w--3 flex-fixed">{{ item.type }}</span>
+            <!-- Left Seat -->
             <div class="d-flex left-seat flex-fixed me-5">
               <div
-                @click="chooseSeat(subItem.number)"
+                @click="chooseSeat(item, subItem)"
                 v-for="(subItem, subIndex) in item.detail"
                 :key="subIndex"
                 class="position-relative cursor-pointer"
                 :class="subItem.number <= 4 ? 'mx-1' : ''"
               >
                 <div v-if="subItem.number <= 4">
-                  <img src="@/assets/images/single-seat.png" alt="" />
-                  <span class="movie-seat fs-15">{{
-                    `${item.type}${subItem.number}`
+                  <img v-if="subItem.choosen" :src="singleChoosen" />
+                  <img
+                    v-if="!subItem.choosen && !subItem.isChecked"
+                    :src="singleFree"
+                  />
+                  <img
+                    v-if="!subItem.choosen && subItem.isChecked"
+                    :src="singleChecked"
+                  />
+                  <span v-if="!subItem.choosen" class="movie-seat fs-15">{{
+                    subItem.name
                   }}</span>
                 </div>
               </div>
             </div>
 
-            <div class="d-flex left-seat flex-fixed me-5">
+            <!-- Middle Seat -->
+            <div class="d-flex middle-seat flex-fixed me-5">
               <div
-                @click="chooseSeat(subItem.number)"
+                @click="chooseSeat(item, subItem)"
                 v-for="(subItem, subIndex) in item.detail"
                 :key="subIndex"
                 class="position-relative cursor-pointer"
@@ -99,26 +109,43 @@
                 "
               >
                 <div v-if="subItem.number > 4 && subItem.number <= 10">
-                  <img src="@/assets/images/single-seat.png" alt="" />
-                  <span class="movie-seat fs-15">{{
-                    `${item.type}${subItem.number}`
+                  <img v-if="subItem.choosen" :src="singleChoosen" />
+                  <img
+                    v-if="!subItem.choosen && !subItem.isChecked"
+                    :src="singleFree"
+                  />
+                  <img
+                    v-if="!subItem.choosen && subItem.isChecked"
+                    :src="singleChecked"
+                  />
+                  <span v-if="!subItem.choosen" class="movie-seat fs-15">{{
+                    subItem.name
                   }}</span>
                 </div>
               </div>
             </div>
 
-            <div class="d-flex left-seat flex-fixed me-5">
+            <!-- Right Seat -->
+            <div class="d-flex right-seat flex-fixed me-5">
               <div
-                @click="chooseSeat(subItem.number)"
+                @click="chooseSeat(item, subItem)"
                 v-for="(subItem, subIndex) in item.detail"
                 :key="subIndex"
                 class="position-relative cursor-pointer"
                 :class="subItem.number > 10 ? 'mx-1' : ''"
               >
                 <div v-if="subItem.number > 10">
-                  <img src="@/assets/images/single-seat.png" alt="" />
-                  <span class="movie-seat fs-15">{{
-                    `${item.type}${subItem.number}`
+                  <img v-if="subItem.choosen" :src="singleChoosen" />
+                  <img
+                    v-if="!subItem.choosen && !subItem.isChecked"
+                    :src="singleFree"
+                  />
+                  <img
+                    v-if="!subItem.choosen && subItem.isChecked"
+                    :src="singleChecked"
+                  />
+                  <span v-if="!subItem.choosen" class="movie-seat fs-15">{{
+                    subItem.name
                   }}</span>
                 </div>
               </div>
@@ -126,6 +153,39 @@
             <span class="fs-18 w--3 flex-fixed">{{ item.type }}</span>
           </li>
         </ul>
+      </div>
+    </div>
+
+    <!-- Confirm information -->
+    <div class="container mb-20">
+      <div class="position-relative pt-12 pb-6">
+        <div class="confirm-seat-bg"></div>
+        <div class="container">
+          <div
+            class="d-flex flex-wrap position-relative align-items-center justify-content-between px-10"
+          >
+            <!-- Seat Detail -->
+            <div class="seat-detail mb-6 me-6">
+              <p class="fs-18 mb-0">You have choosed seat</p>
+              <span
+                v-if="listSeatChoose.length"
+                class="d-inline-block w--53 text-success fs-25 fwb"
+                >{{ handleListSeat(listSeatChoose) }}</span
+              >
+            </div>
+
+            <!-- Seat Price -->
+            <div class="seat-price mb-6 me-6">
+              <p class="fs-18 mb-0">Total price</p>
+              <span v-if="totalPrice > 0" class="text-success fs-25 fwb">{{
+                `${handlePrice(totalPrice)}đ`
+              }}</span>
+            </div>
+
+            <!-- Btn Proceed -->
+            <div class="btn-gradient w--32 h--12 flex-center mb-6">Proceed</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -141,33 +201,72 @@ import Banner from '@/components/Banner.vue'
   }
 })
 export default class SeatPlan extends Vue {
-  private isChoose: boolean = false
-  private seatNumber: number = 0
+  private singleFree = require('@/assets/images/single-free.png')
+  private coupleFree = require('@/assets/images/couple-free.png')
+  private singleChecked = require('@/assets/images/single-checked.png')
+  private coupleChecked = require('@/assets/images/couple-checked.png')
+  private singleChoosen = require('@/assets/images/single-choosen.png')
+  private coupleChoosen = require('@/assets/images/couple-choosen.png')
+
+  private totalPrice: number = 0
+  private listSeatChoose: any = []
   private listSeat: any = [
     {
       type: 'G',
-      detail: []
+      detail: [],
+      price: 100000
     },
     {
       type: 'F',
-      detail: []
+      detail: [],
+      price: 150000
     }
   ]
 
   created(): void {
     this.listSeat.forEach((item: any) => {
       for (let i = 1; i < 15; i++) {
-        item.detail.push({
-          choosen: i < 5 ? true : false,
-          number: i
-        })
+        if (item.type === 'G') {
+          item.detail.push({
+            number: i,
+            choosen: i < 5 ? true : false,
+            name: `G${i}`,
+            isChecked: false
+          })
+        } else {
+          item.detail.push({
+            number: i,
+            choosen: i < 10 ? true : false,
+            name: `F${i}`,
+            isChecked: false
+          })
+        }
       }
     })
   }
 
-  chooseSeat(seatNumber: number): void {
-    this.seatNumber = seatNumber
-    this.isChoose = !this.isChoose
+  chooseSeat(item: any, subItem: any): void {
+    subItem.isChecked = !subItem.isChecked
+    let seat = subItem.name
+    if (!subItem.choosen) {
+      if (subItem.isChecked) {
+        this.listSeatChoose.push(seat)
+        this.totalPrice += item.price
+      } else {
+        this.listSeatChoose.pop(seat)
+        this.totalPrice -= item.price
+      }
+    } else return
+  }
+
+  handleListSeat(listSeatChoose: any) {
+    let listSeat = listSeatChoose.join(', ')
+    return listSeat
+  }
+
+  handlePrice(totalPrice: number) {
+    let price = totalPrice.toLocaleString()
+    return price
   }
 }
 </script>
