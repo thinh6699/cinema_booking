@@ -45,7 +45,8 @@
 
           <!-- Back btn -->
           <div
-            class="btn-gradient w--30 h--11 flex-center position-relative custom-order-1 mb-5"
+            @click="backToTicketPlan"
+            class="btn-gradient w--30 h--11 flex-center position-relative custom-order-1 mb-5 cursor-pointer"
           >
             <span class="ms-3">Back</span>
             <i
@@ -63,7 +64,7 @@
         <img src="@/assets/images/screen-thumb.png" class="img-contain" />
       </div>
       <div class="silver-plus">
-        <h3 class="subtitle fs-24 text-success mb-7">SILVER PLUS</h3>
+        <h3 class="subtitle fs-24 text-success mb-7">normal</h3>
         <ul class="list-unstyled overflow-auto seat-scrollbar mb-0">
           <li
             v-for="(item, index) in listSeat"
@@ -183,7 +184,12 @@
             </div>
 
             <!-- Btn Proceed -->
-            <div class="btn-gradient w--32 h--12 flex-center mb-6">Proceed</div>
+            <div
+              @click="goToMovieFood"
+              class="btn-gradient w--32 h--12 flex-center mb-6 cursor-pointer"
+            >
+              Proceed
+            </div>
           </div>
         </div>
       </div>
@@ -226,21 +232,12 @@ export default class SeatPlan extends Vue {
   created(): void {
     this.listSeat.forEach((item: any) => {
       for (let i = 1; i < 15; i++) {
-        if (item.type === 'G') {
-          item.detail.push({
-            number: i,
-            choosen: i < 5 ? true : false,
-            name: `G${i}`,
-            isChecked: false
-          })
-        } else {
-          item.detail.push({
-            number: i,
-            choosen: i < 10 ? true : false,
-            name: `F${i}`,
-            isChecked: false
-          })
-        }
+        item.detail.push({
+          number: i,
+          choosen: i < 5 ? true : false,
+          name: `${item.type}${i}`,
+          isChecked: false
+        })
       }
     })
   }
@@ -267,6 +264,14 @@ export default class SeatPlan extends Vue {
   handlePrice(totalPrice: number) {
     let price = totalPrice.toLocaleString()
     return price
+  }
+
+  backToTicketPlan(): void {
+    this.$router.push({ name: 'ticket-plan' })
+  }
+
+  goToMovieFood(): void {
+    this.$router.push({ name: 'movie-food' })
   }
 }
 </script>

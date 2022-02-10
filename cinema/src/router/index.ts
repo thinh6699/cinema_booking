@@ -166,6 +166,16 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
+    path: '/movie-food',
+    name: 'movie-food',
+    component: () => import('@/views/Booking/MovieFood.vue'),
+    meta: {
+      layout: LayoutDefault,
+      hasBanner: true,
+      title: 'Movie Food'
+    }
+  },
+  {
     path: '/ticket-checkout',
     name: 'ticket-checkout',
     component: () => import('@/views/Booking/TicketCheckout.vue'),
