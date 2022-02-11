@@ -8,10 +8,10 @@
         {{ $store.state.movie.movieDetail.name }}
       </p>
       <span class="fs-18 fs-lg-25 px-2 border-end border-white">{{
-        $store.state.ticketTime.ticketTime.cinema
+        $store.state.ticket.ticketTime.cinema
       }}</span>
       <span class="fs-18 fs-lg-25 px-2">{{
-        $store.state.ticketTime.ticketTime.experience
+        $store.state.ticket.ticketTime.experience
       }}</span>
     </Banner>
 
@@ -26,12 +26,12 @@
             class="d-inline-flex align-items-center mb-5 mx-2 custom-order-2"
           >
             <span class="me-5 fs-18">
-              {{ $store.state.ticketTime.ticketTime.date }}
+              {{ $store.state.ticket.ticketTime.date }}
             </span>
             <div
               class="btn-gradient rounded h--10 flex-center position-relative w--22"
             >
-              <span>{{ $store.state.ticketTime.ticketTime.time }}</span>
+              <span>{{ $store.state.ticket.ticketTime.time }}</span>
             </div>
           </div>
 
@@ -200,6 +200,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
+import { getModule } from 'vuex-module-decorators'
+import TicketTime from '@/store/modules/Ticket'
+import store from '@/store'
+
+const TicketModule = getModule(TicketTime, store)
 
 @Component({
   components: {
@@ -271,7 +276,15 @@ export default class SeatPlan extends Vue {
   }
 
   goToMovieFood(): void {
-    this.$router.push({ name: 'movie-food' })
+    if (this.listSeatChoose.length) {
+      let ticketAmount = {
+        quantify: this.listSeatChoose.length,
+        name: this.listSeatChoose.join(', '),
+        price: this.totalPrice
+      }
+      TicketModule.HANDLE_TICKET_AMOUNT(ticketAmount)
+      this.$router.push({ name: 'movie-food' })
+    } else return
   }
 }
 </script>

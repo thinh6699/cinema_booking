@@ -2,18 +2,18 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import Movie from './modules/Movie'
-import TicketTime from './modules/TicketTime'
+import Ticket from './modules/Ticket'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
     movie: Movie,
-    ticketTime: TicketTime
+    ticket: Ticket
   },
   plugins: [
     createPersistedState({
-      paths: ['movie', 'ticketTime']
+      paths: ['movie', 'ticket']
     })
   ]
 })

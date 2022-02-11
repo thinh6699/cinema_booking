@@ -131,7 +131,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
 import moment from 'moment'
 import { getModule } from 'vuex-module-decorators'
-import TicketTime from '@/store/modules/TicketTime'
+import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
 
 const TicketModule = getModule(TicketTime, store)
