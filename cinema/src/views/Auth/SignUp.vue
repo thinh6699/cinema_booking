@@ -91,7 +91,7 @@
       <div class="d-flex align-items-center justify-content-start mb-7">
         <div class="d-flex align-items-center">
           <input
-            class="form-check-input cursor-pointer rounded-circle w--4 h--4 me-1 mt-0 flex-fixed shadow-none"
+            class="form-check-input cursor-pointer rounded-circle w--4 h--4 me-1 mt-0 flex-fixed"
             type="checkbox"
             id="agree"
           />
@@ -103,7 +103,7 @@
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button v-b-modal="'modal-info'" class="btn btn-gradient shadow-none">
+        <button v-b-modal="'modal-info'" class="btn btn-gradient">
           sign up
         </button>
       </div>

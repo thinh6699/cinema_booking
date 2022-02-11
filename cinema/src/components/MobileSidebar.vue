@@ -15,9 +15,7 @@
         </li>
 
         <li class="mw--40">
-          <button @click="goToSignUp" class="btn btn-gradient shadow-none">
-            join us
-          </button>
+          <button @click="goToSignUp" class="btn btn-gradient">join us</button>
         </li>
       </ul>
     </div>

@@ -14,12 +14,12 @@
             </h3>
             <div class="position-relative mb-8">
               <input
-                class="form-control h--14 rounded-8 shadow-none text-white bg-transparent border-white-o4 pe-41"
+                class="form-control h--14 rounded-8 text-white bg-transparent border-white-o4 pe-41"
                 type="text"
                 placeholder="Enter your email address"
               />
               <button
-                class="mw--40 position-absolute end-0 top-0 btn btn-gradient shadow-none"
+                class="mw--40 position-absolute end-0 top-0 btn btn-gradient"
               >
                 SUBSCRIBE
               </button>

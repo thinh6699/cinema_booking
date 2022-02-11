@@ -2,4 +2,9 @@
   .rounded-#{$i} {
     border-radius: $i * 4px !important;
   }
+
+  .rounded-top-#{$i} {
+    border-top-left-radius: $i * 4px !important;
+    border-top-right-radius: $i * 4px !important;
+  }
 }

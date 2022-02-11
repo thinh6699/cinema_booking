@@ -37,7 +37,7 @@
           <li class="ms-3">
             <router-link
               :to="{ name: 'sign-up' }"
-              class="btn btn-gradient h-unset shadow-none py-4 px-11"
+              class="btn btn-gradient h-unset py-4 px-11"
               >join us</router-link
             >
           </li>

@@ -45,9 +45,7 @@
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button @click="goToHome" class="btn btn-gradient shadow-none">
-          login
-        </button>
+        <button @click="goToHome" class="btn btn-gradient">login</button>
       </div>
 
       <div class="text-center mb-7">

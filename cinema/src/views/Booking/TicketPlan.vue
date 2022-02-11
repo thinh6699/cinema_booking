@@ -26,7 +26,7 @@
               <b-dropdown
                 right
                 no-caret
-                variant="light rounded-pill border shadow-none"
+                variant="light rounded-pill border "
                 menu-class="w-100 minw-unset bg-dark-shade border mt-1 text-center"
               >
                 <template #button-content>
@@ -59,7 +59,7 @@
               <b-dropdown
                 right
                 no-caret
-                variant="light rounded-pill border shadow-none"
+                variant="light rounded-pill border "
                 menu-class="w-100 minw-unset bg-dark-shade border mt-1 text-center"
               >
                 <template #button-content>
