@@ -200,6 +200,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
+import FormatPrice from '@/helpers/FormatPrice'
 import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
@@ -266,9 +267,8 @@ export default class SeatPlan extends Vue {
     return listSeat
   }
 
-  handlePrice(totalPrice: number) {
-    let price = totalPrice.toLocaleString()
-    return price
+  handlePrice(price: number) {
+    return FormatPrice.handlePrice(price)
   }
 
   backToTicketPlan(): void {
@@ -278,7 +278,7 @@ export default class SeatPlan extends Vue {
   goToMovieFood(): void {
     if (this.listSeatChoose.length) {
       let ticketAmount = {
-        quantify: this.listSeatChoose.length,
+        quantity: this.listSeatChoose.length,
         name: this.listSeatChoose.join(', '),
         price: this.totalPrice
       }

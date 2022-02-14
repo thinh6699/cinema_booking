@@ -63,21 +63,29 @@
           <!-- Combo Types -->
           <div class="combo-types flex-center flex-wrap mb-5">
             <div
+              @click="changeType('all')"
+              :class="type === 'all' ? 'btn-gradient' : ''"
               class="border rounded-pill m-2 w-unset minw--25 flex-center h--11 cursor-pointer text-uppercase"
             >
               All
             </div>
             <div
+              @click="changeType('combos')"
+              :class="type === 'combos' ? 'btn-gradient' : ''"
               class="border rounded-pill m-2 w-unset minw--30 flex-center h--11 cursor-pointer text-uppercase"
             >
               Combos
             </div>
             <div
+              @click="changeType('foods')"
+              :class="type === 'foods' ? 'btn-gradient' : ''"
               class="border rounded-pill m-2 w-unset minw--30 flex-center h--11 cursor-pointer text-uppercase"
             >
               Foods
             </div>
             <div
+              @click="changeType('drinks')"
+              :class="type === 'drinks' ? 'btn-gradient' : ''"
               class="border rounded-pill m-2 w-unset minw--30 flex-center h--11 cursor-pointer text-uppercase"
             >
               Drinks
@@ -87,7 +95,7 @@
           <!-- Food Details -->
           <div class="row mb-8 mb-n6">
             <div
-              v-for="item in listFoods"
+              v-for="item in listFoodsComputed"
               :key="item.id"
               class="col-12 col-lg-6 mb-6"
             >
@@ -148,6 +156,8 @@
                     </div>
                     <input
                       type="number"
+                      min="0"
+                      oninput="validity.valid||(value='')"
                       class="form-control border-0 w--10 bg-transparent text-white px-2 text-center"
                       v-model="item.quantity"
                     />
@@ -201,7 +211,7 @@
                     {{ $store.state.ticket.ticketTime.cinema }}</span
                   >
                   <span class="text-white text-uppercase fs-18 fwb-500">
-                    {{ $store.state.ticket.ticketAmount.quantify }}</span
+                    {{ $store.state.ticket.ticketAmount.quantity }}</span
                   >
                 </div>
 
@@ -236,24 +246,30 @@
                   >
                 </div>
                 <div
-                  v-for="(item, index) in cart"
-                  :key="index"
+                  v-for="item in comboCart"
+                  :key="item.id"
                   class="d-flex align-items-baseline justify-content-between pt-2"
                 >
                   <span class="me-3"> {{ item.name }}</span>
                   <span> x{{ item.quantity }}</span>
                 </div>
                 <div
-                  class="d-flex align-items-center justify-content-between mb-2 pt-8"
+                  class="d-flex align-items-center justify-content-between pt-8"
                 >
                   <span class="text-success text-uppercase fs-18 fwb-500">
                     Foods & Drinks</span
                   >
-                  <span class="text-white fs-18 fwb-500"> 0đ</span>
+                  <span class="text-white fs-18 fwb-500">
+                    {{ `${handlePrice(foodDrinkPrice)}đ` }}</span
+                  >
                 </div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <!-- <span> Some Drinks</span>
-                  <span> x2</span> -->
+                <div
+                  v-for="item in foodDrinksCart"
+                  :key="item.id"
+                  class="d-flex align-items-baseline justify-content-between pt-2"
+                >
+                  <span class="me-3"> {{ item.name }}</span>
+                  <span> x{{ item.quantity }}</span>
                 </div>
               </div>
 
@@ -283,7 +299,10 @@
                   {{ `${handlePrice(totalPrice)}đ` }}</span
                 >
               </div>
-              <div class="btn-gradient mx-auto w--30 h--11 flex-center">
+              <div
+                @click="goToTicketCheckOut"
+                class="btn-gradient mx-auto w--30 h--11 flex-center cursor-pointer"
+              >
                 Proceed
               </div>
             </div>
@@ -291,12 +310,19 @@
         </div>
       </div>
     </div>
+    <ModalInfo :id="'modal-cart-info'" :infoMess="'Please add an item!'" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Banner from '@/components/Banner.vue'
+import { getModule } from 'vuex-module-decorators'
+import TicketTime from '@/store/modules/Ticket'
+import store from '@/store'
+import FormatPrice from '@/helpers/FormatPrice'
+
+const TicketModule = getModule(TicketTime, store)
 
 @Component({
   components: {
@@ -304,18 +330,20 @@ import Banner from '@/components/Banner.vue'
   }
 })
 export default class MovieFood extends Vue {
+  private type: string = 'all'
   private comboPrice: number = 0
   private foodDrinkPrice: number = 0
   private priceNoVat: number = 0
   private totalPrice: number = 0
-  private listFoods: any = [
+  private listFoods: any[] = [
     {
       id: 1,
       background: require('@/assets/images/combo1.png'),
       name: 'Muchaco, Crispy Taco, Bean Burrito',
       price: 100000,
       discount: 25,
-      quantity: 0
+      quantity: 0,
+      type: 'combos'
     },
     {
       id: 2,
@@ -323,7 +351,8 @@ export default class MovieFood extends Vue {
       name: 'Crispy Beef Taco, Beef Mucho Nachos',
       price: 100000,
       discount: 25,
-      quantity: 0
+      quantity: 0,
+      type: 'combos'
     },
     {
       id: 3,
@@ -331,7 +360,8 @@ export default class MovieFood extends Vue {
       name: 'Chicken Quesadilla, Crispy Beef Taco',
       price: 150000,
       discount: 20,
-      quantity: 0
+      quantity: 0,
+      type: 'combos'
     },
     {
       id: 4,
@@ -339,21 +369,56 @@ export default class MovieFood extends Vue {
       name: 'Beef Nacho Salad, Crispy Beef Taco',
       price: 200000,
       discount: 50,
-      quantity: 0
+      quantity: 0,
+      type: 'combos'
+    },
+    {
+      id: 5,
+      background: require('@/assets/images/food1.png'),
+      name: 'Soft Taco',
+      price: 50000,
+      discount: 0,
+      quantity: 0,
+      type: 'foods'
+    },
+    {
+      id: 6,
+      background: require('@/assets/images/drink1.png'),
+      name: 'Coke',
+      price: 30000,
+      discount: 0,
+      quantity: 0,
+      type: 'drinks'
     }
   ]
 
-  private cart: any = []
+  private listFoodsComputed: any[] = []
+
+  private cart: any[] = []
+  private comboCart: any[] = []
+  private foodDrinksCart: any[] = []
 
   created(): void {
     this.listFoods.map((item: any) => {
       item.discountPrice = item.price - (item.price * item.discount) / 100
     })
+    this.listFoodsComputed = this.listFoods
     this.priceNoVat =
       this.$store.state.ticket.ticketAmount.price +
       this.comboPrice +
       this.foodDrinkPrice
     this.totalPrice = this.priceNoVat + this.priceNoVat * 0.1
+  }
+
+  changeType(type: string): void {
+    this.type = type
+    if (type === 'all') {
+      this.listFoodsComputed = this.listFoods
+    } else {
+      this.listFoodsComputed = this.listFoods.filter(
+        (element: any) => element.type === type
+      )
+    }
   }
 
   decreaseQuantity(item: any): void {
@@ -366,45 +431,64 @@ export default class MovieFood extends Vue {
     item.quantity++
   }
 
-  backToSeatPlan(): void {
-    this.$router.push({ name: 'seat-plan' })
-  }
-
-  handlePrice(totalPrice: number) {
-    let price = totalPrice.toLocaleString()
-    return price
-  }
-
   addToCart(item: any): void {
     let isExist = this.cart.some((element: any) => element.name === item.name)
-    if (item.quantity === 0 && !this.cart.length) {
-      console.log('vui long them so luong')
-    } else {
-      if (!isExist && item.quantity > 0) {
+    // if cart is empty
+    if (!this.cart.length) {
+      if (item.quantity <= 0) {
+        this.$bvModal.show('modal-cart-info')
+      } else {
         this.cart.push({
+          id: item.id,
           name: item.name,
           quantity: item.quantity,
-          price: item.quantity * item.discountPrice
+          price: item.quantity * item.discountPrice,
+          type: item.type
         })
+      }
+      // if cart has at least one item
+    } else {
+      // if item not exist in cart yet
+      if (!isExist) {
+        if (item.quantity <= 0) {
+          this.$bvModal.show('modal-cart-info')
+        } else {
+          this.cart.push({
+            id: item.id,
+            name: item.name,
+            quantity: item.quantity,
+            price: item.quantity * item.discountPrice,
+            type: item.type
+          })
+        }
+        // if item has already exist in cart
       } else {
-        this.cart.map((element: any, index: any) => {
+        this.cart.map((element: any, index: number) => {
           if (element.name === item.name) {
-            if (item.quantity > 0) {
+            if (item.quantity <= 0) {
+              this.cart.splice(index, 1)
+            } else {
               element.quantity = item.quantity
               element.price = item.quantity * item.discountPrice
-            } else {
-              this.cart.splice(index, 1)
-            }
-          } else {
-            if (item.quantity === 0 && !isExist) {
-              console.log('vui long them so luong')
             }
           }
         })
       }
     }
 
-    this.comboPrice = this.cart.reduce(
+    this.comboCart = this.cart.filter(
+      (element: any) => element.type === 'combos'
+    )
+    this.foodDrinksCart = this.cart.filter(
+      (element: any) => element.type === 'foods' || element.type === 'drinks'
+    )
+
+    this.comboPrice = this.comboCart.reduce(
+      (total: number, element: any) => element.price + total,
+      0
+    )
+
+    this.foodDrinkPrice = this.foodDrinksCart.reduce(
       (total: number, element: any) => element.price + total,
       0
     )
@@ -414,6 +498,22 @@ export default class MovieFood extends Vue {
       this.comboPrice +
       this.foodDrinkPrice
     this.totalPrice = this.priceNoVat + this.priceNoVat * 0.1
+  }
+
+  handlePrice(price: number) {
+    return FormatPrice.handlePrice(price)
+  }
+
+  backToSeatPlan(): void {
+    this.$router.push({ name: 'seat-plan' })
+  }
+
+  goToTicketCheckOut(): void {
+    TicketModule.HANDLE_COMBO_CART(this.comboCart)
+    TicketModule.HANDLE_FOODDRINK_CART(this.foodDrinksCart)
+    TicketModule.HANDLE_COMBO_PRICE(this.comboPrice)
+    TicketModule.HANDLE_FOODDRINK_PRICE(this.foodDrinkPrice)
+    this.$router.push({ name: 'ticket-checkout' })
   }
 }
 </script>

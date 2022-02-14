@@ -46,7 +46,7 @@
         </button>
       </div>
     </div>
-    <ModalInfo
+    <ModalAuthInfo
       :title="'reset password notification'"
       :message="'You have successfully updated your password!'"
     />

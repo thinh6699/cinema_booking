@@ -115,7 +115,7 @@
         >
       </div>
     </div>
-    <ModalInfo
+    <ModalAuthInfo
       :title="'sign up notification'"
       :message="'You have successfully registered your account!'"
     />

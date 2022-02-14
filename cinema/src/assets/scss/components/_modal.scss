@@ -56,3 +56,16 @@ body.modal-open {
     background: rgba(0, 0, 0, 0.7);
   }
 }
+
+.modal-info-header,
+.modal-success-header,
+.modal-error-header {
+  padding-top: 8px;
+  padding-bottom: 12px;
+
+  .close {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: -5px;
+  }
+}

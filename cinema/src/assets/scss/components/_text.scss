@@ -68,3 +68,11 @@
     line-height: $i * 4px;
   }
 }
+
+.text-pre {
+  white-space: pre-line !important;
+}
+
+.word-break {
+  word-break: break-word;
+}
