@@ -15,3 +15,8 @@ export interface IMovie {
   like: number,
   category: ICategory[]
 }
+
+export interface ILanguage {
+  code: string
+  text: string
+}

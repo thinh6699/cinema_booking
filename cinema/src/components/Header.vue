@@ -10,9 +10,36 @@
       <div
         class="d-flex align-items-center justify-content-between px-2 px-lg-0 h-100"
       >
-        <router-link :to="{ name: 'home' }">
-          <img class="img-contain" src="@/assets/images/logo.png" alt="" />
-        </router-link>
+        <div class="d-flex align-items-center">
+          <router-link :to="{ name: 'home' }" class="me-5">
+            <img class="img-contain" src="@/assets/images/logo.png" alt="" />
+          </router-link>
+          <b-dropdown
+            right
+            no-caret
+            variant="light rounded-pill border"
+            menu-class="w-100 minw-unset bg-dark-shade border mt-1"
+          >
+            <template #button-content>
+              <div class="flex-center w--15 minh--5 position-relative px-2">
+                <span class="pe-5 text-white">{{ selectedLanguage }}</span>
+                <i
+                  class="fas fa-chevron-down fs-14 position-absolute top-50 end--n1 translate-middle-y px-2 text-white"
+                />
+              </div>
+            </template>
+            <b-dropdown-item
+              v-for="language in listLangauge"
+              :key="language.code"
+              class="fs-15"
+              @click="changeLanguage(language)"
+            >
+              <span class="d-inline-block text-white py-1">{{
+                language.text
+              }}</span>
+            </b-dropdown-item>
+          </b-dropdown>
+        </div>
         <div class="toggle-mobile-sidebar d-lg-none cursor-pointer p-4 m-n4">
           <i
             v-b-toggle="'mobile-menu'"
@@ -50,6 +77,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import MobileSidebar from '@/components/MobileSidebar.vue'
+import { ILanguage } from '@/models'
+import i18n from '@/lang'
+import { getModule } from 'vuex-module-decorators'
+import store from '@/store'
+import Language from '@/store/modules/Language'
+
+const LanguageModule = getModule(Language, store)
 
 @Component({
   components: {
@@ -57,6 +91,7 @@ import MobileSidebar from '@/components/MobileSidebar.vue'
   }
 })
 export default class Header extends Vue {
+  private selectedLanguage = 'ENG'
   public isOpen: boolean = false
   public scrollPosition: number = 0
   public headerMenu: any[] = [
@@ -82,6 +117,17 @@ export default class Header extends Vue {
     }
   ]
 
+  public listLangauge: any[] = [
+    {
+      code: 'en',
+      text: 'ENG'
+    },
+    {
+      code: 'vn',
+      text: 'VN'
+    }
+  ]
+
   created(): void {
     window.addEventListener('scroll', this.updateScroll)
   }
@@ -92,6 +138,12 @@ export default class Header extends Vue {
 
   updateState(isOpen: boolean): void {
     this.isOpen = isOpen
+  }
+
+  changeLanguage(language: ILanguage): void {
+    i18n.locale = language.code
+    this.selectedLanguage = language.text
+    LanguageModule.SET_LANGUAGE(language)
   }
 }
 </script>

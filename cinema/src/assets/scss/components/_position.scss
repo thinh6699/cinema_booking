@@ -29,6 +29,10 @@
     right: $i * 4px !important;
   }
 
+  .end--n#{$i} {
+    right: $i * -4px !important;
+  }
+
   .top--#{$i} {
     top: $i * 4px !important;
   }
