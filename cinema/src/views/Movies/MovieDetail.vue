@@ -42,7 +42,7 @@
               class="d-block d-lg-none btn btn-dark-shade minw--30 rounded-pill border border-light-shade text-center p-2"
               @click="openTrailer"
             >
-              Watch Trailer
+              {{ $t('movie_detail.watch_trailer') }}
             </div>
           </ul>
         </div>
@@ -99,7 +99,7 @@
             @click="goToTicketPlan"
             class="btn-gradient h--14 w--45 flex-center rounded-pill cursor-pointer"
           >
-            Booking Ticket
+            {{ $t('movie_detail.book_ticket') }}
           </div>
         </div>
       </div>
@@ -122,7 +122,9 @@
               </div>
 
               <div class="application-offer mb-6">
-                <p class="text-white fs-24 mb-6">Applicable Offer</p>
+                <p class="text-white fs-24 mb-6">
+                  {{ $t('movie_detail.applicable_offer') }}
+                </p>
                 <!-- Amazon Payment -->
                 <div
                   class="pay-with-amazon p-4 border border-dashed rounded mb-6"
@@ -184,7 +186,9 @@
           <div class="col-lg-9">
             <div class="movie-info">
               <div class="movie-photos mb-8">
-                <p class="mb-6 text-white text-uppercase fs-24 fwb">photos</p>
+                <p class="mb-6 text-white text-uppercase fs-24 fwb">
+                  {{ $t('movie_detail.photos') }}
+                </p>
                 <Swiper class="swiper" :options="swiperPhotoOptions">
                   <SwiperSlide
                     v-for="(photo, index) in movieDetail.photos"
@@ -205,19 +209,23 @@
                   @click="changeType('summary')"
                   class="me-6 cursor-pointer flex-center px-2"
                   :class="currentType === 'summary' ? 'border-y-3' : ''"
-                  >summary</span
+                >
+                  {{ $t('movie_detail.summary') }}</span
                 >
                 <span
                   @click="changeType('userReview')"
                   class="cursor-pointer flex-center px-2"
                   :class="currentType === 'userReview' ? 'border-y-3' : ''"
-                  >user reviews</span
+                >
+                  {{ $t('movie_detail.user_review') }}</span
                 >
               </div>
 
               <!-- Moive synopsis -->
               <div class="movies-synopsis mb-8">
-                <p class="text-white text-uppercase fs-24 fwb mb-4">synopsis</p>
+                <p class="text-white text-uppercase fs-24 fwb mb-4">
+                  {{ $t('movie_detail.synopsis') }}
+                </p>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
                   vehicula eros sit amet est tincidunt aliquet. Fusce laoreet
@@ -237,7 +245,9 @@
                 <div
                   class="pb-2 border-0 border-bottom border-dashed mb-8 position-relative"
                 >
-                  <p class="text-white text-uppercase fs-24 fwb mb-0">cast</p>
+                  <p class="text-white text-uppercase fs-24 fwb mb-0">
+                    {{ $t('movie_detail.cast') }}
+                  </p>
                   <div class="swiper-prev-cast flex-center">
                     <i
                       class="fad fa-chevron-double-left fs-20 text-success"
@@ -280,7 +290,9 @@
                 <div
                   class="pb-2 border-0 border-bottom border-dashed mb-8 position-relative"
                 >
-                  <p class="text-white text-uppercase fs-24 fwb mb-0">crew</p>
+                  <p class="text-white text-uppercase fs-24 fwb mb-0">
+                    {{ $t('movie_detail.crew') }}
+                  </p>
                   <div class="swiper-prev-crew flex-center">
                     <i
                       class="fad fa-chevron-double-left fs-20 text-success"

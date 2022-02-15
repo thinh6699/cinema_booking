@@ -3,10 +3,19 @@
     <!-- Banner Section -->
     <Banner :bg_url="require('@/assets/images/banner-film-section.jpg')">
       <h1 class="text-white text-uppercase fwb fs-36 fs-lg-80 mb-4">
-        get <span class="text-success">movies</span> ticket
+        {{ $t('all_movies.get') }}
+        <span
+          :class="$store.state.language.code === 'en' ? 'text-success' : ''"
+          class="me-6"
+          >{{ $t('all_movies.movie') }}</span
+        >
+        <span
+          :class="$store.state.language.code === 'en' ? '' : 'text-success'"
+          >{{ $t('all_movies.ticket') }}</span
+        >
       </h1>
       <p class="fs-20 fs-lg-28 fwb-500 mb-0">
-        Safe, secure, reliable ticketing.Your ticket to live entertainment!
+        {{ $t('home.message') }}
       </p>
     </Banner>
 
@@ -19,9 +28,11 @@
           <div class="row align-items-center position-relative">
             <!-- Title and introduction -->
             <div class="text-center col-lg-4">
-              <h5 class="text-success">WELCOME TO THINH6699</h5>
-              <p class="fwb text-white fs-22">
-                WHAT MOVIES ARE YOU LOOKING FOR?
+              <h5 class="text-success text-uppercase">
+                {{ $t('signup.welcome_to') }} thinh6699
+              </h5>
+              <p class="fwb text-uppercase text-white fs-22">
+                {{ $t('all_movies.looking_for') }}
               </p>
             </div>
 
@@ -32,7 +43,7 @@
                   <input
                     class="search-input px-2 outline-0"
                     type="text"
-                    placeholder="Search for Movies"
+                    :placeholder="`${$t('home.search_for')} Movies`"
                     v-model="movieSearch"
                     @keyup.enter="searchMovies"
                   />
@@ -49,7 +60,7 @@
                     alt="date-condition"
                     class="me-3"
                   />
-                  <span class="text-success me-3">Date</span>
+                  <span class="text-success me-3">{{ $t('home.date') }}</span>
                   <div class="date-picker">
                     <date-picker
                       id="date_search"
@@ -84,11 +95,13 @@
                 <div
                   class="d-flex justify-content-between align-items-center mb-4"
                 >
-                  <span class="text-white fs-20">Fiter By</span>
+                  <span class="text-white fs-20">{{
+                    $t('all_movies.filter_by')
+                  }}</span>
                   <span
                     class="text-danger fs-16 cursor-pointer"
                     @click="clearAllFilter"
-                    >Clear all</span
+                    >{{ $t('all_movies.clear_all') }}</span
                   >
                 </div>
 
@@ -96,7 +109,9 @@
                 <div
                   class="fiter-by-experience px-6 rounded bg-dark-tint-1 mb-8"
                 >
-                  <h5 class="mb-0 py-6 border-bottom text-white">EXPERIENCE</h5>
+                  <h5 class="mb-0 py-6 border-bottom text-uppercase text-white">
+                    {{ $t('all_movies.experience') }}
+                  </h5>
                   <div class="py-6">
                     <div
                       v-for="(experience, index) in listExperience"
@@ -120,7 +135,9 @@
 
                 <!--Category  -->
                 <div class="fiter-by-experience px-6 rounded bg-dark-tint-1">
-                  <h5 class="mb-0 py-6 border-bottom text-white">CATEGORY</h5>
+                  <h5 class="mb-0 py-6 border-bottom text-uppercase text-white">
+                    {{ $t('all_movies.category') }}
+                  </h5>
                   <div class="py-6">
                     <div
                       v-for="(category, index) in listCategory"
@@ -154,7 +171,9 @@
                 >
                   <div class="d-md-flex align-items-center mb-5 mb-md-0">
                     <div class="d-flex align-items-center me-6 mb-5 mb-md-0">
-                      <span class="w--15 flex-fixed pe-2">Show:</span>
+                      <span class="w--20 flex-fixed pe-2">
+                        {{ $t('all_movies.show') }}:</span
+                      >
                       <b-dropdown
                         right
                         no-caret
@@ -187,7 +206,9 @@
                     </div>
 
                     <div class="d-flex align-items-center mb-md-0">
-                      <span class="w--20 flex-fixed pe-2">Sort by:</span>
+                      <span class="w--30 flex-fixed pe-2"
+                        >{{ $t('all_movies.sort_by') }}:</span
+                      >
                       <b-dropdown
                         right
                         no-caret
@@ -222,7 +243,7 @@
                   <span
                     class="btn btn-dark-shade d-inline-block minw--25 border rounded-pill p-2 text-center cursor-pointer"
                     @click="filtered"
-                    >Filter</span
+                    >{{ $t('all_movies.filter') }}</span
                   >
                 </div>
               </div>
@@ -272,11 +293,15 @@
                             >
                           </div>
                           <div class="mb-4">
-                            <span class="text-success me-2">Format:</span>
+                            <span class="text-success me-2"
+                              >{{ $t('all_movies.format') }}:</span
+                            >
                             <span>{{ handleMovieFormat(movie.format) }}</span>
                           </div>
                           <p>
-                            <span class="text-success me-2">Release Date:</span>
+                            <span class="text-success me-2"
+                              >{{ $t('home.release_date') }}:</span
+                            >
                             {{ moment(movie.date).format('DD/MM/YYYY') }}
                           </p>
                           <div
@@ -310,7 +335,9 @@
                                 class="img-contain"
                               />
                             </div>
-                            <span class="text-white">Book ticket</span>
+                            <span class="text-white">{{
+                              $t('all_movies.book_ticket')
+                            }}</span>
                           </div>
                           <div
                             class="d-flex align-items-center cursor-pointer"
@@ -324,7 +351,9 @@
                                 class="img-contain"
                               />
                             </div>
-                            <span class="text-white">Watch trailer</span>
+                            <span class="text-white">{{
+                              $t('all_movies.watch_trailer')
+                            }}</span>
                           </div>
                         </div>
                       </div>

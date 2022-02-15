@@ -33,8 +33,8 @@
                 <!-- Change type to Movies -->
                 <li
                   class="bg-info-tint-1 h--14 w--40 rounded-pill text-white fwb mx-auto flex-center cursor-pointer mb-3 me-md-2 ms-md-2"
-                  :class="type === 'Movies' ? 'btn-gradient' : ''"
-                  @click="changeSearchType('Movies')"
+                  :class="showType === eShowType.MOVIES ? 'btn-gradient' : ''"
+                  @click="changeShowType(eShowType.MOVIES)"
                 >
                   <img
                     src="@/assets/images/movie.png"
@@ -42,15 +42,15 @@
                     class="me-1"
                   />
                   <span class="text-white text-uppercase">{{
-                    $t('home.movies')
+                    $t('home.movie')
                   }}</span>
                 </li>
 
                 <!-- Change type to Event -->
                 <li
                   class="bg-info-tint-1 h--14 w--40 rounded-pill text-white fwb mx-auto cursor-pointer flex-center mb-3 me-md-2 ms-md-2"
-                  :class="type === 'Event' ? 'btn-gradient' : ''"
-                  @click="changeSearchType('Event')"
+                  :class="showType === eShowType.EVENT ? 'btn-gradient' : ''"
+                  @click="changeShowType(eShowType.EVENT)"
                 >
                   <img
                     src="@/assets/images/event.png"
@@ -71,7 +71,11 @@
               <input
                 class="search-input px-2 outline-0"
                 type="text"
-                :placeholder="`${$t('home.search_for')} ${type}`"
+                :placeholder="`${$t('home.search_for')} ${
+                  showType === eShowType.MOVIES
+                    ? $t('home.movie')
+                    : $t('home.event')
+                }`"
                 v-model="inputSearch"
                 @keyup.enter="searchData"
               />
@@ -113,7 +117,7 @@
           <div class="row align-items-center">
             <!-- Movies Title -->
             <div class="text-center col-lg-6">
-              <h1 class="text-white text-uppercase">{{ $t('home.movies') }}</h1>
+              <h1 class="text-white text-uppercase">{{ $t('home.movie') }}</h1>
               <p class="mb-7">{{ $t('home.not_to_miss') }}</p>
             </div>
 
@@ -122,8 +126,10 @@
                 <!-- Now showing movie -->
                 <li
                   class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto flex-center cursor-pointer mb-3 me-md-2 ms-md-2"
-                  :class="movieType === 'nowShowing' ? 'btn-gradient' : ''"
-                  @click="changeMovieType('nowShowing')"
+                  :class="
+                    movieType === eMovieType.NOW_SHOWING ? 'btn-gradient' : ''
+                  "
+                  @click="changeMovieType(eMovieType.NOW_SHOWING)"
                 >
                   <img
                     src="@/assets/images/movie.png"
@@ -138,8 +144,10 @@
                 <!-- Coming soon movie -->
                 <li
                   class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto cursor-pointer flex-center mb-3 me-md-2 ms-md-2"
-                  :class="movieType === 'upComing' ? 'btn-gradient' : ''"
-                  @click="changeMovieType('upComing')"
+                  :class="
+                    movieType === eMovieType.COMING_SOON ? 'btn-gradient' : ''
+                  "
+                  @click="changeMovieType(eMovieType.COMING_SOON)"
                 >
                   <img
                     src="@/assets/images/event.png"
@@ -224,6 +232,7 @@ import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
 import { IMovie } from '@/models/index'
 import MovieService from '@/services/MovieService'
+import { EShowType, EMovieType } from '@/models/enum'
 
 @Component({
   components: { Banner, DatePicker }
@@ -232,8 +241,10 @@ export default class Home extends Vue {
   private currentDay: number = moment.now()
   private dateSearch: string = ''
   private inputSearch: string = ''
-  private type: string = 'Movies'
-  private movieType: string = 'nowShowing'
+  private eShowType: any = EShowType
+  private eMovieType: any = EMovieType
+  private showType: EShowType = EShowType.MOVIES
+  private movieType: EMovieType = EMovieType.NOW_SHOWING
   private listMovieComputed: IMovie[] = []
   private listMovie: IMovie[] = []
   private swiperOption = {
@@ -295,12 +306,12 @@ export default class Home extends Vue {
 
   searchData(): void {
     if (!this.inputSearch && !this.dateSearch) {
-      if (this.movieType === 'nowShowing') {
+      if (this.movieType === this.eMovieType.NOW_SHOWING) {
         this.listMovieComputed = this.listMovie.filter(
           (item: IMovie) => moment(item.date).valueOf() <= this.currentDay
         )
       }
-      if (this.movieType === 'upComing') {
+      if (this.movieType === this.eMovieType.COMING_SOON) {
         this.listMovieComputed = this.listMovie.filter(
           (item: IMovie) => moment(item.date).valueOf() > this.currentDay
         )
@@ -309,7 +320,7 @@ export default class Home extends Vue {
       this.listMovieComputed = this.listMovie.filter(
         (item: IMovie) =>
           item.date === moment(this.dateSearch).format('YYYY/MM/DD') &&
-          (this.movieType === 'nowShowing'
+          (this.movieType === this.eMovieType.NOW_SHOWING
             ? moment(item.date).valueOf() <= this.currentDay
             : moment(item.date).valueOf() > this.currentDay)
       )
@@ -317,7 +328,7 @@ export default class Home extends Vue {
       this.listMovieComputed = this.listMovie.filter(
         (item: IMovie) =>
           item.name.toLowerCase().match(this.inputSearch.toLowerCase()) &&
-          (this.movieType === 'nowShowing'
+          (this.movieType === this.eMovieType.NOW_SHOWING
             ? moment(item.date).valueOf() <= this.currentDay
             : moment(item.date).valueOf() > this.currentDay)
       )
@@ -330,26 +341,26 @@ export default class Home extends Vue {
     }
   }
 
-  changeSearchType(type: string): void {
-    if (type === 'Movies') {
-      this.type = 'Movies'
+  changeShowType(type: number): void {
+    if (type === this.eShowType.MOVIES) {
+      this.showType = this.eShowType.MOVIES
     }
 
-    if (type === 'Event') {
-      this.type = 'Event'
+    if (type === this.eShowType.EVENT) {
+      this.showType = this.eShowType.EVENT
     }
   }
 
-  changeMovieType(type: string): void {
-    if (type === 'nowShowing') {
-      this.movieType = 'nowShowing'
+  changeMovieType(type: number): void {
+    if (type === this.eMovieType.NOW_SHOWING) {
+      this.movieType = this.eMovieType.NOW_SHOWING
       this.listMovieComputed = this.listMovie.filter(
         (item: IMovie) => moment(item.date).valueOf() <= this.currentDay
       )
     }
 
-    if (type === 'upComing') {
-      this.movieType = 'upComing'
+    if (type === this.eMovieType.COMING_SOON) {
+      this.movieType = this.eMovieType.COMING_SOON
       this.listMovieComputed = this.listMovie.filter(
         (item: IMovie) => moment(item.date).valueOf() > this.currentDay
       )

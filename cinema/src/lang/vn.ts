@@ -30,7 +30,8 @@ export default {
   },
   home: {
     book_your_tickets: 'Đặt vé của bạn cho',
-    movies: 'phim',
+    movie: 'Phim',
+    movies: 'các bộ phim',
     message: 'Đặt vé an toàn, bảo mật, đáng tin cậy. Vé của bạn để giải trí trực tiếp!',
     looking_for: 'Bạn đang tìm kiếm điều gì?',
     event: 'Sự kiện',
@@ -41,6 +42,31 @@ export default {
     release_date: 'Ngày ra mắt',
     search_for: 'Tìm kiếm',
     more: 'Xem thêm'
+  },
+  all_movies: {
+    get: 'Nhận',
+    movie: 'vé',
+    ticket: 'xem phim',
+    looking_for: 'Bạn đang tìm kiếm phim gì?',
+    filter_by: 'Lọc theo',
+    clear_all: 'Xóa tất cả',
+    experience: 'Trải nghiệm ',
+    category: 'Thể loại',
+    show: 'Hiển thị',
+    sort_by: 'Sắp xếp theo',
+    filter: 'Lọc',
+    format: 'Định dạng',
+    book_ticket: 'Đặt vé',
+    watch_trailer: 'Xem trailer'
+  },
+  movie_detail: {
+    applicable_offer: 'Ưu đãi áp dụng',
+    photos: 'Ảnh',
+    summary: 'Tổng quan',
+    user_review: 'Đánh giá',
+    synopsis: 'Tóm tắt',
+    cast: 'Diễn viên',
+    crew: 'Nhân viên'
   },
   common: {
     hello: 'Xin chào',

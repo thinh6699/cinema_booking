@@ -30,6 +30,7 @@ export default {
   },
   home: {
     book_your_tickets: 'Book your tickets for',
+    movie: 'Movies',
     movies: 'Movies',
     message: 'Safe, secure, reliable ticketing.Your ticket to live entertainment!',
     looking_for: 'What are you looking for?',
@@ -41,6 +42,31 @@ export default {
     release_date: 'Release Date',
     search_for: 'Search for',
     more: 'More'
+  },
+  all_movies: {
+    get: 'Get',
+    movie: 'Movies',
+    ticket: 'Ticket',
+    looking_for: 'What movies are you looking for?',
+    filter_by: 'Filter by',
+    clear_all: 'Clear all',
+    experience: 'Experience',
+    category: 'Category',
+    show: 'Show',
+    sort_by: 'Sort by',
+    filter: 'Filter',
+    format: 'Format',
+    book_ticket: 'Book ticket',
+    watch_trailer: 'Watch trailer'
+  },
+  movie_detail: {
+    applicable_offer: 'Applicable Offer',
+    photos: 'Photos',
+    summary: 'Summary',
+    user_review: 'User reviews',
+    synopsis: 'Synopsis',
+    cast: 'Cast',
+    crew: 'Crew'
   },
   common: {
     hello: 'hello',
