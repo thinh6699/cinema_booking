@@ -2,8 +2,8 @@
   <div>
     <!-- Title -->
     <div class="text-uppercase text-center mb-7">
-      <p class="text-success fs-18 mb-2">hello</p>
-      <h2 class="text-white fs-30 mb-0 fwb">welcome back</h2>
+      <p class="text-success fs-18 mb-2">{{ $t('common.hello') }}</p>
+      <h2 class="text-white fs-30 mb-0 fwb">{{ $t('login.welcome_back') }}</h2>
     </div>
 
     <!-- SignIn form -->
@@ -11,27 +11,27 @@
       <div class="mb-5">
         <div class="form-group mb-5">
           <label class="text-uppercase w-100 mb-3" for="email">
-            Email
+            {{ $t('common.email') }}
             <span class="position-relative end--1 text-danger fs-18">*</span>
           </label>
           <input
             id="email"
             class="outline-0 auth-input"
             type="email"
-            placeholder="Enter your email"
+            :placeholder="$t('common.enter_your_email')"
           />
         </div>
 
         <div class="form-group">
           <label class="text-uppercase w-100 mb-3" for="password">
-            password
+            {{ $t('common.password') }}
             <span class="position-relative end--1 text-danger fs-18">*</span>
           </label>
           <input
             id="password"
             class="outline-0 auth-input"
             type="password"
-            placeholder="Password"
+            :placeholder="$t('common.password')"
           />
         </div>
       </div>
@@ -40,25 +40,27 @@
         <router-link
           :to="{ name: 'forgot-password' }"
           class="fs-14 text-info-tint"
-          >Forgot Password?</router-link
+          >{{ $t('login.forgot_password') }}</router-link
         >
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button @click="goToHome" class="btn btn-gradient">login</button>
+        <button @click="goToHome" class="btn btn-gradient">
+          {{ $t('common.btn.login') }}
+        </button>
       </div>
 
       <div class="text-center mb-7">
-        Don't have an account?
-        <router-link :to="{ name: 'sign-up' }" class="text-success"
-          >Sign up now</router-link
-        >
+        {{ $t('login.dont_have_acc') }}
+        <router-link :to="{ name: 'sign-up' }" class="text-success">{{
+          $t('login.sign_up')
+        }}</router-link>
       </div>
     </div>
 
     <!-- SignIn with other ways -->
     <div class="text-uppercase text-center overflow-hidden mb-5">
-      <span class="or px-3 position-relative">or</span>
+      <span class="or px-3 position-relative">{{ $t('login.or') }}</span>
     </div>
 
     <div class="flex-center">

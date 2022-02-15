@@ -2,14 +2,15 @@
   <div>
     <!-- Title -->
     <div class="text-uppercase text-center mb-7">
-      <p class="text-success fs-18 mb-2">hello</p>
-      <h2 class="text-white fs-30 mb-0 fwb">forgot password</h2>
+      <p class="text-success fs-18 mb-2">{{ $t('common.hello') }}</p>
+      <h2 class="text-white fs-30 mb-0 fwb">
+        {{ $t('forgot_password.title') }}
+      </h2>
     </div>
 
     <!-- Enter your email -->
     <div class="text-success mb-5">
-      Please enter your email address so we can verify your information and
-      continue to reset your password.
+      {{ $t('forgot_password.message') }}
     </div>
 
     <div class="sign-up-form">
@@ -19,14 +20,14 @@
             id="email"
             class="outline-0 auth-input"
             type="email"
-            placeholder="Enter your email"
+            :placeholder="$t('common.enter_your_email')"
           />
         </div>
       </div>
 
-      <div class="mw--45 mx-auto">
+      <div class="mw--50 mx-auto">
         <button @click="goToResetPassowrd" class="btn btn-gradient">
-          reset password
+          {{ $t('common.btn.reset_password') }}
         </button>
       </div>
     </div>

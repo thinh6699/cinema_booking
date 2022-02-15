@@ -3,10 +3,11 @@
     <!-- Banner Section -->
     <Banner :bg_url="require('@/assets/images/banner-home.jpg')">
       <h1 class="text-white text-uppercase fwb fs-36 fs-lg-80 mb-4">
-        book your tickets for <span class="text-success">movies</span>
+        {{ $t('home.book_your_tickets') }}
+        <span class="text-success"> {{ $t('home.movies') }}</span>
       </h1>
       <p class="fs-20 fs-lg-28 fwb-500 mb-0">
-        Safe, secure, reliable ticketing.Your ticket to live entertainment!
+        {{ $t('home.message') }}
       </p>
     </Banner>
 
@@ -19,8 +20,12 @@
           <div class="row align-items-center position-relative">
             <!-- Title and introduction -->
             <div class="text-center col-lg-6">
-              <h5 class="text-success">WELCOME TO THINH6699</h5>
-              <p class="fwb text-white fs-22">WHAT ARE YOU LOOKING FOR?</p>
+              <h5 class="text-success text-uppercase">
+                {{ $t('signup.welcome_to') }} thinh6699
+              </h5>
+              <p class="fwb text-uppercase text-white fs-22">
+                {{ $t('home.looking_for') }}
+              </p>
             </div>
 
             <ul class="list-unstyled mb-2 col-lg-6">
@@ -36,7 +41,9 @@
                     alt="movie-icon"
                     class="me-1"
                   />
-                  <span class="text-white">MOVIES</span>
+                  <span class="text-white text-uppercase">{{
+                    $t('home.movies')
+                  }}</span>
                 </li>
 
                 <!-- Change type to Event -->
@@ -50,7 +57,9 @@
                     alt="event-icon"
                     class="me-1"
                   />
-                  <span class="text-white">EVENT</span>
+                  <span class="text-white text-uppercase">{{
+                    $t('home.event')
+                  }}</span>
                 </li>
               </div>
             </ul>
@@ -62,7 +71,7 @@
               <input
                 class="search-input px-2 outline-0"
                 type="text"
-                :placeholder="`Search for ${type}`"
+                :placeholder="`${$t('home.search_for')} ${type}`"
                 v-model="inputSearch"
                 @keyup.enter="searchData"
               />
@@ -79,7 +88,7 @@
                 alt="date-condition"
                 class="me-3"
               />
-              <span class="text-success me-3">Date</span>
+              <span class="text-success me-3">{{ $t('home.date') }}</span>
               <div class="date-picker">
                 <date-picker
                   id="date_search"
@@ -104,8 +113,8 @@
           <div class="row align-items-center">
             <!-- Movies Title -->
             <div class="text-center col-lg-6">
-              <h1 class="text-white">MOVIES</h1>
-              <p class="mb-7">Be sure not to miss these Movies today</p>
+              <h1 class="text-white text-uppercase">{{ $t('home.movies') }}</h1>
+              <p class="mb-7">{{ $t('home.not_to_miss') }}</p>
             </div>
 
             <ul class="list-unstyled mb-2 col-lg-6">
@@ -121,7 +130,9 @@
                     alt="movie-icon"
                     class="me-1"
                   />
-                  <span class="text-white">NOW SHOWING</span>
+                  <span class="text-white text-uppercase">{{
+                    $t('home.now_showing')
+                  }}</span>
                 </li>
 
                 <!-- Coming soon movie -->
@@ -135,7 +146,9 @@
                     alt="event-icon"
                     class="me-1"
                   />
-                  <span class="text-white">COMING SOON</span>
+                  <span class="text-white text-uppercase">{{
+                    $t('home.coming_soon')
+                  }}</span>
                 </li>
               </div>
             </ul>
@@ -171,7 +184,9 @@
                       {{ movie.name }}
                     </p>
                     <span class="fs-16"
-                      ><span class="text-success me-2">Release Date:</span>
+                      ><span class="text-success me-2"
+                        >{{ $t('home.release_date') }}:</span
+                      >
                       {{ moment(movie.date).format('DD/MM/YYYY') }}</span
                     >
                   </div>
@@ -188,9 +203,9 @@
                       <img src="@/assets/images/cake.png" alt="" class="me-1" />
                       <span>{{ `${movie.like}%` }}</span>
                     </div>
-                    <span class="ms-auto text-success cursor-pointer"
-                      >More</span
-                    >
+                    <span class="ms-auto text-success cursor-pointer">{{
+                      $t('home.more')
+                    }}</span>
                   </div>
                 </div>
               </SwiperSlide>

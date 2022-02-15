@@ -2,7 +2,7 @@
   <div>
     <!-- Title -->
     <div class="text-uppercase text-center mb-7">
-      <p class="text-success fs-18 mb-2">welcome to</p>
+      <p class="text-success fs-18 mb-2">{{ $t('signup.welcome_to') }}</p>
       <h2 class="text-white fs-30 mb-0 fwb">thinh6699 cinema</h2>
     </div>
 
@@ -11,79 +11,79 @@
       <div class="mb-5">
         <div class="form-group mb-5">
           <label class="text-uppercase w-100 mb-3" for="full-name">
-            full name
+            {{ $t('common.full_name') }}
             <span class="position-relative end--1 text-danger fs-18">*</span>
           </label>
           <input
             id="full-name"
             class="auth-input outline-0"
             type="email"
-            placeholder="Your full name"
+            :placeholder="$t('common.your_full_name')"
           />
         </div>
 
         <div class="form-group mb-5">
           <label class="text-uppercase w-100 mb-3" for="email">
-            email
+            {{ $t('common.enter_your_email') }}
             <span class="position-relative end--1 text-danger fs-18">*</span>
           </label>
           <input
             id="email"
             class="auth-input outline-0"
             type="email"
-            placeholder="Enter your email"
+            :placeholder="$t('common.enter_your_email')"
           />
         </div>
 
         <div class="form-group mb-5">
           <label class="text-uppercase w-100 mb-3" for="password">
-            password
+            {{ $t('common.password') }}
             <span class="position-relative end--1 text-danger fs-18">*</span>
           </label>
           <input
             id="password"
             class="auth-input outline-0"
             type="password"
-            placeholder="Password"
+            :placeholder="$t('common.password')"
           />
         </div>
 
         <div class="form-group mb-5">
           <label class="text-uppercase w-100 mb-3" for="confirm-password">
-            confirm password
+            {{ $t('common.confirm_password') }}
             <span class="position-relative end--1 text-danger fs-18">*</span>
           </label>
           <input
             id="confirm-password"
             class="auth-input outline-0"
             type="password"
-            placeholder="Confirm your password"
+            :placeholder="$t('common.confirm_password')"
           />
         </div>
 
         <div class="form-group mb-5">
           <label class="text-uppercase w-100 mb-3" for="address">
-            address
+            {{ $t('common.address') }}
             <span class="position-relative end--1 text-danger fs-18">*</span>
           </label>
           <input
             id="address"
             class="auth-input outline-0"
             type="text"
-            placeholder="Address"
+            :placeholder="$t('common.address')"
           />
         </div>
 
         <div class="form-group">
           <label class="text-uppercase w-100 mb-3" for="phone-number">
-            phone number
+            {{ $t('common.phone_number') }}
             <span class="position-relative end--1 text-danger fs-18">*</span>
           </label>
           <input
             id="phone-number"
             class="auth-input outline-0"
             type="text"
-            placeholder="Phone Number"
+            :placeholder="$t('common.phone_number')"
           />
         </div>
       </div>
@@ -96,28 +96,30 @@
             id="agree"
           />
           <label class="cursor-pointer" for="agree"
-            >I agree to the
-            <span class="text-success">Terms and Privacy Policy</span></label
+            >{{ $t('signup.agree_to') }}
+            <span class="text-success">{{
+              $t('signup.term_and_privacy')
+            }}</span></label
           >
         </div>
       </div>
 
       <div class="mw--45 mx-auto mb-5">
         <button v-b-modal="'modal-info'" class="btn btn-gradient">
-          sign up
+          {{ $t('common.btn.signup') }}
         </button>
       </div>
 
       <div class="text-center mb-7">
-        Already have an account?
-        <router-link :to="{ name: 'sign-in' }" class="text-success"
-          >Login</router-link
-        >
+        {{ $t('signup.already_have_acc') }}
+        <router-link :to="{ name: 'sign-in' }" class="text-success">{{
+          $t('signup.login')
+        }}</router-link>
       </div>
     </div>
     <ModalAuthInfo
       :title="'sign up notification'"
-      :message="'You have successfully registered your account!'"
+      :message="$t('common.message.registerd_acc_successfull')"
     />
   </div>
 </template>
