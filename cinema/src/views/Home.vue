@@ -151,15 +151,13 @@
               <SwiperSlide
                 v-for="movie in listMovieComputed"
                 :key="movie.id"
-                class="h-unset"
+                class="h-unset cursor-pointer"
+                :data-id="movie.id"
               >
                 <div
                   class="mw--75 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
                 >
-                  <figure
-                    class="mb-0 h--100 cursor-pointer"
-                    @click="goToMovieDetail(movie)"
-                  >
+                  <figure class="mb-0 h--100">
                     <img
                       :src="movie.poster"
                       alt="The Matrix Resurrections"
@@ -169,118 +167,7 @@
                   <div
                     class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
                   >
-                    <p
-                      class="flex-1 cursor-pointer"
-                      @click="goToMovieDetail(movie)"
-                    >
-                      {{ movie.name }}
-                    </p>
-                    <span class="fs-16"
-                      ><span class="text-success me-2">Release Date:</span>
-                      {{ moment(movie.date).format('DD/MM/YYYY') }}</span
-                    >
-                  </div>
-                  <div class="d-flex align-items-center px-4 py-5">
-                    <div class="d-flex align-items-center me-3">
-                      <img
-                        src="@/assets/images/tomato.png"
-                        alt=""
-                        class="me-1"
-                      />
-                      <span>{{ `${movie.rotten_tomato_rating}%` }}</span>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <img src="@/assets/images/cake.png" alt="" class="me-1" />
-                      <span>{{ `${movie.like}%` }}</span>
-                    </div>
-                    <span class="ms-auto text-success cursor-pointer"
-                      >More</span
-                    >
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Event Section -->
-    <div class="movie-section mb-20">
-      <div class="container">
-        <div class="d-flex flex-column justify-content-center p-7">
-          <div class="row align-items-center">
-            <!-- event Title -->
-            <div class="text-center col-lg-6">
-              <h1 class="text-white">EVENTS</h1>
-              <p class="mb-7">Be sure not to miss these Event today</p>
-            </div>
-
-            <ul class="list-unstyled mb-2 col-lg-6">
-              <div class="d-md-flex align-items-center justify-content-center">
-                <!-- Now showing event -->
-                <li
-                  class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto flex-center cursor-pointer mb-3 me-md-2 ms-md-2"
-                  :class="movieType === 'nowShowing' ? 'btn-gradient' : ''"
-                  @click="changeMovieType('nowShowing')"
-                >
-                  <img
-                    src="@/assets/images/movie.png"
-                    alt="movie-icon"
-                    class="me-1"
-                  />
-                  <span class="text-white">NOW SHOWING</span>
-                </li>
-
-                <!-- Coming soon event -->
-                <li
-                  class="bg-info-tint-1 h--14 w--50 rounded-pill text-white fwb mx-auto cursor-pointer flex-center mb-3 me-md-2 ms-md-2"
-                  :class="movieType === 'upComing' ? 'btn-gradient' : ''"
-                  @click="changeMovieType('upComing')"
-                >
-                  <img
-                    src="@/assets/images/event.png"
-                    alt="event-icon"
-                    class="me-1"
-                  />
-                  <span class="text-white">COMING SOON</span>
-                </li>
-              </div>
-            </ul>
-          </div>
-
-          <!-- List Events -->
-          <div class="list-events">
-            <Swiper
-              class="swiper"
-              :options="swiperOption"
-              v-if="listMovieComputed.length"
-            >
-              <SwiperSlide
-                v-for="movie in listMovieComputed"
-                :key="movie.id"
-                class="h-unset"
-              >
-                <div
-                  class="mw--75 mx-auto rounded-bottom bg-dark-tint-1 d-flex flex-column w-100 h-100"
-                >
-                  <figure
-                    class="mb-0 h--100 cursor-pointer"
-                    @click="goToMovieDetail(movie)"
-                  >
-                    <img
-                      :src="movie.poster"
-                      alt="The Matrix Resurrections"
-                      class="rounded-top img-cover"
-                    />
-                  </figure>
-                  <div
-                    class="mb-0 fs-18 text-white mx-4 py-5 border-bottom flex-1 d-flex flex-column"
-                  >
-                    <p
-                      class="flex-1 cursor-pointer"
-                      @click="goToMovieDetail(movie)"
-                    >
+                    <p class="flex-1">
                       {{ movie.name }}
                     </p>
                     <span class="fs-16"
@@ -341,6 +228,14 @@ export default class Home extends Vue {
       delay: 2000,
       stopOnLastSlide: false,
       disableOnInteraction: false
+    },
+    on: {
+      click: (swiper: any) => {
+        this.$router.push({
+          name: 'movie-detail',
+          params: { movieId: `${swiper.clickedSlide.dataset.id}` }
+        })
+      }
     },
     slidesPerView: 1,
     spaceBetween: 10,
@@ -444,13 +339,6 @@ export default class Home extends Vue {
         (item: IMovie) => moment(item.date).valueOf() > this.currentDay
       )
     }
-  }
-
-  goToMovieDetail(movie: IMovie): void {
-    this.$router.push({
-      name: 'movie-detail',
-      params: { movieId: `${movie.id}` }
-    })
   }
 }
 </script>
