@@ -209,7 +209,7 @@ import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
 import { ISeat, ISeatDetail } from '@/models'
-import moment from 'moment'
+import moment, { Moment } from 'moment'
 
 const TicketModule = getModule(TicketTime, store)
 
@@ -226,7 +226,7 @@ export default class SeatPlan extends Vue {
   private singleChoosen = require('@/assets/images/single-choosen.png')
   private coupleChoosen = require('@/assets/images/couple-choosen.png')
 
-  private timeRequire: any = moment.utc(10 * 60 * 1000)
+  private timeRequire: Moment = moment(10 * 60 * 1000)
   private totalPrice: number = 0
   private listSeatChoose: string[] = []
   private listSeat: ISeat[] = [
