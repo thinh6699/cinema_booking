@@ -22,7 +22,9 @@
                 alt="date-condition"
                 class="me-3"
               />
-              <span class="text-success text-uppercase me-3">Date</span>
+              <span class="text-success text-uppercase me-3">{{
+                $t('home.date')
+              }}</span>
               <b-dropdown
                 right
                 no-caret
@@ -55,7 +57,9 @@
                 alt="date-condition"
                 class="me-3"
               />
-              <span class="text-success text-uppercase me-3">experience</span>
+              <span class="text-success text-uppercase me-3">{{
+                $t('all_movies.experience')
+              }}</span>
               <b-dropdown
                 right
                 no-caret
@@ -89,7 +93,7 @@
             <div
               class="btn-gradient h--14 w--45 flex-center rounded-pill cursor-pointer"
             >
-              Search
+              {{ $t('common.btn.search') }}
             </div>
           </div>
         </div>

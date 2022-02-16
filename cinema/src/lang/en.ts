@@ -87,6 +87,7 @@ export default {
       sign_up_notify: 'sign up notification',
       reset_password_notify: 'reset password notification',
       click_to_login: 'Click here to login.',
+      pls_add_item: 'Please add an item'
     },
     btn: {
       login: 'Login',
@@ -95,7 +96,11 @@ export default {
       confirm: 'Confirm',
       back_to_home: 'Back to Home',
       ok: 'OK',
-      subcribe: 'subcribe'
+      subcribe: 'subcribe',
+      search: 'Search',
+      back: 'Back',
+      proceed: 'Proceed',
+      add: 'Add'
     }
   },
   footer: {
@@ -116,5 +121,27 @@ export default {
     blog: 'Blog',
     about_us: 'About us',
     contact: 'Contact'
+  },
+  seat_plan: {
+    mins_left: 'Mins Left',
+    screen: 'Screen',
+    normal: 'Normal',
+    choosed_seat: 'You have choosed seat',
+    total_price: 'Total price'
+  },
+  movie_food: {
+    have_food: 'We have food',
+    prebook_meal: 'Prebook your meal and save more!',
+    all: 'All',
+    combos: 'Combos',
+    foods: 'Foods',
+    drinks: 'Drinks',
+    sale_off: 'Off',
+    booking_summary: 'Booking summary',
+    tickets: 'Tickets',
+    ticket_price: 'Ticket price',
+    food_drink: 'Foods & Drinks',
+    price_no_vat: 'Price (not include VAT)',
+    amount_payable: 'Amount payable'
   }
 }

@@ -28,7 +28,7 @@ export interface IFood {
   price: number,
   discount?: number,
   quantity: number,
-  type: string,
+  type: number,
 }
 
 export interface ISeatDetail {
@@ -42,4 +42,9 @@ export interface ISeat {
   type: string,
   detail: ISeatDetail[],
   price: number
+}
+
+export interface IMealType {
+  type: number,
+  name: string
 }

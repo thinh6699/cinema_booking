@@ -40,9 +40,9 @@
             @click="backToSeatPlan"
             class="btn-gradient w--30 h--11 flex-center position-relative custom-order-1 mb-8 cursor-pointer"
           >
-            <span class="ms-3">Back</span>
+            <span class="ms-3">{{ $t('common.btn.back') }}</span>
             <i
-              class="fad fa-chevron-double-left fs-14 position-absolute top-50 start--6 translate-middle-y text-white"
+              class="fad fa-chevron-double-left fs-14 position-absolute top-50 start--2 translate-middle-y text-white"
             />
           </div>
         </div>
@@ -55,40 +55,22 @@
         <div class="col-12 col-lg-8 mb-20">
           <!-- Title -->
           <div class="title text-center mb-8">
-            <p class="text-success text-uppercase fs-18 mb-2">you're hungry</p>
-            <p class="text-uppercase text-white fs-26 fwb mb-2">we have food</p>
-            <span class="fs-18">Prebook Your Meal and Save More!</span>
+            <p class="text-uppercase text-success fs-26 fwb mb-2">
+              {{ $t('movie_food.have_food') }}
+            </p>
+            <span class="fs-18">{{ $t('movie_food.prebook_meal') }}</span>
           </div>
 
           <!-- Combo Types -->
           <div class="combo-types flex-center flex-wrap mb-5">
             <div
-              @click="changeType('all')"
-              :class="type === 'all' ? 'btn-gradient' : ''"
-              class="border rounded-pill m-2 w-unset minw--25 flex-center h--11 cursor-pointer text-uppercase"
+              v-for="(type, index) in listMealType"
+              :key="index"
+              @click="changeType(type.type)"
+              :class="mealType === type.type ? 'btn-gradient' : ''"
+              class="border rounded-pill m-2 w-unset minw--28 flex-center h--11 cursor-pointer text-uppercase"
             >
-              All
-            </div>
-            <div
-              @click="changeType('combos')"
-              :class="type === 'combos' ? 'btn-gradient' : ''"
-              class="border rounded-pill m-2 w-unset minw--30 flex-center h--11 cursor-pointer text-uppercase"
-            >
-              Combos
-            </div>
-            <div
-              @click="changeType('foods')"
-              :class="type === 'foods' ? 'btn-gradient' : ''"
-              class="border rounded-pill m-2 w-unset minw--30 flex-center h--11 cursor-pointer text-uppercase"
-            >
-              Foods
-            </div>
-            <div
-              @click="changeType('drinks')"
-              :class="type === 'drinks' ? 'btn-gradient' : ''"
-              class="border rounded-pill m-2 w-unset minw--30 flex-center h--11 cursor-pointer text-uppercase"
-            >
-              Drinks
+              {{ $t(type.name) }}
             </div>
           </div>
 
@@ -105,7 +87,9 @@
                 <!-- Food Discount -->
                 <div v-if="item.discount > 0" class="discount-tag">
                   <span class="text-white fwb">{{ item.discount }}%</span>
-                  <span>OFF</span>
+                  <span class="text-uppercase">
+                    {{ $t('movie_food.sale_off') }}</span
+                  >
                 </div>
 
                 <!-- Food Background -->
@@ -172,7 +156,7 @@
                     @click="addToCart(item)"
                     class="btn-gradient h--11 w--22 flex-center cursor-pointer"
                   >
-                    Add
+                    {{ $t('common.btn.add') }}
                   </div>
                 </div>
               </div>
@@ -181,13 +165,13 @@
         </div>
 
         <!-- Total Amount -->
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-4 mb-20">
           <div class="border bg-dark-tint-1 rounded">
             <div class="p-4 border-0 border-bottom border-dashed">
               <p
                 class="text-center text-white text-uppercase fs-22 fwb-500 pb-3 border-0 border-bottom border-dashed mb-6"
               >
-                booking summary
+                {{ $t('movie_food.booking_summary') }}
               </p>
 
               <!-- Ticket Detail -->
@@ -219,11 +203,13 @@
                   class="d-flex align-items-center justify-content-between mb-8"
                 >
                   <span> {{ $store.state.ticket.ticketAmount.name }}</span>
-                  <span class="text-uppercase"> Tickets</span>
+                  <span class="text-uppercase">
+                    {{ $t('movie_food.tickets') }}</span
+                  >
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                   <span class="text-success text-uppercase fs-18 fwb-500">
-                    ticket price</span
+                    {{ $t('movie_food.ticket_price') }}</span
                   >
                   <span class="text-white fs-18 fwb-500">
                     {{
@@ -239,7 +225,7 @@
               >
                 <div class="d-flex align-items-center justify-content-between">
                   <span class="text-success text-uppercase fs-18 fwb-500">
-                    combos</span
+                    {{ $t('movie_food.combos') }}</span
                   >
                   <span class="text-white fs-18 fwb-500">
                     {{ `${handlePrice(comboPrice)}đ` }}</span
@@ -257,7 +243,7 @@
                   class="d-flex align-items-center justify-content-between pt-8"
                 >
                   <span class="text-success text-uppercase fs-18 fwb-500">
-                    Foods & Drinks</span
+                    {{ $t('movie_food.food_drink') }}</span
                   >
                   <span class="text-white fs-18 fwb-500">
                     {{ `${handlePrice(foodDrinkPrice)}đ` }}</span
@@ -277,7 +263,9 @@
               <div
                 class="d-flex align-items-center justify-content-between mb-2"
               >
-                <span class="text-uppercase"> Price</span>
+                <span class="text-uppercase">
+                  {{ $t('movie_food.price_no_vat') }}</span
+                >
                 <span> {{ `${handlePrice(priceNoVat)}đ` }}</span>
               </div>
               <div
@@ -293,7 +281,7 @@
                 class="d-flex align-items-center justify-content-between mb-6"
               >
                 <span class="text-success text-uppercase fs-18 fwb-500">
-                  Amount Payable
+                  {{ $t('movie_food.amount_payable') }}
                 </span>
                 <span class="text-white fs-18 fwb-500">
                   {{ `${handlePrice(totalPrice)}đ` }}</span
@@ -303,14 +291,17 @@
                 @click="goToTicketCheckOut"
                 class="btn-gradient mx-auto w--30 h--11 flex-center cursor-pointer"
               >
-                Proceed
+                {{ $t('common.btn.proceed') }}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <ModalInfo :id="'modal-cart-info'" :infoMess="'Please add an item!'" />
+    <ModalInfo
+      :id="'modal-cart-info'"
+      :infoMess="$t('common.message.pls_add_item')"
+    />
   </div>
 </template>
 
@@ -321,7 +312,8 @@ import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
 import FormatPrice from '@/helpers/FormatPrice'
-import { IFood } from '@/models'
+import { IFood, IMealType } from '@/models'
+import { EMealType } from '@/models/enum'
 
 const TicketModule = getModule(TicketTime, store)
 
@@ -331,7 +323,8 @@ const TicketModule = getModule(TicketTime, store)
   }
 })
 export default class MovieFood extends Vue {
-  private type: string = 'all'
+  private eMealType: any = EMealType
+  private mealType: number = this.eMealType.ALL
   private comboPrice: number = 0
   private foodDrinkPrice: number = 0
   private priceNoVat: number = 0
@@ -344,7 +337,7 @@ export default class MovieFood extends Vue {
       price: 100000,
       discount: 25,
       quantity: 0,
-      type: 'combos'
+      type: this.eMealType.COMBO
     },
     {
       id: 2,
@@ -353,7 +346,7 @@ export default class MovieFood extends Vue {
       price: 100000,
       discount: 25,
       quantity: 0,
-      type: 'combos'
+      type: this.eMealType.COMBO
     },
     {
       id: 3,
@@ -362,7 +355,7 @@ export default class MovieFood extends Vue {
       price: 150000,
       discount: 20,
       quantity: 0,
-      type: 'combos'
+      type: this.eMealType.COMBO
     },
     {
       id: 4,
@@ -371,7 +364,7 @@ export default class MovieFood extends Vue {
       price: 200000,
       discount: 50,
       quantity: 0,
-      type: 'combos'
+      type: this.eMealType.COMBO
     },
     {
       id: 5,
@@ -380,7 +373,7 @@ export default class MovieFood extends Vue {
       price: 50000,
       discount: 0,
       quantity: 0,
-      type: 'foods'
+      type: this.eMealType.FOOD
     },
     {
       id: 6,
@@ -389,7 +382,26 @@ export default class MovieFood extends Vue {
       price: 30000,
       discount: 0,
       quantity: 0,
-      type: 'drinks'
+      type: this.eMealType.DRINK
+    }
+  ]
+
+  private listMealType: IMealType[] = [
+    {
+      type: this.eMealType.ALL,
+      name: 'movie_food.all'
+    },
+    {
+      type: this.eMealType.COMBO,
+      name: 'movie_food.combos'
+    },
+    {
+      type: this.eMealType.FOOD,
+      name: 'movie_food.foods'
+    },
+    {
+      type: this.eMealType.DRINK,
+      name: 'movie_food.drinks'
     }
   ]
 
@@ -411,13 +423,13 @@ export default class MovieFood extends Vue {
     this.totalPrice = this.priceNoVat + this.priceNoVat * 0.1
   }
 
-  changeType(type: string): void {
-    this.type = type
-    if (type === 'all') {
+  changeType(type: number): void {
+    this.mealType = type
+    if (type === this.eMealType.ALL) {
       this.listFoodsComputed = this.listFoods
     } else {
       this.listFoodsComputed = this.listFoods.filter(
-        (element: IFood) => element.type === type
+        (element: any) => element.type === type
       )
     }
   }
@@ -478,10 +490,12 @@ export default class MovieFood extends Vue {
     }
 
     this.comboCart = this.cart.filter(
-      (element: IFood) => element.type === 'combos'
+      (element: IFood) => element.type === this.eMealType.COMBO
     )
     this.foodDrinksCart = this.cart.filter(
-      (element: IFood) => element.type === 'foods' || element.type === 'drinks'
+      (element: IFood) =>
+        element.type === this.eMealType.FOOD ||
+        element.type === this.eMealType.DRINK
     )
 
     this.comboPrice = this.comboCart.reduce(

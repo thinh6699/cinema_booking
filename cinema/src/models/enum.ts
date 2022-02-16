@@ -8,3 +8,10 @@ export enum EMovieType {
   NOW_SHOWING,
   COMING_SOON
 }
+
+export enum EMealType {
+  ALL,
+  COMBO,
+  FOOD,
+  DRINK
+}

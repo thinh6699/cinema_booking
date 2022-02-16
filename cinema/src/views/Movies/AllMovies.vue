@@ -499,8 +499,7 @@ export default class AllMovies extends Vue {
   }
 
   handleMovieFormat(formats: string[]) {
-    let format = formats.join(', ')
-    return format
+    return formats.join(', ')
   }
 }
 </script>

@@ -86,7 +86,8 @@ export default {
       reset_password_successfull: 'Bạn đã cập nhật mật khẩu của mình thành công!',
       sign_up_notify: 'Thông báo đăng ký',
       reset_password_notify: 'Thông báo đặt lại mật khẩu',
-      click_to_login: 'Nhấn vào đây để đăng nhập.'
+      click_to_login: 'Nhấn vào đây để đăng nhập.',
+      pls_add_item: 'Vui lòng thêm số lượng'
     },
     btn: {
       login: 'Đăng nhập',
@@ -95,7 +96,11 @@ export default {
       confirm: 'Xác nhận',
       back_to_home: 'Trở về trang chủ',
       ok: 'Đồng ý',
-      subcribe: 'Đăng ký'
+      subcribe: 'Đăng ký',
+      search: 'Tìm kiếm',
+      back: 'Quay lại',
+      proceed: 'Tiếp tục',
+      add: 'Thêm'
     }
   },
   footer: {
@@ -116,5 +121,27 @@ export default {
     blog: 'Tin tức',
     about_us: 'Về chúng tôi',
     contact: 'Liên hệ'
+  },
+  seat_plan: {
+    mins_left: 'Còn lại',
+    screen: 'Màn hình',
+    normal: 'Thường',
+    choosed_seat: 'Ghế đã chọn',
+    total_price: 'Tổng giá'
+  },
+  movie_food: {
+    have_food: 'Chúng tôi có sẵn thức ăn',
+    prebook_meal: 'Đặt trước bữa ăn của bạn và tiết kiệm hơn!',
+    all: 'Tất cả',
+    combos: 'Combo',
+    foods: 'Thức ăn',
+    drinks: 'Đồ uống',
+    sale_off: 'Giảm',
+    booking_summary: 'Chi tiết đặt vé',
+    tickets: 'Vé',
+    ticket_price: 'Giá vé',
+    food_drink: 'Thức ăn & Đồ uống',
+    price_no_vat: 'Giá (chưa bao gồm VAT)',
+    amount_payable: 'Số tiền cần thanh toán'
   }
 }

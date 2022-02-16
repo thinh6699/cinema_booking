@@ -39,8 +39,10 @@
           <div
             class="d-inline-flex flex-column align-items-center mx-2 mb-5 custom-order-3"
           >
-            <p class="mb-0 fs-28 fwb-500 text-white">05:00</p>
-            <span>Mins Left</span>
+            <p class="mb-0 fs-28 fwb-500 text-white">
+              {{ remainTime }}
+            </p>
+            <span>{{ $t('seat_plan.mins_left') }}</span>
           </div>
 
           <!-- Back btn -->
@@ -48,9 +50,9 @@
             @click="backToTicketPlan"
             class="btn-gradient w--30 h--11 flex-center position-relative custom-order-1 mb-5 cursor-pointer"
           >
-            <span class="ms-3">Back</span>
+            <span class="ms-3">{{ $t('common.btn.back') }}</span>
             <i
-              class="fad fa-chevron-double-left fs-14 position-absolute top-50 start--6 translate-middle-y text-white"
+              class="fad fa-chevron-double-left fs-14 position-absolute top-50 start--2 translate-middle-y text-white"
             />
           </div>
         </div>
@@ -59,12 +61,14 @@
 
     <!-- Seat plan -->
     <div class="container mb-20">
-      <h3 class="screen">screen</h3>
+      <h3 class="screen">{{ $t('seat_plan.screen') }}</h3>
       <div class="seat-thumb w-100 mw--180 mx-auto mb-7">
         <img src="@/assets/images/screen-thumb.png" class="img-contain" />
       </div>
       <div class="silver-plus">
-        <h3 class="subtitle fs-24 text-success mb-7">normal</h3>
+        <h3 class="subtitle fs-24 text-success mb-7">
+          {{ $t('seat_plan.normal') }}
+        </h3>
         <ul class="list-unstyled overflow-auto seat-scrollbar mb-0">
           <li
             v-for="(item, index) in listSeat"
@@ -167,7 +171,7 @@
           >
             <!-- Seat Detail -->
             <div class="seat-detail mb-6 me-6">
-              <p class="fs-18 mb-0">You have choosed seat</p>
+              <p class="fs-18 mb-0">{{ $t('seat_plan.choosed_seat') }}</p>
               <span
                 v-if="listSeatChoose.length"
                 class="d-inline-block w--53 text-success fs-25 fwb"
@@ -177,7 +181,7 @@
 
             <!-- Seat Price -->
             <div class="seat-price mb-6 me-6">
-              <p class="fs-18 mb-0">Total price</p>
+              <p class="fs-18 mb-0">{{ $t('seat_plan.total_price') }}</p>
               <span v-if="totalPrice > 0" class="text-success fs-25 fwb">{{
                 `${handlePrice(totalPrice)}đ`
               }}</span>
@@ -188,7 +192,7 @@
               @click="goToMovieFood"
               class="btn-gradient w--32 h--12 flex-center mb-6 cursor-pointer"
             >
-              Proceed
+              {{ $t('common.btn.proceed') }}
             </div>
           </div>
         </div>
@@ -205,6 +209,7 @@ import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
 import { ISeat, ISeatDetail } from '@/models'
+import moment from 'moment'
 
 const TicketModule = getModule(TicketTime, store)
 
@@ -221,6 +226,7 @@ export default class SeatPlan extends Vue {
   private singleChoosen = require('@/assets/images/single-choosen.png')
   private coupleChoosen = require('@/assets/images/couple-choosen.png')
 
+  private timeRequire: any = moment.utc(10 * 60 * 1000)
   private totalPrice: number = 0
   private listSeatChoose: string[] = []
   private listSeat: ISeat[] = [
@@ -247,6 +253,20 @@ export default class SeatPlan extends Vue {
         })
       }
     })
+
+    const stopCount = setInterval(() => {
+      this.timeRequire = moment(this.timeRequire).subtract(1, 'seconds')
+      // if timeleft = 0 then clear interval
+      if (moment(this.timeRequire).diff(moment(0)) === 0) {
+        clearInterval(stopCount)
+        console.log('timeout')
+      }
+    }, 1000)
+  }
+
+  // use like computed
+  get remainTime() {
+    return this.timeRequire.format('mm:ss')
   }
 
   chooseSeat(item: ISeat, subItem: ISeatDetail): void {
@@ -264,8 +284,7 @@ export default class SeatPlan extends Vue {
   }
 
   handleListSeat(listSeatChoose: string[]) {
-    let listSeat = listSeatChoose.join(', ')
-    return listSeat
+    return listSeatChoose.join(', ')
   }
 
   handlePrice(price: number) {

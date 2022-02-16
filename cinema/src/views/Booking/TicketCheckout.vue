@@ -56,13 +56,13 @@
         </div>
 
         <!-- Total Amount -->
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-4 mb-20">
           <div class="border bg-dark-tint-1 rounded">
             <div class="p-4 border-0 border-bottom border-dashed">
               <p
                 class="text-center text-white text-uppercase fs-22 fwb-500 pb-3 border-0 border-bottom border-dashed mb-6"
               >
-                booking summary
+                {{ $t('movie_food.booking_summary') }}
               </p>
 
               <!-- Ticket Detail -->
@@ -94,11 +94,13 @@
                   class="d-flex align-items-center justify-content-between mb-8"
                 >
                   <span> {{ $store.state.ticket.ticketAmount.name }}</span>
-                  <span class="text-uppercase"> Tickets</span>
+                  <span class="text-uppercase">
+                    {{ $t('movie_food.tickets') }}</span
+                  >
                 </div>
                 <div class="d-flex align-items-center justify-content-between">
                   <span class="text-success text-uppercase fs-18 fwb-500">
-                    ticket price</span
+                    {{ $t('movie_food.ticket_price') }}</span
                   >
                   <span class="text-white fs-18 fwb-500">
                     {{
@@ -114,7 +116,7 @@
               >
                 <div class="d-flex align-items-center justify-content-between">
                   <span class="text-success text-uppercase fs-18 fwb-500">
-                    combos</span
+                    {{ $t('movie_food.combos') }}</span
                   >
                   <span class="text-white fs-18 fwb-500">
                     {{ `${handlePrice($store.state.ticket.comboPrice)}đ` }}
@@ -132,7 +134,7 @@
                   class="d-flex align-items-center justify-content-between mb-2 pt-8"
                 >
                   <span class="text-success text-uppercase fs-18 fwb-500">
-                    Foods & Drinks</span
+                    {{ $t('movie_food.food_drink') }}</span
                   >
                   <span class="text-white fs-18 fwb-500">
                     {{ `${handlePrice($store.state.ticket.foodDrinkPrice)}đ` }}
@@ -152,7 +154,9 @@
               <div
                 class="d-flex align-items-center justify-content-between mb-2"
               >
-                <span class="text-uppercase"> Price</span>
+                <span class="text-uppercase">
+                  {{ $t('movie_food.price_no_vat') }}</span
+                >
                 <span>{{ `${handlePrice(priceNoVat)}đ` }}</span>
               </div>
               <div
@@ -168,7 +172,7 @@
                 class="d-flex align-items-center justify-content-between mb-6"
               >
                 <span class="text-success text-uppercase fs-18 fwb-500">
-                  Amount Payable
+                  {{ $t('movie_food.amount_payable') }}
                 </span>
                 <span class="text-white fs-18 fwb-500">
                   {{ `${handlePrice(totalPrice)}đ` }}</span
@@ -177,14 +181,13 @@
               <div
                 class="btn-gradient mx-auto w--30 h--11 flex-center cursor-pointer"
               >
-                Proceed
+                {{ $t('common.btn.proceed') }}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <ModalInfo :id="'modal-cart-info'" :infoMess="'Please add an item!'" />
   </div>
 </template>
 
@@ -201,6 +204,7 @@ import FormatPrice from '@/helpers/FormatPrice'
 export default class TicketCheckout extends Vue {
   private priceNoVat: number = 0
   private totalPrice: number = 0
+
   created(): void {
     this.priceNoVat =
       this.$store.state.ticket.ticketAmount.price +

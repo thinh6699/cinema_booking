@@ -132,6 +132,9 @@ export default class Header extends Vue {
   ]
 
   created(): void {
+    if (this.$store.state.language.code) {
+      this.selectedLanguage = this.$store.state.language.text
+    }
     window.addEventListener('scroll', this.updateScroll)
   }
 
