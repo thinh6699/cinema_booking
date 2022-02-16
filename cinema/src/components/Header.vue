@@ -54,10 +54,13 @@
         >
           <li v-for="(menu, index) in headerMenu" :key="index" class="h-100">
             <router-link
-              class="w--22 flex-center h-100 text-light-shade fs-lg-17 fwb-500 text-center text-uppercase py-4 mx-3"
-              :class="$route.path.includes(menu.link) ? 'nav-active' : ''"
+              class="flex-center h-100 text-light-shade fs-lg-17 fwb-500 text-center text-uppercase py-4 mx-3"
+              :class="[
+                $route.path.includes(menu.link) ? 'nav-active' : '',
+                menu.link === 'about-us' ? 'w--30' : 'w--22'
+              ]"
               :to="{ name: menu.link }"
-              >{{ menu.name }}</router-link
+              >{{ $t(menu.name) }}</router-link
             >
           </li>
 
@@ -65,7 +68,7 @@
             <router-link
               :to="{ name: 'sign-up' }"
               class="btn btn-gradient h-unset py-4 px-11"
-              >join us</router-link
+              >{{ $t('header.join_us') }}</router-link
             >
           </li>
         </ul>
@@ -96,23 +99,23 @@ export default class Header extends Vue {
   public scrollPosition: number = 0
   public headerMenu: any[] = [
     {
-      name: 'Movies',
+      name: 'header.movies',
       link: 'movies'
     },
     {
-      name: 'Events',
+      name: 'header.events',
       link: 'events'
     },
     {
-      name: 'Blog',
+      name: 'header.blog',
       link: 'blogs'
     },
     {
-      name: 'About Us',
+      name: 'header.about_us',
       link: 'about-us'
     },
     {
-      name: 'Contact',
+      name: 'header.contact',
       link: 'contact'
     }
   ]

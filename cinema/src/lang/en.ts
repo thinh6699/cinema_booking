@@ -66,7 +66,8 @@ export default {
     user_review: 'User reviews',
     synopsis: 'Synopsis',
     cast: 'Cast',
-    crew: 'Crew'
+    crew: 'Crew',
+    as: 'as'
   },
   common: {
     hello: 'hello',
@@ -84,14 +85,36 @@ export default {
       registerd_acc_successfull: 'You have successfully registered an account!',
       reset_password_successfull: 'You have successfully reset your password!',
       sign_up_notify: 'sign up notification',
-      reset_password_notify: 'reset password notification'
+      reset_password_notify: 'reset password notification',
+      click_to_login: 'Click here to login.',
     },
     btn: {
-      login: 'login',
-      signup: 'sign up',
-      reset_password: 'reset password',
+      login: 'Login',
+      signup: 'Sign up',
+      reset_password: 'Reset password',
       confirm: 'Confirm',
-      back_to_home: 'Back to Home'
+      back_to_home: 'Back to Home',
+      ok: 'OK',
+      subcribe: 'subcribe'
     }
+  },
+  footer: {
+    subcribe_to: 'Subscribe to thinh6699',
+    exclusive_benefit: 'Exclusive benefits',
+    respect_privacy: 'We respect your privacy, so we never share your info',
+    copyright: 'Copyright © 2020.All Rights Reserved By',
+    about: 'About',
+    term_of_use: 'Terms Of Use',
+    privacy_policy: 'Privacy Policy',
+    faq: 'FAQ',
+    feedback: 'Feedback'
+  },
+  header: {
+    join_us: 'Join us',
+    movies: 'Movies',
+    events: 'Events',
+    blog: 'Blog',
+    about_us: 'About us',
+    contact: 'Contact'
   }
 }

@@ -15,7 +15,7 @@
       </div>
       <div class="flex-center mb-3">
         <button @click="hideModal" class="btn btn-outline-secondary-deep w--25">
-          OK
+          {{ $t('common.btn.ok') }}
         </button>
       </div>
     </div>

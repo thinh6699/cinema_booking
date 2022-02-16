@@ -10,12 +10,14 @@
           <router-link
             class="d-block text-light-shade text-uppercase p-4 border-bottom border-white-o2"
             :to="{ name: menu.link }"
-            >{{ menu.name }}</router-link
+            >{{ $t(menu.name) }}</router-link
           >
         </li>
 
         <li class="mw--40">
-          <button @click="goToSignUp" class="btn btn-gradient">join us</button>
+          <button @click="goToSignUp" class="btn btn-gradient">
+            {{ $t('header.join_us') }}
+          </button>
         </li>
       </ul>
     </div>
@@ -28,25 +30,25 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 @Component({})
 export default class MobileSidebar extends Vue {
   @Prop() public isOpen!: boolean
-  private headerMenu: any[] = [
+  public headerMenu: any[] = [
     {
-      name: 'Movies',
+      name: 'header.movies',
       link: 'movies'
     },
     {
-      name: 'Events',
+      name: 'header.events',
       link: 'events'
     },
     {
-      name: 'Blog',
+      name: 'header.blog',
       link: 'blogs'
     },
     {
-      name: 'About Us',
+      name: 'header.about_us',
       link: 'about-us'
     },
     {
-      name: 'Contact',
+      name: 'header.contact',
       link: 'contact'
     }
   ]

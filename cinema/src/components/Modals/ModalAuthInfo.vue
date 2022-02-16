@@ -4,9 +4,9 @@
       {{ message }}
     </span>
     <slot />
-    <router-link class="text-success" :to="{ name: 'sign-in' }"
-      >Click here to login.</router-link
-    >
+    <router-link class="text-success" :to="{ name: 'sign-in' }">{{
+      $t('common.message.click_to_login')
+    }}</router-link>
   </b-modal>
 </template>
 

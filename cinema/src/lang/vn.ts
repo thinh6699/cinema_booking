@@ -66,7 +66,8 @@ export default {
     user_review: 'Đánh giá',
     synopsis: 'Tóm tắt',
     cast: 'Diễn viên',
-    crew: 'Nhân viên'
+    crew: 'Nhân viên',
+    as: 'vai'
   },
   common: {
     hello: 'Xin chào',
@@ -84,14 +85,36 @@ export default {
       registerd_acc_successfull: 'Bạn đã đăng ký tài khoản thành công!',
       reset_password_successfull: 'Bạn đã cập nhật mật khẩu của mình thành công!',
       sign_up_notify: 'Thông báo đăng ký',
-      reset_password_notify: 'Thông báo đặt lại mật khẩu'
+      reset_password_notify: 'Thông báo đặt lại mật khẩu',
+      click_to_login: 'Nhấn vào đây để đăng nhập.'
     },
     btn: {
       login: 'Đăng nhập',
       signup: 'Đăng ký',
       reset_password: 'Đặt lại mật khẩu',
       confirm: 'Xác nhận',
-      back_to_home: 'Trở về trang chủ'
+      back_to_home: 'Trở về trang chủ',
+      ok: 'Đồng ý',
+      subcribe: 'Đăng ký'
     }
+  },
+  footer: {
+    subcribe_to: 'Đăng ký với thinh6699',
+    exclusive_benefit: 'Lợi ích độc quyền',
+    respect_privacy: 'Chúng tôi tôn trọng quyền riêng tư của bạn, vì vậy chúng tôi không bao giờ chia sẻ thông tin của bạn',
+    copyright: 'Bản quyền © 2020. Mọi quyền được bảo lưu bởi',
+    about: 'Về chúng tôi',
+    term_of_use: 'Điều khoản sử dụng',
+    privacy_policy: 'Chính sách bảo mật',
+    faq: 'Câu hỏi thường gặp',
+    feedback: 'Phản hồi'
+  },
+  header: {
+    join_us: 'Tham gia',
+    movies: 'Phim',
+    events: 'Sự kiện',
+    blog: 'Tin tức',
+    about_us: 'Về chúng tôi',
+    contact: 'Liên hệ'
   }
 }

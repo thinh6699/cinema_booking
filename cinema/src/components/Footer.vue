@@ -6,26 +6,26 @@
           class="bg-newsletter rounded-8 overflow-hidden position-relative text-center py-15 px-5"
         >
           <div class="newsletter-wrapper">
-            <h5 class="text-success fs-20 fs-lg-24 mb-6">
-              SUBSCRIBE TO THINH6699
+            <h5 class="text-success text-uppercase fs-20 fs-lg-24 mb-6">
+              {{ $t('footer.subcribe_to') }}
             </h5>
-            <h3 class="text-white fs-30 fs-lg-36 mb-12">
-              TO GET EXCLUSIVE BENEFITS
+            <h3 class="text-white text-uppercase fs-30 fs-lg-36 mb-12">
+              {{ $t('footer.exclusive_benefit') }}
             </h3>
             <div class="position-relative mb-8">
               <input
                 class="form-control h--14 rounded-8 text-white bg-transparent border-white-o4 pe-41"
                 type="text"
-                placeholder="Enter your email address"
+                :placeholder="$t('common.enter_your_email')"
               />
               <button
-                class="mw--40 position-absolute end-0 top-0 btn btn-gradient"
+                class="mw--40 text-uppercase position-absolute end-0 top-0 btn btn-gradient"
               >
-                SUBSCRIBE
+                {{ $t('common.btn.subcribe') }}
               </button>
             </div>
             <p class="mb-0 fs-lg-18">
-              We respect your privacy, so we never share your info
+              {{ $t('footer.respect_privacy') }}
             </p>
           </div>
         </div>
@@ -57,19 +57,19 @@
       <div class="row align-items-center py-8">
         <div class="col-lg-6">
           <div class="mb-5 mb-lg-0 fs-lg-18">
-            Copyright © 2020.All Rights Reserved By
-            <span class="text-success">THINH6699</span>
+            {{ $t('footer.copyright') }}
+            <span class="text-success text-uppercase">thinh6699</span>
           </div>
         </div>
         <div class="col-lg-6">
           <ul
             class="list-unstyled d-flex flex-wrap align-items-center justify-content-lg-end mb-0"
           >
-            <li class="me-4 fs-lg-18">About</li>
-            <li class="me-4 fs-lg-18">Terms Of Use</li>
-            <li class="me-4 fs-lg-18">Privacy Policy</li>
-            <li class="me-4 fs-lg-18">FAQ</li>
-            <li class="fs-lg-18">Feedback</li>
+            <li class="me-4 fs-lg-18">{{ $t('footer.about') }}</li>
+            <li class="me-4 fs-lg-18">{{ $t('footer.term_of_use') }}</li>
+            <li class="me-4 fs-lg-18">{{ $t('footer.privacy_policy') }}</li>
+            <li class="me-4 fs-lg-18">{{ $t('footer.faq') }}</li>
+            <li class="me-4 fs-lg-18">{{ $t('footer.feedback') }}</li>
           </ul>
         </div>
       </div>

@@ -42,7 +42,7 @@
               class="d-block d-lg-none btn btn-dark-shade minw--30 rounded-pill border border-light-shade text-center p-2"
               @click="openTrailer"
             >
-              {{ $t('movie_detail.watch_trailer') }}
+              {{ $t('all_movies.watch_trailer') }}
             </div>
           </ul>
         </div>
@@ -99,7 +99,7 @@
             @click="goToTicketPlan"
             class="btn-gradient h--14 w--45 flex-center rounded-pill cursor-pointer"
           >
-            {{ $t('movie_detail.book_ticket') }}
+            {{ $t('all_movies.book_ticket') }}
           </div>
         </div>
       </div>
@@ -279,7 +279,9 @@
                         </div>
                       </div>
                       <p class="text-success fs-18 mb-3">{{ cast.name }}</p>
-                      <p class="mb-0">as {{ cast.character }}</p>
+                      <p class="mb-0">
+                        {{ $t('movie_detail.as') }} {{ cast.character }}
+                      </p>
                     </div>
                   </SwiperSlide>
                 </Swiper>
