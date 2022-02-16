@@ -20,3 +20,26 @@ export interface ILanguage {
   code: string
   text: string
 }
+
+export interface IFood {
+  id: number,
+  background?: string,
+  name: string,
+  price: number,
+  discount?: number,
+  quantity: number,
+  type: string,
+}
+
+export interface ISeatDetail {
+  number: number,
+  choosen: boolean,
+  name: string,
+  isChecked: boolean
+}
+
+export interface ISeat {
+  type: string,
+  detail: ISeatDetail[],
+  price: number
+}

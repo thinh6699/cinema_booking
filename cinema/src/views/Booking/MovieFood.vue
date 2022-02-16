@@ -321,6 +321,7 @@ import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
 import FormatPrice from '@/helpers/FormatPrice'
+import { IFood } from '@/models'
 
 const TicketModule = getModule(TicketTime, store)
 
@@ -335,7 +336,7 @@ export default class MovieFood extends Vue {
   private foodDrinkPrice: number = 0
   private priceNoVat: number = 0
   private totalPrice: number = 0
-  private listFoods: any[] = [
+  private listFoods: IFood[] = [
     {
       id: 1,
       background: require('@/assets/images/combo1.png'),
@@ -392,11 +393,11 @@ export default class MovieFood extends Vue {
     }
   ]
 
-  private listFoodsComputed: any[] = []
+  private listFoodsComputed: IFood[] = []
 
-  private cart: any[] = []
-  private comboCart: any[] = []
-  private foodDrinksCart: any[] = []
+  private cart: IFood[] = []
+  private comboCart: IFood[] = []
+  private foodDrinksCart: IFood[] = []
 
   created(): void {
     this.listFoods.map((item: any) => {
@@ -416,18 +417,18 @@ export default class MovieFood extends Vue {
       this.listFoodsComputed = this.listFoods
     } else {
       this.listFoodsComputed = this.listFoods.filter(
-        (element: any) => element.type === type
+        (element: IFood) => element.type === type
       )
     }
   }
 
-  decreaseQuantity(item: any): void {
+  decreaseQuantity(item: IFood): void {
     if (item.quantity > 0) {
       item.quantity--
     } else return
   }
 
-  increaseQuantity(item: any): void {
+  increaseQuantity(item: IFood): void {
     item.quantity++
   }
 
@@ -477,19 +478,19 @@ export default class MovieFood extends Vue {
     }
 
     this.comboCart = this.cart.filter(
-      (element: any) => element.type === 'combos'
+      (element: IFood) => element.type === 'combos'
     )
     this.foodDrinksCart = this.cart.filter(
-      (element: any) => element.type === 'foods' || element.type === 'drinks'
+      (element: IFood) => element.type === 'foods' || element.type === 'drinks'
     )
 
     this.comboPrice = this.comboCart.reduce(
-      (total: number, element: any) => element.price + total,
+      (total: number, element: IFood) => element.price + total,
       0
     )
 
     this.foodDrinkPrice = this.foodDrinksCart.reduce(
-      (total: number, element: any) => element.price + total,
+      (total: number, element: IFood) => element.price + total,
       0
     )
 

@@ -389,8 +389,8 @@ export default class AllMovies extends Vue {
   private movieSearch: string = ''
   private sortChoose: string = 'All'
   private movieQuantity: number = 5
-  private categoryChecked: any = []
-  private experienceChecked: any = []
+  private categoryChecked: any[] = []
+  private experienceChecked: any[] = []
   private quantitys: number[] = [5, 10, 15]
   private listExperience: ICategory[] = [
     {
@@ -498,7 +498,7 @@ export default class AllMovies extends Vue {
     this.$router.push({ name: 'ticket-plan' })
   }
 
-  handleMovieFormat(formats: any) {
+  handleMovieFormat(formats: string[]) {
     let format = formats.join(', ')
     return format
   }

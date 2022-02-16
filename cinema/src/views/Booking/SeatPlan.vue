@@ -204,6 +204,7 @@ import FormatPrice from '@/helpers/FormatPrice'
 import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
+import { ISeat, ISeatDetail } from '@/models'
 
 const TicketModule = getModule(TicketTime, store)
 
@@ -221,8 +222,8 @@ export default class SeatPlan extends Vue {
   private coupleChoosen = require('@/assets/images/couple-choosen.png')
 
   private totalPrice: number = 0
-  private listSeatChoose: any = []
-  private listSeat: any = [
+  private listSeatChoose: string[] = []
+  private listSeat: ISeat[] = [
     {
       type: 'G',
       detail: [],
@@ -236,7 +237,7 @@ export default class SeatPlan extends Vue {
   ]
 
   created(): void {
-    this.listSeat.forEach((item: any) => {
+    this.listSeat.forEach((item: ISeat) => {
       for (let i = 1; i < 15; i++) {
         item.detail.push({
           number: i,
@@ -248,7 +249,7 @@ export default class SeatPlan extends Vue {
     })
   }
 
-  chooseSeat(item: any, subItem: any): void {
+  chooseSeat(item: ISeat, subItem: ISeatDetail): void {
     subItem.isChecked = !subItem.isChecked
     let seat = subItem.name
     if (!subItem.choosen) {
@@ -256,13 +257,13 @@ export default class SeatPlan extends Vue {
         this.listSeatChoose.push(seat)
         this.totalPrice += item.price
       } else {
-        this.listSeatChoose.pop(seat)
+        this.listSeatChoose.pop()
         this.totalPrice -= item.price
       }
     } else return
   }
 
-  handleListSeat(listSeatChoose: any) {
+  handleListSeat(listSeatChoose: string[]) {
     let listSeat = listSeatChoose.join(', ')
     return listSeat
   }

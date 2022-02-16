@@ -147,24 +147,24 @@ export default class TicketPlan extends Vue {
   private experienceChoose: string = '2D'
   private time: string = '23:59'
   private cinema: string = 'CGV Bắc Từ Liêm'
-  private listDate: any = []
-  private listExperience: any = []
+  private listDate: string[] = []
+  private listExperience: string[] = []
 
   created(): void {
     for (let i = 0; i < 7; i++) {
       let item = moment(this.currentDay).add(i, 'days').format('DD/MM/YYYY')
       this.listDate.push(item)
     }
-    this.$store.state.movie.movieDetail.format.forEach((format: any) => {
+    this.$store.state.movie.movieDetail.format.forEach((format: string) => {
       this.listExperience.push(format)
     })
   }
 
-  changeDate(date: any): void {
+  changeDate(date: string): void {
     this.dateChoose = date
   }
 
-  changeExperience(experience: any): void {
+  changeExperience(experience: string): void {
     this.experienceChoose = experience
   }
 
