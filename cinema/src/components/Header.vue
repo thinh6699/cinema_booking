@@ -54,7 +54,7 @@
         >
           <li v-for="(menu, index) in headerMenu" :key="index" class="h-100">
             <router-link
-              class="flex-center h-100 text-light-shade fs-lg-17 fwb-500 text-center text-uppercase py-4 mx-3"
+              class="flex-center h-100 text-light-shade fs-lg-17 fwb-500 text-center text-uppercase py-4 mx-2"
               :class="[
                 $route.path.includes(menu.link) ? 'nav-active' : '',
                 menu.link === 'about-us' ? 'w--30' : 'w--22'
@@ -64,12 +64,45 @@
             >
           </li>
 
-          <li class="ms-3">
+          <li v-if="!isLogin" class="ms-3">
             <router-link
               :to="{ name: 'sign-up' }"
               class="btn btn-gradient text-nowrap h-unset py-4 px-8"
               >{{ $t('header.join_us') }}</router-link
             >
+          </li>
+
+          <li v-else class="ms-3">
+            <div
+              @click="isShowAvaOption = !isShowAvaOption"
+              class="d-flex align-items-center cursor-pointer position-relative py-4 my-n4"
+            >
+              <div class="w--13 h--13 rounded-circle me-2">
+                <img
+                  class="img-cover rounded-circle"
+                  src="@/assets/images/avatar_default.png"
+                  alt="Avatar"
+                />
+              </div>
+              <span class="text-nowrap">Thịnh Nguyễn</span>
+              <ul
+                v-if="isShowAvaOption"
+                class="list-unstyled bg-dark-shade position-absolute border rounded start--0 end--0 top--19 py-3 shadow-lg"
+              >
+                <li
+                  @click="goToProfile"
+                  class="text-nowrap py-3 px-5 cursor-pointer avatar-option"
+                >
+                  {{ $t('common.account_detail') }}
+                </li>
+                <li
+                  @click="logout"
+                  class="text-nowrap py-3 px-5 cursor-pointer avatar-option"
+                >
+                  {{ $t('common.logout') }}
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -95,6 +128,8 @@ const LanguageModule = getModule(Language, store)
 })
 export default class Header extends Vue {
   private selectedLanguage = 'ENG'
+  private isShowAvaOption: boolean = false
+  private isLogin: boolean = true
   public isOpen: boolean = false
   public scrollPosition: number = 0
   public headerMenu: any[] = [
@@ -136,6 +171,13 @@ export default class Header extends Vue {
       this.selectedLanguage = this.$store.state.language.text
     }
     window.addEventListener('scroll', this.updateScroll)
+    window.addEventListener('resize', this.watchResize)
+  }
+
+  watchResize(): void {
+    if (window.innerWidth < 992) {
+      this.isShowAvaOption = false
+    }
   }
 
   updateScroll(): void {
@@ -158,6 +200,14 @@ export default class Header extends Vue {
     } else {
       this.$router.push({ name: 'home' })
     }
+  }
+
+  goToProfile(): void {
+    this.$router.push({ name: 'profile' })
+  }
+
+  logout(): void {
+    this.$router.push({ name: 'sign-in' })
   }
 }
 </script>

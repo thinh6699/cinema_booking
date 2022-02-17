@@ -81,6 +81,8 @@ export default {
     phone_number: 'Số điện thoại',
     new_password: 'Mật khẩu mới',
     enter_new_password: 'Nhập mật khẩu mới',
+    account_detail: 'Chi tiết tài khoản',
+    logout: 'Đăng xuất',
     message: {
       registerd_acc_successfull: 'Bạn đã đăng ký tài khoản thành công!',
       reset_password_successfull: 'Bạn đã cập nhật mật khẩu của mình thành công!',

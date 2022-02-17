@@ -81,6 +81,8 @@ export default {
     phone_number: 'Phone Number',
     new_password: 'new password',
     enter_new_password: 'Enter new password',
+    account_detail: 'Account detail',
+    logout: 'Logout',
     message: {
       registerd_acc_successfull: 'You have successfully registered an account!',
       reset_password_successfull: 'You have successfully reset your password!',

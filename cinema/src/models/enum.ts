@@ -19,5 +19,4 @@ export enum EMealType {
 export enum EPayment {
   CREDIT,
   MOMO,
-
 }

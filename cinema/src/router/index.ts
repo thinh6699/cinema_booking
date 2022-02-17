@@ -186,6 +186,16 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('@/views/AccountInfo/Profile.vue'),
+    meta: {
+      layout: LayoutDefault,
+      hasBanner: true,
+      title: 'Profile'
+    }
+  },
+  {
     path: '*',
     name: 'page-not-found',
     component: () => import('@/views/PageNotFound.vue'),
