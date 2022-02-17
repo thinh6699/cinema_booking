@@ -141,7 +141,16 @@ export default {
     tickets: 'Tickets',
     ticket_price: 'Ticket price',
     food_drink: 'Foods & Drinks',
-    price_no_vat: 'Price (not include VAT)',
+    price_no_vat: 'Price (do not include VAT)',
     amount_payable: 'Amount payable'
+  },
+  ticket_checkout: {
+    payment_option: 'Payment Option',
+    credit_card: 'Credit Card',
+    momo: 'Momo',
+    enter_card_detail: 'Enter your card details',
+    card_number: 'Card number',
+    card_holder: 'Card holder name',
+    expiration: 'Expiration',
   }
 }

@@ -16,14 +16,14 @@
     </Banner>
 
     <!-- Timeline information -->
-    <div class="py-13 bg-dark-tint-1 mb-20">
+    <div class="pt-10 pb-2 bg-dark-tint-1 mb-20">
       <div class="container">
         <div
           class="d-flex flex-wrap align-items-center justify-content-between"
         >
           <!-- timeline -->
           <div
-            class="d-inline-flex align-items-center mb-5 mx-2 custom-order-2"
+            class="d-inline-flex align-items-center mb-8 me-10 custom-order-2"
           >
             <span class="me-5 fs-18">
               {{ $store.state.ticket.ticketTime.date }}
@@ -33,16 +33,6 @@
             >
               <span>{{ $store.state.ticket.ticketTime.time }}</span>
             </div>
-          </div>
-
-          <!-- mins left -->
-          <div
-            class="d-inline-flex flex-column align-items-center mx-2 mb-5 custom-order-3"
-          >
-            <p class="mb-0 fs-28 fwb-500 text-white">
-              {{ remainTime }}
-            </p>
-            <span>{{ $t('seat_plan.mins_left') }}</span>
           </div>
 
           <!-- Back btn -->
@@ -209,7 +199,6 @@ import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
 import { ISeat, ISeatDetail } from '@/models'
-import moment, { Moment } from 'moment'
 
 const TicketModule = getModule(TicketTime, store)
 
@@ -226,7 +215,6 @@ export default class SeatPlan extends Vue {
   private singleChoosen = require('@/assets/images/single-choosen.png')
   private coupleChoosen = require('@/assets/images/couple-choosen.png')
 
-  private timeRequire: Moment = moment(10 * 60 * 1000)
   private totalPrice: number = 0
   private listSeatChoose: string[] = []
   private listSeat: ISeat[] = [
@@ -253,20 +241,6 @@ export default class SeatPlan extends Vue {
         })
       }
     })
-
-    const stopCount = setInterval(() => {
-      this.timeRequire = moment(this.timeRequire).subtract(1, 'seconds')
-      // if timeleft = 0 then clear interval
-      if (moment(this.timeRequire).diff(moment(0)) === 0) {
-        clearInterval(stopCount)
-        console.log('timeout')
-      }
-    }, 1000)
-  }
-
-  // use like computed
-  get remainTime() {
-    return this.timeRequire.format('mm:ss')
   }
 
   chooseSeat(item: ISeat, subItem: ISeatDetail): void {
@@ -299,7 +273,7 @@ export default class SeatPlan extends Vue {
     if (this.listSeatChoose.length) {
       let ticketAmount = {
         quantity: this.listSeatChoose.length,
-        name: this.listSeatChoose.join(', '),
+        name: this.listSeatChoose,
         price: this.totalPrice
       }
       TicketModule.HANDLE_TICKET_AMOUNT(ticketAmount)

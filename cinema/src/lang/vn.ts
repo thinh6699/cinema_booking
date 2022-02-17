@@ -44,7 +44,7 @@ export default {
     more: 'Xem thêm'
   },
   all_movies: {
-    get: 'Nhận',
+    get: 'Đặt',
     movie: 'vé',
     ticket: 'xem phim',
     looking_for: 'Bạn đang tìm kiếm phim gì?',
@@ -143,5 +143,14 @@ export default {
     food_drink: 'Thức ăn & Đồ uống',
     price_no_vat: 'Giá (chưa bao gồm VAT)',
     amount_payable: 'Số tiền cần thanh toán'
+  },
+  ticket_checkout: {
+    payment_option: 'Phương thức thanh toán',
+    credit_card: 'Thẻ tín dụng',
+    momo: 'Momo',
+    enter_card_detail: 'Điền thông tin thẻ của bạn',
+    card_number: 'Số thẻ',
+    card_holder: 'Tên chủ thẻ',
+    expiration: 'Ngày hết hạn',
   }
 }

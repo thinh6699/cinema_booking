@@ -10,10 +10,13 @@ class Movie extends VuexModule {
     background: '',
     date: '',
     duration: '',
-    format: '',
+    format: [],
     rotten_tomato_rating: 0,
     like: 0,
-    category: []
+    category: [],
+    photos: [],
+    casts: [],
+    crews: []
   }
 
   @Mutation

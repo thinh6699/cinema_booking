@@ -91,13 +91,12 @@
       <div class="d-flex align-items-center justify-content-start mb-7">
         <div class="d-flex align-items-center">
           <input
-            class="form-check-input cursor-pointer rounded-circle w--4 h--4 me-1 mt-0 flex-fixed"
+            class="form-check-input cursor-pointer w--4 h--4 me-2 mt-0 flex-fixed"
             type="checkbox"
-            id="agree"
           />
-          <label class="cursor-pointer" for="agree"
+          <label
             >{{ $t('signup.agree_to') }}
-            <span class="text-success">{{
+            <span class="text-success cursor-pointer">{{
               $t('signup.term_and_privacy')
             }}</span></label
           >

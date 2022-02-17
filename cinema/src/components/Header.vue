@@ -67,7 +67,7 @@
           <li class="ms-3">
             <router-link
               :to="{ name: 'sign-up' }"
-              class="btn btn-gradient h-unset py-4 px-11"
+              class="btn btn-gradient text-nowrap h-unset py-4 px-8"
               >{{ $t('header.join_us') }}</router-link
             >
           </li>

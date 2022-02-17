@@ -15,3 +15,9 @@ export enum EMealType {
   FOOD,
   DRINK
 }
+
+export enum EPayment {
+  CREDIT,
+  MOMO,
+
+}

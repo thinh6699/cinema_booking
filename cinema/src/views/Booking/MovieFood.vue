@@ -35,6 +35,16 @@
             </div>
           </div>
 
+          <!-- mins left -->
+          <div
+            class="d-inline-flex flex-column align-items-center mx-2 mb-5 custom-order-3"
+          >
+            <p class="mb-0 fs-28 fwb-500 text-white">
+              {{ remainTime }}
+            </p>
+            <span>{{ $t('seat_plan.mins_left') }}</span>
+          </div>
+
           <!-- Back btn -->
           <div
             @click="backToSeatPlan"
@@ -202,7 +212,9 @@
                 <div
                   class="d-flex align-items-center justify-content-between mb-8"
                 >
-                  <span> {{ $store.state.ticket.ticketAmount.name }}</span>
+                  <span>
+                    {{ $store.state.ticket.ticketAmount.name.join(', ') }}</span
+                  >
                   <span class="text-uppercase">
                     {{ $t('movie_food.tickets') }}</span
                   >
@@ -314,6 +326,7 @@ import store from '@/store'
 import FormatPrice from '@/helpers/FormatPrice'
 import { IFood, IMealType } from '@/models'
 import { EMealType } from '@/models/enum'
+import moment, { Moment } from 'moment'
 
 const TicketModule = getModule(TicketTime, store)
 
@@ -323,6 +336,7 @@ const TicketModule = getModule(TicketTime, store)
   }
 })
 export default class MovieFood extends Vue {
+  private timeRequire: Moment = moment(10 * 60 * 1000)
   private eMealType: any = EMealType
   private mealType: number = this.eMealType.ALL
   private comboPrice: number = 0
@@ -421,6 +435,20 @@ export default class MovieFood extends Vue {
       this.comboPrice +
       this.foodDrinkPrice
     this.totalPrice = this.priceNoVat + this.priceNoVat * 0.1
+
+    const stopCount = setInterval(() => {
+      this.timeRequire = moment(this.timeRequire).subtract(1, 'seconds')
+      // if timeleft = 0 then clear interval
+      if (moment(this.timeRequire).diff(moment(0)) === 0) {
+        clearInterval(stopCount)
+        console.log('timeout')
+      }
+    }, 1000)
+  }
+
+  // use like computed
+  get remainTime() {
+    return this.timeRequire.format('mm:ss')
   }
 
   changeType(type: number): void {
