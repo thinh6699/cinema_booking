@@ -11,9 +11,9 @@
         class="d-flex align-items-center justify-content-between px-2 px-lg-0 h-100"
       >
         <div class="d-flex align-items-center">
-          <router-link :to="{ name: 'home' }" class="me-5">
+          <div @click="goToHome" class="me-5 cursor-pointer">
             <img class="img-contain" src="@/assets/images/logo.png" alt="" />
-          </router-link>
+          </div>
           <b-dropdown
             right
             no-caret
@@ -40,11 +40,11 @@
             </b-dropdown-item>
           </b-dropdown>
         </div>
-        <div class="toggle-mobile-sidebar d-lg-none cursor-pointer p-4 m-n4">
+        <div class="toggle-mobile-sidebar d-lg-none">
           <i
             v-b-toggle="'mobile-menu'"
             @click="isOpen = !isOpen"
-            class="fs-30 text-white fal"
+            class="fs-30 text-white fal p-4 m-n4 cursor-pointer"
             :class="isOpen ? 'fa-times' : 'fa-bars'"
           ></i>
           <MobileSidebar :isOpen="isOpen" @update-state="updateState" />
@@ -150,6 +150,14 @@ export default class Header extends Vue {
     i18n.locale = language.code
     this.selectedLanguage = language.text
     LanguageModule.SET_LANGUAGE(language)
+  }
+
+  goToHome(): void {
+    if (this.$route.name === 'home') {
+      this.isOpen = false
+    } else {
+      this.$router.push({ name: 'home' })
+    }
   }
 }
 </script>
