@@ -69,7 +69,7 @@
         </div>
 
         <!-- Address -->
-        <div class="account-phone mb-8">
+        <div class="account-adress mb-8">
           <label class="d-block text-white mb-2" for="address">{{
             $t('setting.address')
           }}</label>
@@ -82,12 +82,17 @@
         </div>
 
         <!-- Avatar -->
-        <div class="account-phone mb-8">
+        <div class="account-avatar mb-12">
           <span class="d-block text-white">{{ $t('setting.avatar') }}</span>
           <div class="d-flex align-items-center justify-content-between">
-            <p class="me-3 mb-0">
-              {{ $t('setting.avatar_message') }}
-            </p>
+            <div class="d-block">
+              <p class="me-3 mb-2">
+                {{ $t('setting.avatar_message') }}
+              </p>
+              <p v-if="errorTypeAndSize" class="fs-14 text-danger">
+                {{ $t('setting.wrong_format') }}
+              </p>
+            </div>
             <input
               id="file"
               ref="fileInput"
@@ -95,20 +100,20 @@
               class="h--0 w--0 overflow-hidden"
               accept=".jpg,.png,.gif"
               @click="resetValue"
-              @change="onFileChange"
+              @change="onAvatarChange"
             />
 
             <div class="d-flex align-items-center">
               <div class="w--15 h--15 rounded-circle flex-fixed me-3">
                 <img
                   class="img-cover rounded-circle"
-                  src="@/assets/images/avatar_default.png"
+                  :src="avatarPath ? avatarPath : noAvatar"
                   alt="Avatar"
                 />
               </div>
               <label
                 for="file"
-                class="px-4 py-2 rounded-3 border flex-center position-relative cursor-pointer"
+                class="px-4 py-2 rounded-3 border flex-center cursor-pointer"
               >
                 {{ $t('common.btn.upload') }}
               </label>
@@ -181,6 +186,28 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class Setting extends Vue {
+  private noAvatar = require('@/assets/images/avatar_default.png')
+  private avatarPath: string = ''
+  private errorTypeAndSize: boolean = false
+
+  resetValue(): void {
+    const fileInput = this.$refs.fileInput as any
+    fileInput.value = null
+    this.errorTypeAndSize = false
+  }
+
+  onAvatarChange(event: any) {
+    let imageType = ['image/png', 'image/gif', 'image/jpg']
+    let files = event.target.files || event.dataTransfer.files
+    if (event.target.files.length !== 1) return
+    const blob = new Blob([files[0]])
+    if (files[0].size > 15728640 || !imageType.includes(files[0].type)) {
+      this.errorTypeAndSize = true
+    } else {
+      this.avatarPath = URL.createObjectURL(blob)
+    }
+  }
+
   backToHome(): void {
     this.$router.push({ name: 'home' })
   }

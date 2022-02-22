@@ -175,6 +175,7 @@ export default {
     add_address: 'Add your address',
     avatar: 'Avatar',
     avatar_message: 'Should be a square image, accepting files: JPG, PNG or GIF. Up to 15MB.',
+    wrong_format: 'Uploaded image is not the correct size or format.',
     change_password: 'Change Password',
     current_password: 'Current Password',
     new_password: 'New Password',

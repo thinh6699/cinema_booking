@@ -40,6 +40,10 @@
   .bottom--#{$i} {
     bottom: $i * 4px !important;
   }
+
+  .bottom--n#{$i} {
+    bottom: $i * -4px !important;
+  }
 }
 
 @include media-breakpoint-up(lg) {
