@@ -73,9 +73,10 @@
           </li>
 
           <li v-else class="ms-3">
-            <div
+            <button
               @click="isShowAvaOption = !isShowAvaOption"
-              class="d-flex align-items-center cursor-pointer position-relative py-4 my-n4"
+              @blur="isShowAvaOption = false"
+              class="bg-transparent text-light-shade border-0 flex-center position-relative py-4 my-n4"
             >
               <div class="w--13 h--13 rounded-circle me-2">
                 <img
@@ -108,7 +109,7 @@
                   {{ $t('common.logout') }}
                 </li>
               </ul>
-            </div>
+            </button>
           </li>
         </ul>
       </div>

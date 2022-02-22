@@ -1,7 +1,7 @@
 <template>
   <div class="setting">
     <Banner
-      :bg_url="require('@/assets/images/banner-setting.jpg')"
+      :bg_url="require('@/assets/images/seat-banner.jpg')"
       :isSeatBanner="true"
     >
       <div>

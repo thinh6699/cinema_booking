@@ -180,5 +180,27 @@ export default {
     current_password: 'Mật khẩu hiện tại',
     new_password: 'Mật khẩu mới',
     confirm_password: 'Xác nhận mật khẩu mới'
+  },
+  page: {
+    home: 'Trang chủ',
+    sign_up: 'Đăng ký',
+    sign_in: 'Đăng nhập',
+    forgot_password: 'Quên mật khẩu',
+    reset_password: 'Đặt lại mật khẩu',
+    contact: 'Liên hệ',
+    about_us: 'Về chúng tôi',
+    blog: 'Tin tức',
+    blog_detail: 'Chi tiết tin tức',
+    movies: 'Phim',
+    movie_detail: 'Chi tiết phim',
+    events: 'Sự kiện',
+    event_detail: 'Chi tiết sự kiện',
+    ticket_plan: 'Giờ chiếu',
+    seat_plan: 'Đặt ghế',
+    movie_food: 'Đặt đồ ăn',
+    ticket_checkout: 'Thanh toán',
+    setting: 'Cài đặt',
+    booking_history: 'Lịch sử đặt vé',
+    page_not_found: 'Không tìm thấy trang'
   }
 }

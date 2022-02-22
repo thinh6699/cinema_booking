@@ -180,5 +180,27 @@ export default {
     current_password: 'Current Password',
     new_password: 'New Password',
     confirm_password: 'Confirm New Password'
+  },
+  page: {
+    home: 'Home',
+    sign_up: 'Sign Up',
+    sign_in: 'Sign In',
+    forgot_password: 'Forgot Password',
+    reset_password: 'Reset Password',
+    contact: 'Contact',
+    about_us: 'About Us',
+    blog: 'Blogs',
+    blog_detail: 'Blog Detail',
+    movies: 'Movies',
+    movie_detail: 'Movie Detail',
+    events: 'Events',
+    event_detail: 'Event Detail',
+    ticket_plan: 'Ticket Plan',
+    seat_plan: 'Seat Plan',
+    movie_food: 'Movie Food',
+    ticket_checkout: 'Ticket Checkout',
+    setting: 'Setting',
+    booking_history: 'Booking History',
+    page_not_found: 'Page Not Found'
   }
 }

@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import LayoutDefault from '@/layouts/LayoutDefault.vue'
 import LayoutAuth from '@/layouts/LayoutAuth.vue'
 import store from '@/store'
+import i18n from '@/lang'
 
 Vue.use(VueRouter)
 
@@ -13,10 +14,10 @@ const routes: Array<RouteConfig> = [
     name: 'home',
     component: Home,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Home'
+      title: i18n.t('page.home')
     }
   },
   {
@@ -26,7 +27,7 @@ const routes: Array<RouteConfig> = [
     meta: {
       requiresAuth: false,
       layout: LayoutAuth,
-      title: 'Sign Up'
+      title: i18n.t('page.sign_up')
     }
   },
   {
@@ -36,7 +37,7 @@ const routes: Array<RouteConfig> = [
     meta: {
       requiresAuth: false,
       layout: LayoutAuth,
-      title: 'Sign In'
+      title: i18n.t('page.sign_in')
     }
   },
   {
@@ -46,7 +47,7 @@ const routes: Array<RouteConfig> = [
     meta: {
       requiresAuth: false,
       layout: LayoutAuth,
-      title: 'Forgot Password'
+      title: i18n.t('page.forgot_password')
     }
   },
   {
@@ -56,7 +57,7 @@ const routes: Array<RouteConfig> = [
     meta: {
       requiresAuth: false,
       layout: LayoutAuth,
-      title: 'Reset Password'
+      title: i18n.t('page.reset_password')
     }
   },
   {
@@ -64,10 +65,10 @@ const routes: Array<RouteConfig> = [
     name: 'contact',
     component: () => import('@/views/Contact.vue'),
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Contact'
+      title: i18n.t('page.contact')
     }
   },
   {
@@ -75,17 +76,17 @@ const routes: Array<RouteConfig> = [
     name: 'about-us',
     component: () => import('@/views/AboutUs.vue'),
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'About Us'
+      title: i18n.t('page.about_us')
     }
   },
   {
     path: '/blogs',
     component: LayoutDefault,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     },
     children: [
       {
@@ -93,8 +94,8 @@ const routes: Array<RouteConfig> = [
         name: 'blogs',
         component: () => import('@/views/Blog/AllBlog.vue'),
         meta: {
-          hasBanner: true,
-          title: 'Blogs',
+          hasBanner: false,
+          title: i18n.t('page.blog'),
           requiresAuth: true,
         },
       },
@@ -103,8 +104,8 @@ const routes: Array<RouteConfig> = [
         name: 'blog-detail',
         component: () => import('@/views/Blog/BlogDetail.vue'),
         meta: {
-          hasBanner: true,
-          title: 'Blog Detail',
+          hasBanner: false,
+          title: i18n.t('page.blog_detail'),
           requiresAuth: true,
         },
       },
@@ -114,7 +115,7 @@ const routes: Array<RouteConfig> = [
     path: '/movies',
     component: LayoutDefault,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     },
     children: [
       {
@@ -122,9 +123,9 @@ const routes: Array<RouteConfig> = [
         name: 'movies',
         component: () => import('@/views/Movies/AllMovies.vue'),
         meta: {
-          requiresAuth: true,
+          requiresAuth: false,
           hasBanner: true,
-          title: 'Movies'
+          title: i18n.t('page.movies'),
         },
       },
       {
@@ -133,8 +134,8 @@ const routes: Array<RouteConfig> = [
         component: () => import('@/views/Movies/MovieDetail.vue'),
         meta: {
           hasBanner: true,
-          requiresAuth: true,
-          title: 'Movie Detail'
+          requiresAuth: false,
+          title: i18n.t('page.movie_detail'),
         },
       },
     ]
@@ -143,7 +144,7 @@ const routes: Array<RouteConfig> = [
     path: '/events',
     component: LayoutDefault,
     meta: {
-      requiresAuth: true,
+      requiresAuth: false,
     },
     children: [
       {
@@ -151,9 +152,9 @@ const routes: Array<RouteConfig> = [
         name: 'events',
         component: () => import('@/views/Events/AllEvents.vue'),
         meta: {
-          requiresAuth: true,
+          requiresAuth: false,
           hasBanner: true,
-          title: 'Events'
+          title: i18n.t('page.events'),
         },
       },
       {
@@ -161,9 +162,9 @@ const routes: Array<RouteConfig> = [
         name: 'event-detail',
         component: () => import('@/views/Events/EventDetail.vue'),
         meta: {
-          requiresAuth: true,
+          requiresAuth: false,
           hasBanner: true,
-          title: 'Event Detail'
+          title: i18n.t('page.event_detail'),
         },
       },
     ]
@@ -176,7 +177,7 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Ticket Plan'
+      title: i18n.t('page.ticket_plan'),
     }
   },
   {
@@ -187,7 +188,7 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Seat Plan'
+      title: i18n.t('page.seat_plan'),
     }
   },
   {
@@ -198,7 +199,7 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Movie Food'
+      title: i18n.t('page.movie_food'),
     }
   },
   {
@@ -209,7 +210,7 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Ticket Checkout'
+      title: i18n.t('page.ticket_checkout'),
     }
   },
   {
@@ -220,7 +221,7 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Setting'
+      title: i18n.t('page.setting'),
     }
   },
   {
@@ -231,7 +232,7 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Booking History'
+      title: i18n.t('page.booking_history'),
     }
   },
   {
@@ -242,7 +243,7 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true,
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Page Not Found'
+      title: i18n.t('page.page_not_found'),
     }
   }
 ]
@@ -269,7 +270,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = 'Booking Cinema Online'
   const token = store.state.auth.token
   if (to.matched.some(record => record.meta.requiresAuth) && !token) {
     next({

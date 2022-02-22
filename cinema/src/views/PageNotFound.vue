@@ -1,5 +1,5 @@
 <template>
-  <div class="page-not-found">
+  <div class="page-not-found mt-20">
     <div class="container">
       <div class="p-5">
         <p>{{ $t('page_not_found.message') }}</p>
