@@ -174,7 +174,7 @@ export default {
     address: 'Địa chỉ',
     add_address: 'Thêm địa chỉ',
     avatar: 'Ảnh đại diện',
-    avatar_message: 'Nên là ảnh vuông, chấp nhận các tệp: JPG, PNG hoặc GIF. Tối đa 15MB',
+    avatar_message: 'Nên là ảnh vuông, các loại tệp có thể chọn: JPG, PNG hoặc GIF. Kích thước tối đa 15MB.',
     wrong_format: 'Ảnh tải lên không đúng kích thước hoặc định dạng.',
     change_password: 'Đổi mật khẩu',
     current_password: 'Mật khẩu hiện tại',

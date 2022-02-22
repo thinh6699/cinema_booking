@@ -85,7 +85,9 @@
 
         <!-- Avatar -->
         <div class="account-avatar mb-8">
-          <span class="d-block text-white">{{ $t('setting.avatar') }}</span>
+          <span class="d-block text-white mb-2">{{
+            $t('setting.avatar')
+          }}</span>
           <div class="d-flex align-items-center justify-content-between">
             <div class="d-block">
               <p class="me-3 mb-2">
@@ -115,7 +117,7 @@
               </div>
               <label
                 for="file"
-                class="px-4 py-2 rounded-3 border flex-center cursor-pointer"
+                class="px-4 py-2 rounded-3 border text-nowrap flex-center cursor-pointer"
               >
                 {{ $t('common.btn.upload') }}
               </label>
