@@ -1,7 +1,10 @@
 <template>
   <b-sidebar v-if="isOpen" no-header id="mobile-menu" shadow>
     <div class="p-4">
-      <div v-if="isLogin" class="ms-4 w--25 h--25 rounded-circle me-2 mb-6">
+      <div
+        v-if="$store.state.auth.token"
+        class="ms-4 w--25 h--25 rounded-circle me-2 mb-6"
+      >
         <img
           class="img-cover rounded-circle"
           src="@/assets/images/avatar_default.png"
@@ -9,7 +12,7 @@
         />
       </div>
       <div
-        v-if="isLogin"
+        v-if="$store.state.auth.token"
         @click="goToBookingHistory"
         class="cursor-pointer text-light-shade text-uppercase p-4 pb-6 border-bottom border-white-o2"
       >
@@ -29,7 +32,7 @@
           </div>
         </li>
       </ul>
-      <ul v-if="isLogin" class="list-unstyled mb-0">
+      <ul v-if="$store.state.auth.token" class="list-unstyled mb-0">
         <li
           @click="goToSetting"
           class="cursor-pointer text-light-shade text-uppercase p-4 pt-6"
@@ -55,6 +58,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import Auth from '@/store/modules/Auth'
+import { getModule } from 'vuex-module-decorators'
+import store from '@/store'
+
+const AuthModule = getModule(Auth, store)
 
 @Component({})
 export default class MobileSidebar extends Vue {
@@ -125,7 +133,10 @@ export default class MobileSidebar extends Vue {
   }
 
   logout(): void {
+    AuthModule.SET_TOKEN_NULL()
     this.$router.push({ name: 'sign-in' })
+    sessionStorage.clear()
+    localStorage.clear()
   }
 }
 </script>

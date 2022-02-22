@@ -18,9 +18,11 @@
       </div>
     </Banner>
 
-    <div class="container mw--200 pt-10 mb-10">
+    <div class="container mw--200 pt-15 mb-15">
       <div class="account-detail mb-20">
-        <div class="fs-22 fs-lg-26 text-white pb-2 border-bottom mb-8">
+        <div
+          class="fs-25 fs-lg-30 text-success text-uppercase pb-2 border-bottom mb-8"
+        >
           {{ $t('setting.profile') }}
         </div>
         <!-- Name -->
@@ -82,7 +84,7 @@
         </div>
 
         <!-- Avatar -->
-        <div class="account-avatar mb-12">
+        <div class="account-avatar mb-8">
           <span class="d-block text-white">{{ $t('setting.avatar') }}</span>
           <div class="d-flex align-items-center justify-content-between">
             <div class="d-block">
@@ -129,7 +131,9 @@
       </div>
 
       <div class="change-password">
-        <div class="fs-22 fs-lg-26 text-white pb-2 border-bottom mb-8">
+        <div
+          class="fs-25 fs-lg-30 text-success text-uppercase pb-2 border-bottom mb-8"
+        >
           {{ $t('setting.change_password') }}
         </div>
         <!-- Current password -->

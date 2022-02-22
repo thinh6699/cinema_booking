@@ -45,7 +45,7 @@
       </div>
 
       <div class="mw--45 mx-auto mb-5">
-        <button @click="goToHome" class="btn btn-gradient">
+        <button @click="login" class="btn btn-gradient">
           {{ $t('common.btn.login') }}
         </button>
       </div>
@@ -84,12 +84,24 @@
 </template>
 
 <script lang="ts">
+import store from '@/store'
+import Auth from '@/store/modules/Auth'
 import { Component, Vue } from 'vue-property-decorator'
+import { getModule } from 'vuex-module-decorators'
+
+const AuthModule = getModule(Auth, store)
 
 @Component({})
 export default class SignIn extends Vue {
-  goToHome(): void {
-    this.$router.push({ name: 'home' })
+  private token: string = 'ey123456abc789'
+
+  login(): void {
+    AuthModule.HANDLE_TOKEN(this.token)
+    this.$router.push({
+      path: this.$route.query.redirect
+        ? String(this.$route.query.redirect)
+        : '/'
+    })
   }
 }
 </script>

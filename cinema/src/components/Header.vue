@@ -64,7 +64,7 @@
             >
           </li>
 
-          <li v-if="!isLogin" class="ms-3">
+          <li v-if="!$store.state.auth.token" class="ms-3">
             <router-link
               :to="{ name: 'sign-up' }"
               class="btn btn-gradient text-nowrap h-unset py-4 px-8"
@@ -124,8 +124,10 @@ import i18n from '@/lang'
 import { getModule } from 'vuex-module-decorators'
 import store from '@/store'
 import Language from '@/store/modules/Language'
+import Auth from '@/store/modules/Auth'
 
 const LanguageModule = getModule(Language, store)
+const AuthModule = getModule(Auth, store)
 
 @Component({
   components: {
@@ -135,7 +137,6 @@ const LanguageModule = getModule(Language, store)
 export default class Header extends Vue {
   private selectedLanguage = 'ENG'
   private isShowAvaOption: boolean = false
-  private isLogin: boolean = false
   public isOpen: boolean = false
   public scrollPosition: number = 0
   public headerMenu: any[] = [
@@ -217,7 +218,10 @@ export default class Header extends Vue {
   }
 
   logout(): void {
+    AuthModule.SET_TOKEN_NULL()
     this.$router.push({ name: 'sign-in' })
+    sessionStorage.clear()
+    localStorage.clear()
   }
 }
 </script>
