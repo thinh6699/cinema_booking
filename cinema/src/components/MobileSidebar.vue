@@ -1,26 +1,54 @@
 <template>
   <b-sidebar v-if="isOpen" no-header id="mobile-menu" shadow>
     <div class="p-4">
-      <ul class="list-unstyled mb-0">
-        <li
-          v-for="(menu, index) in headerMenu"
-          :key="index"
-          :class="index === headerMenu.length - 1 ? 'mb-4' : ''"
-        >
+      <div v-if="isLogin" class="ms-4 w--25 h--25 rounded-circle me-2 mb-6">
+        <img
+          class="img-cover rounded-circle"
+          src="@/assets/images/avatar_default.png"
+          alt="Avatar"
+        />
+      </div>
+      <div
+        v-if="isLogin"
+        @click="goToBookingHistory"
+        class="cursor-pointer text-light-shade text-uppercase p-4 pb-6 border-bottom border-white-o2"
+      >
+        {{ $t('common.booking_history') }}
+      </div>
+      <ul class="list-unstyled mb-0 border-bottom border-white-o2">
+        <li v-for="(menu, index) in headerMenu" :key="index">
           <div
-            class="cursor-pointer text-light-shade text-uppercase p-4 border-bottom border-white-o2"
+            class="cursor-pointer text-light-shade text-uppercase p-4"
             @click="goToDetail(menu)"
+            :class="[
+              index === 0 ? 'pt-6' : '',
+              index === headerMenu.length - 1 ? 'pb-6' : ''
+            ]"
           >
             {{ $t(menu.name) }}
           </div>
         </li>
+      </ul>
+      <ul v-if="isLogin" class="list-unstyled mb-0">
+        <li
+          @click="goToSetting"
+          class="cursor-pointer text-light-shade text-uppercase p-4 pt-6"
+        >
+          {{ $t('common.setting') }}
+        </li>
 
-        <li class="mw--40">
-          <button @click="goToSignUp" class="btn btn-gradient">
-            {{ $t('header.join_us') }}
-          </button>
+        <li
+          @click="logout"
+          class="cursor-pointer text-light-shade text-uppercase p-4"
+        >
+          {{ $t('common.logout') }}
         </li>
       </ul>
+      <div v-else class="mw--40 pt-6">
+        <button @click="goToSignUp" class="btn btn-gradient">
+          {{ $t('header.join_us') }}
+        </button>
+      </div>
     </div>
   </b-sidebar>
 </template>
@@ -31,6 +59,7 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 @Component({})
 export default class MobileSidebar extends Vue {
   @Prop() public isOpen!: boolean
+  private isLogin: boolean = false
   public headerMenu: any[] = [
     {
       name: 'header.movies',
@@ -85,6 +114,18 @@ export default class MobileSidebar extends Vue {
     } else {
       this.$router.push({ name: menu.link })
     }
+  }
+
+  goToSetting(): void {
+    this.$router.push({ name: 'setting' })
+  }
+
+  goToBookingHistory(): void {
+    this.$router.push({ name: 'booking-history' })
+  }
+
+  logout(): void {
+    this.$router.push({ name: 'sign-in' })
   }
 }
 </script>

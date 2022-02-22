@@ -18,7 +18,7 @@
             right
             no-caret
             variant="light rounded-pill border"
-            menu-class="w-100 minw-unset bg-dark-shade border mt-1"
+            menu-class="w-100 minw-unset bg-dark-shade border mt-1 z-2000"
           >
             <template #button-content>
               <div class="flex-center w--15 minh--5 position-relative px-2">
@@ -135,7 +135,7 @@ const LanguageModule = getModule(Language, store)
 export default class Header extends Vue {
   private selectedLanguage = 'ENG'
   private isShowAvaOption: boolean = false
-  private isLogin: boolean = true
+  private isLogin: boolean = false
   public isOpen: boolean = false
   public scrollPosition: number = 0
   public headerMenu: any[] = [
