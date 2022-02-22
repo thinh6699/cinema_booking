@@ -227,7 +227,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import moment from 'moment'
 import { IMovie } from '@/models/index'
@@ -235,7 +234,7 @@ import MovieService from '@/services/MovieService'
 import { EShowType, EMovieType } from '@/models/enum'
 
 @Component({
-  components: { Banner, DatePicker }
+  components: { DatePicker }
 })
 export default class Home extends Vue {
   private currentDay: number = moment.now()

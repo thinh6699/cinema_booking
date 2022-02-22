@@ -132,7 +132,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Banner from '@/components/Banner.vue'
 import moment from 'moment'
 import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
@@ -140,11 +139,7 @@ import store from '@/store'
 
 const TicketModule = getModule(TicketTime, store)
 
-@Component({
-  components: {
-    Banner
-  }
-})
+@Component({})
 export default class TicketPlan extends Vue {
   private currentDay: number = moment.now()
   private dateChoose: string = moment(this.currentDay).format('DD/MM/YYYY')

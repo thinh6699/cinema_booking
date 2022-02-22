@@ -345,7 +345,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Banner from '@/components/Banner.vue'
 import MovieService from '@/services/MovieService'
 import ModalTrailer from '@/components/Modals/ModalTrailer.vue'
 import { getModule } from 'vuex-module-decorators'
@@ -356,7 +355,6 @@ const MovieModule = getModule(Movie, store)
 
 @Component({
   components: {
-    Banner,
     ModalTrailer
   }
 })

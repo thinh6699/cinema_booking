@@ -74,14 +74,17 @@ export default {
     email: 'Email',
     password: 'Password',
     enter_your_email: 'Enter your email',
-    full_name: 'Full name',
+    full_name: 'Full Name',
     your_full_name: 'Your full name',
     confirm_password: 'Confirm password',
     address: 'Address',
     phone_number: 'Phone Number',
     new_password: 'new password',
     enter_new_password: 'Enter new password',
-    account_detail: 'Account detail',
+    booking_history: 'Booking History',
+    home: 'Home',
+    change_password: 'Change Password',
+    setting: 'Setting',
     logout: 'Logout',
     message: {
       registerd_acc_successfull: 'You have successfully registered an account!',
@@ -102,7 +105,10 @@ export default {
       search: 'Search',
       back: 'Back',
       proceed: 'Proceed',
-      add: 'Add'
+      add: 'Add',
+      save: 'Save',
+      upload: 'Upload',
+      change: 'Change'
     }
   },
   footer: {
@@ -154,5 +160,24 @@ export default {
     card_number: 'Card number',
     card_holder: 'Card holder name',
     expiration: 'Expiration',
+  },
+  setting: {
+    profile: 'Profile',
+    full_name: 'Full Name',
+    add_full_name: 'Add your full name',
+    name_message: 'Your name appears on your profile and next to your comments.',
+    email: 'Email',
+    add_email: 'Add your email',
+    phone_number: 'Phone Number',
+    add_phone: 'Add your phone number',
+    phone_message: 'Phone connected to the website.',
+    address: 'Address',
+    add_address: 'Add your address',
+    avatar: 'Avatar',
+    avatar_message: 'Should be a square image, accepting files: JPG, PNG or GIF. Up to 15MB.',
+    change_password: 'Change Password',
+    current_password: 'Current Password',
+    new_password: 'New Password',
+    confirm_password: 'Confirm New Password'
   }
 }

@@ -90,10 +90,16 @@
                 class="list-unstyled bg-dark-shade position-absolute border rounded start--0 end--0 top--19 py-3 shadow-lg"
               >
                 <li
-                  @click="goToProfile"
+                  @click="goToBookingHistory"
                   class="text-nowrap py-3 px-5 cursor-pointer avatar-option"
                 >
-                  {{ $t('common.account_detail') }}
+                  {{ $t('common.booking_history') }}
+                </li>
+                <li
+                  @click="goToSetting"
+                  class="text-nowrap py-3 px-5 cursor-pointer avatar-option"
+                >
+                  {{ $t('common.setting') }}
                 </li>
                 <li
                   @click="logout"
@@ -202,8 +208,12 @@ export default class Header extends Vue {
     }
   }
 
-  goToProfile(): void {
-    this.$router.push({ name: 'profile' })
+  goToSetting(): void {
+    this.$router.push({ name: 'setting' })
+  }
+
+  goToBookingHistory(): void {
+    this.$router.push({ name: 'booking-history' })
   }
 
   logout(): void {

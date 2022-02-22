@@ -309,7 +309,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Banner from '@/components/Banner.vue'
 import FormatPrice from '@/helpers/FormatPrice'
 import { IPaymentOption } from '@/models'
 import { EPayment } from '@/models/enum'
@@ -318,7 +317,6 @@ import moment, { Moment } from 'moment'
 
 @Component({
   components: {
-    Banner,
     DatePicker
   }
 })

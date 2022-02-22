@@ -319,7 +319,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Banner from '@/components/Banner.vue'
 import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
@@ -330,11 +329,7 @@ import moment, { Moment } from 'moment'
 
 const TicketModule = getModule(TicketTime, store)
 
-@Component({
-  components: {
-    Banner
-  }
-})
+@Component({})
 export default class MovieFood extends Vue {
   private timeRequire: Moment = moment(10 * 60 * 1000)
   private eMealType: any = EMealType

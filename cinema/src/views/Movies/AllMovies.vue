@@ -371,18 +371,18 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Banner from '@/components/Banner.vue'
 import DatePicker from 'vue2-datepicker'
 import { IMovie, ICategory } from '@/models/index'
 import MovieService from '@/services/MovieService'
 import { getModule } from 'vuex-module-decorators'
 import Movie from '@/store/modules/Movie'
 import store from '@/store'
+import FormatArrayString from '@/helpers/FormatArrayString'
 
 const MovieModule = getModule(Movie, store)
 
 @Component({
-  components: { Banner, DatePicker }
+  components: { DatePicker }
 })
 export default class AllMovies extends Vue {
   private dateSearch: string = ''
@@ -499,7 +499,7 @@ export default class AllMovies extends Vue {
   }
 
   handleMovieFormat(formats: string[]) {
-    return formats.join(', ')
+    return FormatArrayString.handleArray(formats, ', ')
   }
 }
 </script>

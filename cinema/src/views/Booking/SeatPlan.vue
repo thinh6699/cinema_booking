@@ -193,8 +193,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Banner from '@/components/Banner.vue'
 import FormatPrice from '@/helpers/FormatPrice'
+import FormatArrayString from '@/helpers/FormatArrayString'
 import { getModule } from 'vuex-module-decorators'
 import TicketTime from '@/store/modules/Ticket'
 import store from '@/store'
@@ -202,11 +202,7 @@ import { ISeat, ISeatDetail } from '@/models'
 
 const TicketModule = getModule(TicketTime, store)
 
-@Component({
-  components: {
-    Banner
-  }
-})
+@Component({})
 export default class SeatPlan extends Vue {
   private singleFree = require('@/assets/images/single-free.png')
   private coupleFree = require('@/assets/images/couple-free.png')
@@ -258,7 +254,7 @@ export default class SeatPlan extends Vue {
   }
 
   handleListSeat(listSeatChoose: string[]) {
-    return listSeatChoose.join(', ')
+    return FormatArrayString.handleArray(listSeatChoose, ', ')
   }
 
   handlePrice(price: number) {

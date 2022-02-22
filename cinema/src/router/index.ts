@@ -186,13 +186,23 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: '/profile',
-    name: 'profile',
-    component: () => import('@/views/AccountInfo/Profile.vue'),
+    path: '/setting',
+    name: 'setting',
+    component: () => import('@/views/AccountInfo/Setting.vue'),
     meta: {
       layout: LayoutDefault,
       hasBanner: true,
-      title: 'Profile'
+      title: 'Setting'
+    }
+  },
+  {
+    path: '/booking-history',
+    name: 'booking-history',
+    component: () => import('@/views/AccountInfo/BookingHistory.vue'),
+    meta: {
+      layout: LayoutDefault,
+      hasBanner: true,
+      title: 'Booking History'
     }
   },
   {

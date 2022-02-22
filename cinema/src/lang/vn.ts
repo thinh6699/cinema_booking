@@ -81,7 +81,10 @@ export default {
     phone_number: 'Số điện thoại',
     new_password: 'Mật khẩu mới',
     enter_new_password: 'Nhập mật khẩu mới',
-    account_detail: 'Chi tiết tài khoản',
+    booking_history: 'Lịch sử đặt vé',
+    change_password: 'Đổi mật khẩu',
+    home: 'Trang chủ',
+    setting: 'Cài đặt',
     logout: 'Đăng xuất',
     message: {
       registerd_acc_successfull: 'Bạn đã đăng ký tài khoản thành công!',
@@ -102,7 +105,10 @@ export default {
       search: 'Tìm kiếm',
       back: 'Quay lại',
       proceed: 'Tiếp tục',
-      add: 'Thêm'
+      add: 'Thêm',
+      save: 'Lưu',
+      upload: 'Tải lên',
+      change: 'Thay đổi'
     }
   },
   footer: {
@@ -154,5 +160,24 @@ export default {
     card_number: 'Số thẻ',
     card_holder: 'Tên chủ thẻ',
     expiration: 'Ngày hết hạn',
+  },
+  setting: {
+    profile: 'Thông tin cá nhân',
+    full_name: 'Tền đầy đủ',
+    add_full_name: 'Thêm tên đầy đủ',
+    name_message: 'Tên của bạn xuất hiện trên trang cá nhân và bên cạnh các bình luận của bạn.',
+    email: 'Email',
+    add_email: 'Thêm email',
+    phone_number: 'Số điện thoại',
+    add_phone: 'Thêm số điện thoại',
+    phone_message: 'Số điện thoại kết nối với trang web.',
+    address: 'Địa chỉ',
+    add_address: 'Thêm địa chỉ',
+    avatar: 'Ảnh đại diện',
+    avatar_message: 'Nên là ảnh vuông, chấp nhận các tệp: JPG, PNG hoặc GIF. Tối đa 15MB',
+    change_password: 'Đổi mật khẩu',
+    current_password: 'Mật khẩu hiện tại',
+    new_password: 'Mật khẩu mới',
+    confirm_password: 'Xác nhận mật khẩu mới'
   }
 }
