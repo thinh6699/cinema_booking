@@ -3,7 +3,7 @@
     <div class="p-4">
       <div
         v-if="$store.state.auth.token"
-        class="ms-4 w--25 h--25 rounded-circle me-2 mb-6"
+        class="ms-4 w--25 h--25 rounded-circle me-2 my-4"
       >
         <img
           class="img-cover rounded-circle"

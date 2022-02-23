@@ -143,12 +143,19 @@
           <label class="d-block text-white mb-2" for="current-password">
             {{ $t('setting.current_password') }}</label
           >
-          <input
-            id="current-password"
-            class="w-100 h--8 bg-transparent border-0 border-bottom outline-0 text-light-shade"
-            type="password"
-            :placeholder="$t('setting.current_password')"
-          />
+          <div class="position-relative">
+            <input
+              id="current-password"
+              class="w-100 h--8 bg-transparent border-0 border-bottom outline-0 text-light-shade"
+              :type="showCurrentPassword ? 'text' : 'password'"
+              :placeholder="$t('setting.current_password')"
+            />
+            <i
+              @click="togglePassword('current_password')"
+              class="position-absolute top-50 end--3 fs-16 cursor-pointer translate-middle-y fas"
+              :class="showCurrentPassword ? 'fa-eye-slash' : 'fa-eye'"
+            ></i>
+          </div>
         </div>
 
         <!-- New password -->
@@ -156,12 +163,19 @@
           <label class="d-block text-white mb-2" for="new-password">
             {{ $t('setting.new_password') }}</label
           >
-          <input
-            id="new-password"
-            class="w-100 h--8 bg-transparent border-0 border-bottom outline-0 text-light-shade"
-            type="password"
-            :placeholder="$t('setting.new_password')"
-          />
+          <div class="position-relative">
+            <input
+              id="new-password"
+              class="w-100 h--8 bg-transparent border-0 border-bottom outline-0 text-light-shade"
+              :type="showNewPassword ? 'text' : 'password'"
+              :placeholder="$t('setting.new_password')"
+            />
+            <i
+              @click="togglePassword('new_password')"
+              class="position-absolute top-50 end--3 fs-16 cursor-pointer translate-middle-y fas"
+              :class="showNewPassword ? 'fa-eye-slash' : 'fa-eye'"
+            ></i>
+          </div>
         </div>
 
         <!-- Confirm new password -->
@@ -195,6 +209,8 @@ export default class Setting extends Vue {
   private noAvatar = require('@/assets/images/avatar_default.png')
   private avatarPath: string = ''
   private errorTypeAndSize: boolean = false
+  private showCurrentPassword: boolean = false
+  private showNewPassword: boolean = false
 
   resetValue(): void {
     const fileInput = this.$refs.fileInput as any
@@ -211,6 +227,15 @@ export default class Setting extends Vue {
       this.errorTypeAndSize = true
     } else {
       this.avatarPath = URL.createObjectURL(blob)
+    }
+  }
+
+  togglePassword(type: string) {
+    if (type === 'current_password') {
+      this.showCurrentPassword = !this.showCurrentPassword
+    }
+    if (type === 'new_password') {
+      this.showNewPassword = !this.showNewPassword
     }
   }
 
