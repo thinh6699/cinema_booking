@@ -248,7 +248,7 @@ export default class Home extends Vue {
   private listMovie: IMovie[] = []
   private swiperOption = {
     initialSlide: 0,
-    loop: true,
+    loop: false,
     autoplay: {
       delay: 2000,
       stopOnLastSlide: false,
