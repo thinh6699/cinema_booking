@@ -108,7 +108,7 @@
             />
 
             <div class="d-flex align-items-center">
-              <div class="w--15 h--15 rounded-circle flex-fixed me-3">
+              <div class="w--15 h--15 flex-fixed me-3">
                 <img
                   class="img-cover rounded-circle"
                   :src="avatarPath ? avatarPath : noAvatar"
