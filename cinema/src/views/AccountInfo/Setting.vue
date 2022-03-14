@@ -219,7 +219,7 @@ export default class Setting extends Vue {
   }
 
   onAvatarChange(event: any) {
-    let imageType = ['image/png', 'image/gif', 'image/jpg']
+    let imageType = ['image/png', 'image/gif', 'image/jpg', 'image/jpeg']
     let files = event.target.files || event.dataTransfer.files
     if (event.target.files.length !== 1) return
     const blob = new Blob([files[0]])

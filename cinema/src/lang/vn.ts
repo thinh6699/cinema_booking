@@ -162,7 +162,7 @@ export default {
     expiration: 'Ngày hết hạn',
   },
   setting: {
-    profile: 'Thông tin cá nhân',
+    profile: 'Hồ sơ',
     full_name: 'Tền đầy đủ',
     add_full_name: 'Thêm tên đầy đủ',
     name_message: 'Tên của bạn xuất hiện trên trang cá nhân và bên cạnh các bình luận của bạn.',
