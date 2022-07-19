@@ -394,7 +394,7 @@ export default class AllMovies extends Vue {
   private quantitys: number[] = [5, 10, 15]
   private listExperience: ICategory[] = [
     {
-      id: 5,
+      id: 5, 
       name: '2D'
     },
     {

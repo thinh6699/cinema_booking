@@ -350,6 +350,7 @@ import ModalTrailer from '@/components/Modals/ModalTrailer.vue'
 import { getModule } from 'vuex-module-decorators'
 import Movie from '@/store/modules/Movie'
 import store from '@/store'
+import { IMovie } from '@/models'
 
 const MovieModule = getModule(Movie, store)
 
@@ -360,7 +361,7 @@ const MovieModule = getModule(Movie, store)
 })
 export default class MovieDetail extends Vue {
   private currentType: string = 'summary'
-  private movieDetail: any = {}
+  private movieDetail: IMovie = new IMovie()
   private commonOptions = {
     initialSlide: 0,
     loop: true,

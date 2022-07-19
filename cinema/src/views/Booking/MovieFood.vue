@@ -476,8 +476,10 @@ export default class MovieFood extends Vue {
       } else {
         this.cart.push({
           id: item.id,
+          background: item.background || '',
           name: item.name,
           quantity: item.quantity,
+          discount: item.discount || 0,
           price: item.quantity * item.discountPrice,
           type: item.type
         })
@@ -491,8 +493,10 @@ export default class MovieFood extends Vue {
         } else {
           this.cart.push({
             id: item.id,
+            background: item.background || '',
             name: item.name,
             quantity: item.quantity,
+            discount: item.discount || 0,
             price: item.quantity * item.discountPrice,
             type: item.type
           })

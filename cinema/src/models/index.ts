@@ -1,65 +1,92 @@
-export interface ICategory {
-  id: number
-  name: string
+export class ICategory {
+  id!: number
+  name: string = ''
+  constructor(init?: Partial<ICategory>) {
+    Object.assign(this, init)
+  }
 }
 
-export interface ICastCrew {
-  avatar: string
-  name: string
-  role: string
+export class ICastCrew {
+  avatar: string = ''
+  name: string = ''
+  role: string = ''
+  constructor(init?: Partial<ICastCrew>) {
+    Object.assign(this, init)
+  }
 }
 
-export interface IMovie {
-  id: number
-  name: string
-  poster: string
-  background: string
-  date: string
-  duration: string
-  format: string[]
-  rotten_tomato_rating: number
-  like: number
-  category: ICategory[]
-  photos: string[]
-  casts: ICastCrew[]
-  crews: ICastCrew[]
+export class IMovie {
+  id!: number
+  name: string = ''
+  poster: string = ''
+  background: string = ''
+  date: string = ''
+  duration: string = ''
+  format: string[] = []
+  rotten_tomato_rating: number = 0
+  like: number = 0
+  category: ICategory[] = []
+  photos: string[] = []
+  casts: ICastCrew[] = []
+  crews: ICastCrew[] = []
+  constructor(init?: Partial<IMovie>) {
+    Object.assign(this, init)
+  }
 }
 
-export interface ILanguage {
-  code: string
-  text: string
+export class ILanguage {
+  code: string = ''
+  text: string = ''
+  constructor(init?: Partial<ILanguage>) {
+    Object.assign(this, init)
+  }
 }
 
-export interface IFood {
-  id: number
-  background?: string
-  name: string
-  price: number
-  discount?: number
-  quantity: number
-  type: number
+export class IFood {
+  id!: number
+  background: string = ''
+  name: string = ''
+  price!: number
+  discount!: number 
+  quantity!: number
+  type!: number
+  constructor(init?: Partial<IFood>) {
+    Object.assign(this, init)
+  }
 }
 
-export interface ISeatDetail {
-  number: number
-  choosen: boolean
-  name: string
-  isChecked: boolean
+export class ISeatDetail {
+  number!: number
+  choosen: boolean = false
+  name: string = ''
+  isChecked: boolean = false
+  constructor(init?: Partial<ISeatDetail>) {
+    Object.assign(this, init)
+  }
 }
 
-export interface ISeat {
-  type: string
-  detail: ISeatDetail[]
-  price: number
+export class ISeat {
+  type: string = ''
+  detail: ISeatDetail[] = []
+  price!: number
+  constructor(init?: Partial<ISeat>) {
+    Object.assign(this, init)
+  }
 }
 
-export interface IMealType {
-  type: number
-  name: string
+export class IMealType {
+  type!: number
+  name: string = ''
+  constructor(init?: Partial<IMealType>) {
+    Object.assign(this, init)
+  }
 }
 
-export interface IPaymentOption {
-  name: string
-  value: number
-  avatar: string
+export class IPaymentOption {
+  name: string = ''
+  value!: number
+  avatar: string = ''
+  constructor(init?: Partial<IPaymentOption>) {
+    Object.assign(this, init)
+  }
 }
