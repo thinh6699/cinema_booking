@@ -47,7 +47,7 @@ export class IFood {
   background: string = ''
   name: string = ''
   price!: number
-  discount!: number 
+  discount!: number
   quantity!: number
   type!: number
   constructor(init?: Partial<IFood>) {

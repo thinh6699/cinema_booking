@@ -8,18 +8,16 @@ import './assets/scss/index.scss'
 import './validations/validation'
 import moment from 'moment'
 import VueLazyload from 'vue-lazyload'
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-import Swiper, {
-  Autoplay, Pagination, Navigation
-} from 'swiper';
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
+import Swiper, { Autoplay, Pagination, Navigation } from 'swiper'
 import { BootstrapVue } from 'bootstrap-vue'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 
-Swiper.use([Autoplay, Pagination, Navigation]);
+Swiper.use([Autoplay, Pagination, Navigation])
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
-Vue.use(VueAwesomeSwiper)
+// Vue.use(VueAwesomeSwiper)
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: require('@/assets/images/not-found.gif'),
