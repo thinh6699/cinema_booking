@@ -43,7 +43,7 @@
         <div class="toggle-mobile-sidebar d-lg-none">
           <i
             v-b-toggle="'mobile-menu'"
-            @click="isOpen = !isOpen"
+            @click="toggleMenu"
             class="fs-30 text-white fal p-4 m-n4 cursor-pointer"
             :class="isOpen ? 'fa-times' : 'fa-bars'"
           ></i>
@@ -180,6 +180,12 @@ export default class Header extends Vue {
     }
     window.addEventListener('scroll', this.updateScroll)
     window.addEventListener('resize', this.watchResize)
+  }
+
+  toggleMenu(): void {
+    this.isOpen = !this.isOpen
+    const body = document.body
+    body.classList.toggle('overflow-hidden')
   }
 
   watchResize(): void {

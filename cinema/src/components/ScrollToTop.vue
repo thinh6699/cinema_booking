@@ -24,7 +24,10 @@ export default class ScrollToTop extends Vue {
   }
 
   scrollToTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    const body = document.body
+    if (!body.classList.contains('overflow-hidden')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 }
 </script>
