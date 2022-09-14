@@ -1,0 +1,167 @@
+[
+  {
+    "id": "1",
+    "name": "The Matrix Resurrections",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMGJkNDJlZWUtOGM1Ny00YjNkLThiM2QtY2ZjMzQxMTIxNWNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg7",
+    "background": "https://m.media-amazon.com/images/M/MV5BMGJkNDJlZWUtOGM1Ny00YjNkLThiM2QtY2ZjMzQxMTIxNWNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg",
+    "trailer_url": "https://www.youtube.com/embed/9ix7TUGVYIo",
+    "photos": [
+      "https://ychef.files.bbci.co.uk/976x549/p0b69clb.jpg",
+      "https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/ppvxsctqpjxj0mwcpw0x/the-matrix-resurrections-easter-eggs-00?fimg-ssr-default",
+      "https://m.media-amazon.com/images/M/MV5BMGJkNDJlZWUtOGM1Ny00YjNkLThiM2QtY2ZjMzQxMTIxNWNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg"
+    ],
+    "casts": [
+      {
+        "avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTkqugX0WLc78TSUXjzYAQvwT7nqU8vJknuJGldrNv0FO7kD8vl",
+        "name": "Keanu Reeves",
+        "character": "Neo"
+      },
+      {
+        "avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTbpjMiELi2ayfFJbiT4bASP81UGXgXirJ1aAAXPgnXoJ8lZoSp",
+        "name": "Laurence Fishburne",
+        "character": "Morpheus"
+      },
+      {
+        "avatar": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ9A34J_XmZAfxsgRqheKnaKutKP1iVH4BFCXx9rwL6xUthgC_f",
+        "name": "Jessica Henwick",
+        "character": "Bugs"
+      },
+      {
+        "avatar": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfB1MnNZFbA_0PbtJOZtLsaECmMiSgyHdmI9VkKQhEjLDoByvn",
+        "name": "Carrie-Anne Moss",
+        "character": "Trinity"
+      }
+    ],
+    "crews": [
+      {
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNd2yCxgyKJ31Y1Q01IbJqagGFkZEUUTrWwVXl0b-Xls3OiYg4",
+        "name": "Lana Wachowski",
+        "role": "Producer"
+      },
+      {
+        "avatar": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRAb8LGODbXYHBGW9Lss1TJDs0cQ43anXv3mrnrwv68Odikl6cS",
+        "name": "James McTeigue",
+        "role": "Producer"
+      },
+      {
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRySYyRe-dhBxc36G3MMkpkq1h9Y1TK9Ww8h_UyQ60lS6bw6ig7",
+        "name": "Grant Hill",
+        "role": "Producer"
+      },
+      {
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Johnny_Klimek_Profile_Pic.jpg",
+        "name": "Johnny Klimek",
+        "role": "Musician"
+      }
+    ],
+    "date": "2021/12/26",
+    "duration": "2hrs 50 min",
+    "format": ["2D", "3D", "IMAX"],
+    "rotten_tomato_rating": 85,
+    "like": 90,
+    "category": [
+      {
+        "id": 3,
+        "name": "Action"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Spider-Man: No Way Home",
+    "poster": "https://static.yeah1.com/uploads/editors/27/2021/12/16/Z8zUa5PFKiziu8r6t6lw9OXq8lJABI21d3HatcuF.jpg",
+    "background": "https://vcdn-giaitri.vnecdn.net/2021/12/26/spider-man-5-jpeg-5426-1640513506.jpg",
+    "trailer_url": "https://www.youtube.com/embed/OB3g37GTALc",
+    "date": "2021/12/26",
+    "duration": "2hrs 40 min",
+    "format": ["2D", "3D"],
+    "rotten_tomato_rating": 90,
+    "like": 100,
+    "category": [
+      {
+        "id": 2,
+        "name": "Comedy"
+      },
+      {
+        "id": 3,
+        "name": "Action"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Doctor Strange in the Multiverse of Madness",
+    "poster": "https://ecdn.game4v.com/g4v-content/uploads/2021/04/doctor-strange-2-1-game4v.jpg",
+    "background": "https://znews-photo.zadn.vn/w660/Uploaded/ngogtn/2021_06_07/jakub_maslowski_doctor_strange_in_the_multiverse_of_madness.jpeg",
+    "trailer_url": "https://www.youtube.com/embed/Rt_UqUm38BI",
+    "date": "2021/12/27",
+    "duration": "2hrs 15 min",
+    "format": ["2D", "3D"],
+    "rotten_tomato_rating": 90,
+    "like": 90,
+    "category": [
+      {
+        "id": 1,
+        "name": "Horror"
+      },
+      {
+        "id": 3,
+        "name": "Action"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Eternals",
+    "poster": "https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/10/20/eternals-marvel-poster-16347125571481063616643.jpg",
+    "background": "https://i0.wp.com/wegotthiscovered.com/wp-content/uploads/2021/11/eternals-full-cast-orange-tone-1600x900-1.jpg?resize=1600%2C900&ssl=1",
+    "trailer_url": "https://www.youtube.com/embed/DobBbl0_6Lc",
+    "date": "2021/12/28",
+    "format": ["2D", "3D", "IMAX"],
+    "rotten_tomato_rating": 85,
+    "duration": "2hrs 50 min",
+    "like": 95,
+    "category": [
+      {
+        "id": 3,
+        "name": "Action"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "The Batman",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYTExZTdhY2ItNGQ1YS00NjJlLWIxMjYtZTI1MzNlMzY0OTk4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",
+    "background": "https://cdn.mos.cms.futurecdn.net/GZ7qByagHmrGVqV7VbJf8j-480-80.jpg",
+    "trailer_url": "https://www.youtube.com/embed/mqqft2x_Aa4",
+    "date": "2022/03/08",
+    "duration": "2hrs 50 min",
+    "format": ["2D"],
+    "rotten_tomato_rating": 85,
+    "like": 95,
+    "category": [
+      {
+        "id": 3,
+        "name": "Action"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Fantastic Beasts: The Secrets of Dumbledore",
+    "poster": "https://pbs.twimg.com/media/FHEJOEaVgAQEzFN?format=jpg&name=4096x4096",
+    "background": "https://www.usmagazine.com/wp-content/uploads/2021/10/Fantastic-Beasts-The-Secrets-of-Dumbledore-Everything-We-Know-So-Far-About-the-3rd-Harry-Potter-Prequel4.jpg?w=1600&quality=86&strip=all",
+    "trailer_url": "https://www.youtube.com/embed/Y9dr2zw-TXQ",
+    "date": "2022/03/20",
+    "duration": "2hrs 50 min",
+    "format": ["2D", "3D", "IMAX"],
+    "rotten_tomato_rating": 85,
+    "like": 95,
+    "category": [
+      {
+        "id": 3,
+        "name": "Action"
+      }
+    ]
+  }
+]

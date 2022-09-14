@@ -1,0 +1,18 @@
+$input-padding-x: 16px;
+$input-padding-y: 8px;
+$input-font-size: 16px;
+$input-border-color: $border-color;
+$form-check-input-width: 1.75em;
+$input-btn-focus-width: 0;
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}

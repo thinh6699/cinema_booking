@@ -1,0 +1,47 @@
+@import '../fontawesome-pro-5.15.2-web/css/all.min.css';
+
+@import 'variables';
+
+// Custom bootstrap variable foreach component, custom $variable only
+// https://getbootstrap.com > Components[button, input,...] > Sass > Variables
+@import './custom-bootstrap/border';
+@import './custom-bootstrap/button';
+@import './custom-bootstrap/input';
+@import './custom-bootstrap/spacer';
+@import './custom-bootstrap/theme-colors';
+@import '~bootstrap';
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
+@import 'mixins';
+@import 'common';
+
+// Style components
+@import './components/button';
+@import './components/space';
+@import './components/text';
+@import './components/position';
+@import './components/rounded';
+@import './components/input';
+@import './components/z-index';
+@import './components/color';
+@import './components/border';
+@import './components/opacity';
+@import './components/scrollbar';
+@import './components/container';
+@import './components/flex';
+@import './components/modal';
+@import './components/sidebar';
+@import './components/vue-slick';
+@import './components/calendar';
+@import './components/footer';
+
+// Style for pages
+@import './views/auth';
+@import './views/movie-detail';
+
+//date picker
+@import '~vue2-datepicker/scss/index';
+
+// Swiper
+@import '~swiper/swiper';
+@import '~swiper/modules/navigation/navigation';
+@import '~swiper/modules/pagination/pagination';

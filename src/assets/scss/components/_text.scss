@@ -1,0 +1,78 @@
+@for $i from 1 through 50 {
+  .fs-#{$i} {
+    font-size: #{$i}px;
+  }
+}
+
+@for $i from 1 through 5 {
+  .text-line-clamp-#{$i} {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $i;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  @for $i from 1 through 80 {
+    .fs-lg-#{$i} {
+      font-size: #{$i}px;
+    }
+  }
+}
+
+.fwn {
+  font-weight: $fwn !important;
+}
+
+.fwl {
+  font-weight: $fwl !important;
+}
+
+.fwb {
+  font-weight: $fwb !important;
+}
+
+.fwb-500 {
+  font-weight: 500 !important;
+}
+
+@include media-breakpoint-up(lg) {
+  .fw-lg-n {
+    font-weight: $fwn !important;
+  }
+
+  .fw-lg-l {
+    font-weight: $fwl !important;
+  }
+
+  .fw-lg-b {
+    font-weight: $fwb !important;
+  }
+}
+
+.hover-underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.un-select-text {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@for $i from 1 through 50 {
+  .lh-#{$i} {
+    line-height: $i * 4px;
+  }
+}
+
+.text-pre {
+  white-space: pre-line !important;
+}
+
+.word-break {
+  word-break: break-word;
+}
