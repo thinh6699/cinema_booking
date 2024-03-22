@@ -91,3 +91,13 @@ export class IPaymentOption {
     Object.assign(this, init)
   }
 }
+
+export interface SignUpForm {
+  full_name: string
+  email: string
+  password: string
+  confirm_password?: string
+  address: string
+  phone_number: string
+  accept_term?: boolean
+}

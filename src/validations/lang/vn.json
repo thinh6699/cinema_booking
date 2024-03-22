@@ -1,0 +1,9 @@
+{
+  "code": "en",
+  "fields": {
+    "full_name": "Full name"
+  },
+  "messages": {
+    "required": "Please enter the {field}"
+  }
+}

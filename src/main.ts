@@ -12,6 +12,27 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import Swiper, { Autoplay, Pagination, Navigation } from 'swiper'
 import { BootstrapVue } from 'bootstrap-vue'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import Toast from 'vue-toastification'
+import 'vue-toastification/dist/index.css'
+
+const toastOptions = {
+  position: 'top-right',
+  timeout: 5000,
+  closeOnClick: true,
+  pauseOnFocusLoss: true,
+  pauseOnHover: true,
+  draggable: true,
+  draggablePercent: 0.6,
+  showCloseButtonOnHover: false,
+  hideProgressBar: true,
+  closeButton: 'button',
+  icon: true,
+  rtl: false,
+  newestOnTop: true,
+  maxToasts: 5
+}
+
+Vue.use(Toast, toastOptions)
 
 Swiper.use([Autoplay, Pagination, Navigation])
 

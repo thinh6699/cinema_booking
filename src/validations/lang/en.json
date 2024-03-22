@@ -1,0 +1,20 @@
+{
+  "code": "en",
+  "fields": {
+    "full_name": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "phone_number": "Phone number",
+    "address": "Address",
+    "accept_term": "Accept term"
+  },
+  "messages": {
+    "required": "Please enter the {_field_}",
+    "maxLength": "{_field_} must be below {max} character",
+    "email": "{_field_} is not a valid format",
+    "password": "{_field_} is not a valid format",
+    "confirm_password": "Confirm password is not match",
+    "accept_term": "Please accept the term and privacy policy"
+  }
+}

@@ -6,7 +6,7 @@ export default {
   login: {
     welcome_back: 'welcome back',
     forgot_password: 'Forgot Password?',
-    dont_have_acc: 'Don\'t have an account?',
+    dont_have_acc: "Don't have an account?",
     sign_up: 'Sign up now',
     or: 'or'
   },
@@ -15,11 +15,12 @@ export default {
     agree_to: 'I agree to the',
     term_and_privacy: 'Terms and Privacy Policy',
     already_have_acc: 'Already have an account?',
-    login: 'Login',
+    login: 'Login'
   },
   forgot_password: {
     title: 'forgot password',
-    message: 'Please enter your email address so we can verify the information and continue to reset your password.'
+    message:
+      'Please enter your email address so we can verify the information and continue to reset your password.'
   },
   reset_password: {
     title: 'reset password',
@@ -32,7 +33,8 @@ export default {
     book_your_tickets: 'Book your tickets for',
     movie: 'Movies',
     movies: 'Movies',
-    message: 'Safe, secure, reliable ticketing.Your ticket to live entertainment!',
+    message:
+      'Safe, secure, reliable ticketing.Your ticket to live entertainment!',
     looking_for: 'What are you looking for?',
     event: 'Event',
     date: 'Date',
@@ -92,7 +94,8 @@ export default {
       sign_up_notify: 'sign up notification',
       reset_password_notify: 'reset password notification',
       click_to_login: 'Click here to login.',
-      pls_add_item: 'Please add an item'
+      pls_add_item: 'Please add an item',
+      fail_to_action: 'An error has occurred. Please try again.'
     },
     btn: {
       login: 'Login',
@@ -159,13 +162,14 @@ export default {
     enter_card_detail: 'Enter your card details',
     card_number: 'Card number',
     card_holder: 'Card holder name',
-    expiration: 'Expiration',
+    expiration: 'Expiration'
   },
   setting: {
     profile: 'Profile',
     full_name: 'Full Name',
     add_full_name: 'Add your full name',
-    name_message: 'Your name appears on your profile and next to your comments.',
+    name_message:
+      'Your name appears on your profile and next to your comments.',
     email: 'Email',
     add_email: 'Add your email',
     phone_number: 'Phone Number',
@@ -174,7 +178,8 @@ export default {
     address: 'Address',
     add_address: 'Add your address',
     avatar: 'Avatar',
-    avatar_message: 'Should be a square image, accepting files: JPG, PNG or GIF. Up to 15MB.',
+    avatar_message:
+      'Should be a square image, accepting files: JPG, PNG or GIF. Up to 15MB.',
     wrong_format: 'Uploaded image is not the correct size or format.',
     change_password: 'Change Password',
     current_password: 'Current Password',

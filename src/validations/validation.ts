@@ -1,5 +1,16 @@
 import { extend, configure } from 'vee-validate'
 import * as rules from 'vee-validate/dist/rules'
+import i18n from '@/lang'
+
+configure({
+  defaultMessage: (field, values) => {
+    // override the field name.
+    if (!field.includes('ignore')) {
+      values._field_ = i18n.t(`fields.${field}`)
+    }
+    return i18n.t(`validation.${values._rule_}`, values) as string
+  }
+})
 
 // install rules and localization
 for (const [rule, validation] of Object.entries(rules)) {
@@ -23,17 +34,23 @@ extend('email', {
   }
 })
 
-extend('betweenPassword', {
-  params: ['min', 'max'],
-  validate(value, event: any) {
-    return value.length >= event.min && value.length <= event.max
+extend('password', {
+  validate(value) {
+    const regex =
+      /^(?=.*[0-9])(?=.*[A-Za-z])(?=.*[!%@#&\-()_[\]{}:;`'",.+*?\\/~$^=<>|\\])[0-9A-Za-z!%@#&\-()_[\]{}:;`'",.+*?\\/~$^=<>|\\]{8,64}$/
+    return regex.test(value)
   }
 })
 
-extend('password', {
+extend('confirm_password', {
   params: ['target'],
   validate(value, target: any) {
     return value === target.target
-  },
-  message: 'Mật khẩu không trùng khớp'
+  }
+})
+
+extend('accept_term', {
+  validate(value: boolean) {
+    return value === true
+  }
 })
