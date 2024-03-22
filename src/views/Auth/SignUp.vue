@@ -280,9 +280,7 @@ export default class SignUp extends Vue {
       try {
         await register(payload)
         this.$toast.success(this.$t('common.message.registerd_acc_successfull'))
-        setTimeout(() => {
-          this.$router.push('/sign-in')
-        }, 1000)
+        this.$router.push('/sign-in')
       } catch {
         this.$toast.error(this.$t('common.message.fail_to_action'))
       }
