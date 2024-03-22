@@ -204,16 +204,16 @@ const TicketModule = getModule(TicketTime, store)
 
 @Component({})
 export default class SeatPlan extends Vue {
-  private singleFree = require('@/assets/images/single-free.png')
-  private coupleFree = require('@/assets/images/couple-free.png')
-  private singleChecked = require('@/assets/images/single-checked.png')
-  private coupleChecked = require('@/assets/images/couple-checked.png')
-  private singleChoosen = require('@/assets/images/single-choosen.png')
-  private coupleChoosen = require('@/assets/images/couple-choosen.png')
+  public singleFree = require('@/assets/images/single-free.png')
+  public coupleFree = require('@/assets/images/couple-free.png')
+  public singleChecked = require('@/assets/images/single-checked.png')
+  public coupleChecked = require('@/assets/images/couple-checked.png')
+  public singleChoosen = require('@/assets/images/single-choosen.png')
+  public coupleChoosen = require('@/assets/images/couple-choosen.png')
 
-  private totalPrice: number = 0
-  private listSeatChoose: string[] = []
-  private listSeat: ISeat[] = [
+  public totalPrice: number = 0
+  public listSeatChoose: string[] = []
+  public listSeat: ISeat[] = [
     {
       type: 'G',
       detail: [],

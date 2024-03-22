@@ -18,5 +18,11 @@ export enum EMealType {
 
 export enum EPayment {
   CREDIT,
-  MOMO,
+  MOMO
+}
+
+export enum MODAL_TYPE {
+  INFO,
+  SUCCESS,
+  ERROR
 }

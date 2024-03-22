@@ -321,17 +321,17 @@ import moment, { Moment } from 'moment'
   }
 })
 export default class TicketCheckout extends Vue {
-  private timeRequire: Moment = moment(10 * 60 * 1000)
-  private ePayment: any = EPayment
-  private paymentChoose: number = this.ePayment.CREDIT
-  private priceNoVat: number = 0
-  private totalPrice: number = 0
-  private expirationDate: string = ''
-  private cardNumber: number | null = null
-  private cardHolderName: string = ''
-  private cvvNumber: number | null = null
-  private agreeTerm: boolean = false
-  private listPaymentOption: IPaymentOption[] = [
+  public timeRequire: Moment = moment(10 * 60 * 1000)
+  public ePayment: any = EPayment
+  public paymentChoose: number = this.ePayment.CREDIT
+  public priceNoVat: number = 0
+  public totalPrice: number = 0
+  public expirationDate: string = ''
+  public cardNumber: number | null = null
+  public cardHolderName: string = ''
+  public cvvNumber: number | null = null
+  public agreeTerm: boolean = false
+  public listPaymentOption: IPaymentOption[] = [
     {
       name: 'ticket_checkout.credit_card',
       value: this.ePayment.CREDIT,

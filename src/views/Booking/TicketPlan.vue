@@ -141,13 +141,13 @@ const TicketModule = getModule(TicketTime, store)
 
 @Component({})
 export default class TicketPlan extends Vue {
-  private currentDay: number = moment.now()
-  private dateChoose: string = moment(this.currentDay).format('DD/MM/YYYY')
-  private experienceChoose: string = '2D'
-  private time: string = '23:59'
-  private cinema: string = 'CGV Bắc Từ Liêm'
-  private listDate: string[] = []
-  private listExperience: string[] = []
+  public currentDay: number = moment.now()
+  public dateChoose: string = moment(this.currentDay).format('DD/MM/YYYY')
+  public experienceChoose: string = '2D'
+  public time: string = '23:59'
+  public cinema: string = 'CGV Bắc Từ Liêm'
+  public listDate: string[] = []
+  public listExperience: string[] = []
 
   created(): void {
     for (let i = 0; i < 7; i++) {

@@ -385,14 +385,14 @@ const MovieModule = getModule(Movie, store)
   components: { DatePicker }
 })
 export default class AllMovies extends Vue {
-  private dateSearch: string = ''
-  private movieSearch: string = ''
-  private sortChoose: string = 'All'
-  private movieQuantity: number = 5
-  private categoryChecked: any[] = []
-  private experienceChecked: any[] = []
-  private quantitys: number[] = [5, 10, 15]
-  private listExperience: ICategory[] = [
+  public dateSearch: string = ''
+  public movieSearch: string = ''
+  public sortChoose: string = 'All'
+  public movieQuantity: number = 5
+  public categoryChecked: any[] = []
+  public experienceChecked: any[] = []
+  public quantitys: number[] = [5, 10, 15]
+  public listExperience: ICategory[] = [
     {
       id: 5, 
       name: '2D'
@@ -406,7 +406,7 @@ export default class AllMovies extends Vue {
       name: 'IMAX'
     }
   ]
-  private listCategory: ICategory[] = [
+  public listCategory: ICategory[] = [
     {
       id: 1,
       name: 'Horror'
@@ -424,7 +424,7 @@ export default class AllMovies extends Vue {
       name: 'Drama'
     }
   ]
-  private movieType: ICategory[] = [
+  public movieType: ICategory[] = [
     {
       id: 1,
       name: 'All'
@@ -439,8 +439,8 @@ export default class AllMovies extends Vue {
     }
   ]
 
-  private listMovieComputed: IMovie[] = []
-  private listMovie: IMovie[] = []
+  public listMovieComputed: IMovie[] = []
+  public listMovie: IMovie[] = []
 
   created(): void {
     this.getListMovie()

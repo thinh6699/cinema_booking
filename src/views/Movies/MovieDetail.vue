@@ -360,16 +360,16 @@ const MovieModule = getModule(Movie, store)
   }
 })
 export default class MovieDetail extends Vue {
-  private currentType: string = 'summary'
-  private movieDetail: IMovie = new IMovie()
-  private commonOptions = {
+  public currentType: string = 'summary'
+  public movieDetail: IMovie = new IMovie()
+  public commonOptions = {
     initialSlide: 0,
     loop: true,
     slidesPerView: 1,
     spaceBetween: 10
   }
 
-  private swiperPhotoOptions = {
+  public swiperPhotoOptions = {
     ...this.commonOptions,
     autoplay: {
       delay: 2000,
@@ -392,7 +392,7 @@ export default class MovieDetail extends Vue {
     }
   }
 
-  private swiperCastOptions = {
+  public swiperCastOptions = {
     ...this.commonOptions,
     navigation: {
       nextEl: '.swiper-next-cast',
@@ -419,7 +419,7 @@ export default class MovieDetail extends Vue {
     }
   }
 
-  private swiperCrewOptions = {
+  public swiperCrewOptions = {
     ...this.commonOptions,
     navigation: {
       nextEl: '.swiper-next-crew',

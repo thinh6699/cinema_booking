@@ -4,8 +4,8 @@
     hide-footer
     centered
     @hidden="hideModal"
-    header-class="modal-info-header"
-    header-bg-variant="primary-tint-less"
+    header-class="modal-header"
+    :header-bg-variant="getColorByType()"
   >
     <div class="p-5">
       <div
@@ -24,17 +24,27 @@
 
 <script lang="ts">
 import { Prop, Component, Vue } from 'vue-property-decorator'
+import { MODAL_TYPE } from '@/models/enum'
 
 @Component
 export default class ModalInfo extends Vue {
-  @Prop({ default: 'modal-info' }) private id!: string
-  @Prop() private infoMess!: string
+  @Prop({ default: 'modal-info' }) public id!: string
+  @Prop({ default: MODAL_TYPE.SUCCESS }) public type!: MODAL_TYPE
+  @Prop() public infoMess!: string
+
+  getColorByType() {
+    switch (this.type) {
+      case MODAL_TYPE.SUCCESS:
+        return 'success'
+      case MODAL_TYPE.INFO:
+        return 'primary-tint-less'
+    }
+  }
 
   hideModal() {
     this.$bvModal.hide(this.id)
     setTimeout(() => {
       this.$emit('close')
-      clearTimeout()
     }, 300)
   }
 }

@@ -49,6 +49,7 @@ export class IFood {
   price!: number
   discount!: number
   quantity!: number
+  discountPrice?: number = 0
   type!: number
   constructor(init?: Partial<IFood>) {
     Object.assign(this, init)

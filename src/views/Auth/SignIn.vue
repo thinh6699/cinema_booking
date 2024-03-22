@@ -93,7 +93,7 @@ const AuthModule = getModule(Auth, store)
 
 @Component({})
 export default class SignIn extends Vue {
-  private token: string = 'ey123456abc789'
+  public token: string = 'ey123456abc789'
 
   login(): void {
     AuthModule.HANDLE_TOKEN(this.token)

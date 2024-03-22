@@ -206,11 +206,11 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class Setting extends Vue {
-  private noAvatar = require('@/assets/images/avatar_default.png')
-  private avatarPath: string = ''
-  private errorTypeAndSize: boolean = false
-  private showCurrentPassword: boolean = false
-  private showNewPassword: boolean = false
+  public noAvatar = require('@/assets/images/avatar_default.png')
+  public avatarPath: string = ''
+  public errorTypeAndSize: boolean = false
+  public showCurrentPassword: boolean = false
+  public showNewPassword: boolean = false
 
   resetValue(): void {
     const fileInput = this.$refs.fileInput as any

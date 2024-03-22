@@ -312,6 +312,7 @@
     </div>
     <ModalInfo
       :id="'modal-cart-info'"
+      :type="modalType.INFO"
       :infoMess="$t('common.message.pls_add_item')"
     />
   </div>
@@ -326,19 +327,21 @@ import FormatPrice from '@/helpers/FormatPrice'
 import { IFood, IMealType } from '@/models'
 import { EMealType } from '@/models/enum'
 import moment, { Moment } from 'moment'
+import { MODAL_TYPE } from '@/models/enum'
 
 const TicketModule = getModule(TicketTime, store)
 
 @Component({})
 export default class MovieFood extends Vue {
-  private timeRequire: Moment = moment(10 * 60 * 1000)
-  private eMealType: any = EMealType
-  private mealType: number = this.eMealType.ALL
-  private comboPrice: number = 0
-  private foodDrinkPrice: number = 0
-  private priceNoVat: number = 0
-  private totalPrice: number = 0
-  private listFoods: IFood[] = [
+  public modalType: any = MODAL_TYPE
+  public timeRequire: Moment = moment(10 * 60 * 1000)
+  public eMealType: any = EMealType
+  public mealType: number = this.eMealType.ALL
+  public comboPrice: number = 0
+  public foodDrinkPrice: number = 0
+  public priceNoVat: number = 0
+  public totalPrice: number = 0
+  public listFoods: IFood[] = [
     {
       id: 1,
       background: require('@/assets/images/combo1.png'),
@@ -395,7 +398,7 @@ export default class MovieFood extends Vue {
     }
   ]
 
-  private listMealType: IMealType[] = [
+  public listMealType: IMealType[] = [
     {
       type: this.eMealType.ALL,
       name: 'movie_food.all'
@@ -414,11 +417,11 @@ export default class MovieFood extends Vue {
     }
   ]
 
-  private listFoodsComputed: IFood[] = []
+  public listFoodsComputed: IFood[] = []
 
-  private cart: IFood[] = []
-  private comboCart: IFood[] = []
-  private foodDrinksCart: IFood[] = []
+  public cart: IFood[] = []
+  public comboCart: IFood[] = []
+  public foodDrinksCart: IFood[] = []
 
   created(): void {
     this.listFoods.map((item: any) => {
@@ -542,7 +545,7 @@ export default class MovieFood extends Vue {
     this.totalPrice = this.priceNoVat + this.priceNoVat * 0.1
   }
 
-  handlePrice(price: number) {
+  handlePrice(price: any) {
     return FormatPrice.handlePrice(price)
   }
 

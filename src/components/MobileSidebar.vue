@@ -67,7 +67,7 @@ const AuthModule = getModule(Auth, store)
 @Component({})
 export default class MobileSidebar extends Vue {
   @Prop() public isOpen!: boolean
-  private isLogin: boolean = false
+  public isLogin: boolean = false
   public headerMenu: any[] = [
     {
       name: 'header.movies',

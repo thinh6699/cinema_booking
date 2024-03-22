@@ -82,7 +82,7 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class Footer extends Vue {
-  private socialIcons: any[] = [
+  public socialIcons: any[] = [
     'fa-facebook-f',
     'fa-line',
     'fa-instagram',

@@ -237,16 +237,16 @@ import { EShowType, EMovieType } from '@/models/enum'
   components: { DatePicker }
 })
 export default class Home extends Vue {
-  private currentDay: number = moment.now()
-  private dateSearch: string = ''
-  private inputSearch: string = ''
-  private eShowType: any = EShowType
-  private eMovieType: any = EMovieType
-  private showType: EShowType = EShowType.MOVIES
-  private movieType: EMovieType = EMovieType.NOW_SHOWING
-  private listMovieComputed: IMovie[] = []
-  private listMovie: IMovie[] = []
-  private swiperOption = {
+  public currentDay: number = moment.now()
+  public dateSearch: string = ''
+  public inputSearch: string = ''
+  public eShowType: any = EShowType
+  public eMovieType: any = EMovieType
+  public showType: EShowType = EShowType.MOVIES
+  public movieType: EMovieType = EMovieType.NOW_SHOWING
+  public listMovieComputed: IMovie[] = []
+  public listMovie: IMovie[] = []
+  public swiperOption = {
     initialSlide: 0,
     loop: false,
     autoplay: {

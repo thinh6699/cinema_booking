@@ -136,8 +136,8 @@ const AuthModule = getModule(Auth, store)
   }
 })
 export default class Header extends Vue {
-  private selectedLanguage = 'ENG'
-  private isShowAvaOption: boolean = false
+  public selectedLanguage = 'ENG'
+  public isShowAvaOption: boolean = false
   public isOpen: boolean = false
   public scrollPosition: number = 0
   public headerMenu: any[] = [
