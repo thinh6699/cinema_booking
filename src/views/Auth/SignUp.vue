@@ -11,9 +11,8 @@
       <div class="sign-up-form">
         <div class="mb-5">
           <div class="form-group mb-5">
-            <label class="text-uppercase w-100 mb-3" for="full_name">
+            <label class="text-uppercase mb-3 required" for="full_name">
               {{ $t('common.full_name') }}
-              <span class="position-relative end--1 text-danger fs-18">*</span>
             </label>
             <ValidationProvider
               v-slot="{ errors, touched }"
@@ -40,9 +39,8 @@
           </div>
 
           <div class="form-group mb-5">
-            <label class="text-uppercase w-100 mb-3" for="email">
+            <label class="text-uppercase mb-3 required" for="email">
               {{ $t('common.enter_your_email') }}
-              <span class="position-relative end--1 text-danger fs-18">*</span>
             </label>
             <ValidationProvider
               v-slot="{ errors, touched }"
@@ -69,9 +67,8 @@
           </div>
 
           <div class="form-group mb-5">
-            <label class="text-uppercase w-100 mb-3" for="password">
+            <label class="text-uppercase mb-3 required" for="password">
               {{ $t('common.password') }}
-              <span class="position-relative end--1 text-danger fs-18">*</span>
             </label>
             <ValidationProvider
               v-slot="{ errors, touched }"
@@ -99,9 +96,8 @@
           </div>
 
           <div class="form-group mb-5">
-            <label class="text-uppercase w-100 mb-3" for="confirm_password">
+            <label class="text-uppercase mb-3 required" for="confirm_password">
               {{ $t('common.confirm_password') }}
-              <span class="position-relative end--1 text-danger fs-18">*</span>
             </label>
             <ValidationProvider
               v-slot="{ errors, touched }"
@@ -134,9 +130,8 @@
           </div>
 
           <div class="form-group mb-5">
-            <label class="text-uppercase w-100 mb-3" for="address">
+            <label class="text-uppercase mb-3 required" for="address">
               {{ $t('common.address') }}
-              <span class="position-relative end--1 text-danger fs-18">*</span>
             </label>
             <ValidationProvider
               v-slot="{ errors, touched }"
@@ -166,9 +161,8 @@
           </div>
 
           <div class="form-group">
-            <label class="text-uppercase w-100 mb-3" for="phone_number">
+            <label class="text-uppercase mb-3 required" for="phone_number">
               {{ $t('common.phone_number') }}
-              <span class="position-relative end--1 text-danger fs-18">*</span>
             </label>
             <ValidationProvider
               v-slot="{ errors, touched }"
@@ -247,14 +241,14 @@
 </template>
 
 <script lang="ts">
-import { SignUpForm } from '@/models'
+import { AuthenticationForm } from '@/models'
 import { ValidationProvider } from 'vee-validate'
 import { Component, Vue } from 'vue-property-decorator'
 import { register } from '@/services/AuthService'
 
 @Component
 export default class SignUp extends Vue {
-  public formValues: SignUpForm = {
+  public formValues: AuthenticationForm = {
     full_name: '',
     email: '',
     password: '',
@@ -269,7 +263,7 @@ export default class SignUp extends Vue {
     const valid = await observer.validate()
     const { full_name, email, password, address, phone_number } =
       this.formValues || {}
-    const payload: SignUpForm = {
+    const payload: AuthenticationForm = {
       full_name,
       email,
       password,
@@ -278,11 +272,11 @@ export default class SignUp extends Vue {
     }
     if (valid) {
       try {
-        await register(payload)
-        this.$toast.success(this.$t('common.message.registerd_acc_successfull'))
+        const response = await register(payload)
+        this.$toast.success(response.data.message)
         this.$router.push('/sign-in')
-      } catch {
-        this.$toast.error(this.$t('common.message.fail_to_action'))
+      } catch (error: any) {
+        this.$toast.error(error.response.data.message)
       }
     }
   }

@@ -92,12 +92,12 @@ export class IPaymentOption {
   }
 }
 
-export interface SignUpForm {
-  full_name: string
+export interface AuthenticationForm {
+  full_name?: string
   email: string
   password: string
   confirm_password?: string
-  address: string
-  phone_number: string
+  address?: string
+  phone_number?: string
   accept_term?: boolean
 }
